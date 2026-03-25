@@ -13,65 +13,61 @@
     theme: {
       extend: {
         colors: {
-          /* ── Red palette ── */
-          "primary":                    "#EB3A2B",
-          "primary-fixed":              "#ffdad7",
-          "primary-fixed-dim":          "#ff9d96",
-          "on-primary":                 "#ffffff",
-          "on-primary-container":       "#ff6b5e",
-          "primary-container":          "#4a0d09",
-          "on-primary-fixed":           "#3c0a08",
-          "on-primary-fixed-variant":   "#8e1f17",
-          "inverse-primary":            "#C04D43",
-          "secondary":                  "#C04D43",
-          "secondary-fixed":            "#f0d0cc",
-          "secondary-fixed-dim":        "#e0a09a",
-          "on-secondary":               "#ffffff",
-          "on-secondary-container":     "#f0c0bb",
-          "on-secondary-fixed":         "#2c0009",
-          "secondary-container":        "#6B4C49",
-          "on-secondary-fixed-variant": "#6B4C49",
-          "tertiary":                   "#e9c349",
-          "tertiary-fixed":             "#ffe088",
-          "tertiary-fixed-dim":         "#e9c349",
-          "on-tertiary":                "#3c2f00",
-          "on-tertiary-fixed":          "#241a00",
-          "on-tertiary-fixed-variant":  "#574500",
-          "tertiary-container":         "#cca830",
-          "on-tertiary-container":      "#4f3e00",
-          "surface-dim":                "#120908",
-          "surface":                    "#1c1010",
-          "surface-bright":             "#3a2828",
-          "surface-container-lowest":   "#0e0808",
-          "surface-container-low":      "#1a1010",
-          "surface-container":          "#241616",
-          "surface-container-high":     "#2e1d1c",
-          "surface-container-highest":  "#413837",
-          "surface-variant":            "#413837",
-          "on-surface":                 "#f0e8e7",
-          "on-surface-variant":         "#d0b5b3",
-          "background":                 "#120908",
-          "on-background":              "#f0e8e7",
-          "outline":                    "#9e7470",
-          "outline-variant":            "#5c3d3b",
-          "error":                      "#ffb4ab",
-          "error-container":            "#93000a",
-          "on-error":                   "#690005",
-          "on-error-container":         "#ffdad6",
-          "inverse-surface":            "#f0e8e7",
-          "inverse-on-surface":         "#341e1d",
-          "surface-tint":               "#EB3A2B",
+          "primary":                   "#EB3A2B",
+          "primary-fixed":             "#FFDAD6",
+          "primary-fixed-dim":         "#FF9487",
+          "on-primary":                "#FFFFFF",
+          "on-primary-fixed":          "#3B0A00",
+          "on-primary-fixed-variant":  "#8C1D0F",
+          "on-primary-container":      "#FF9487",
+          "primary-container":         "#4a0f0a",
+          "inverse-primary":           "#C04D43",
+          "secondary":                 "#C04D43",
+          "secondary-container":       "#5C2622",
+          "secondary-fixed":           "#F4D9D6",
+          "secondary-fixed-dim":       "#C04D43",
+          "on-secondary":              "#FFFFFF",
+          "on-secondary-container":    "#F4D9D6",
+          "on-secondary-fixed":        "#2B0A08",
+          "on-secondary-fixed-variant":"#6B4C49",
+          "tertiary":                  "#E9C349",
+          "tertiary-container":        "#4a3800",
+          "tertiary-fixed":            "#FFE088",
+          "tertiary-fixed-dim":        "#E9C349",
+          "on-tertiary":               "#3C2F00",
+          "on-tertiary-container":     "#E9C349",
+          "on-tertiary-fixed":         "#241A00",
+          "on-tertiary-fixed-variant": "#574500",
+          "background":                "#0e0a0a",
+          "surface":                   "#130c0c",
+          "surface-dim":               "#130c0c",
+          "surface-bright":            "#3a2e2e",
+          "surface-container-lowest":  "#0a0606",
+          "surface-container-low":     "#1a1212",
+          "surface-container":         "#221818",
+          "surface-container-high":    "#282020",
+          "surface-container-highest": "#332928",
+          "on-background":             "#F0DCDC",
+          "on-surface":                "#F0DCDC",
+          "on-surface-variant":        "#C4B0AD",
+          "outline":                   "#927371",
+          "outline-variant":           "#4D3836",
+          "error":                     "#FFB4AB",
+          "error-container":           "#93000A",
+          "on-error":                  "#690005",
+          "on-error-container":        "#FFDAD6",
+          "inverse-surface":           "#F0DCDC",
+          "inverse-on-surface":        "#332928",
+          "surface-variant":           "#4D3836",
+          "surface-tint":              "#EB3A2B",
         },
         fontFamily: {
           "headline": ["Newsreader"],
           "body":     ["Manrope"],
-          "label":    ["Manrope"]
+          "label":    ["Manrope"],
         },
         borderRadius: {
-          "DEFAULT": "1rem",
-          "lg":      "2rem",
-          "xl":      "3rem",
-          "full":    "9999px"
+          "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"
         },
       },
     },
@@ -79,240 +75,318 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
-
-  body {
-    background-color: #0e0808;
-    color: #f0e8e7;
-    overflow-x: hidden;
-  }
+  body { background-color: #0a0606; color: #F0DCDC; overflow-x: hidden; }
 
   .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
 
-  /* ─── Hero: sticky so sections slide over it ─── */
-  #hero {
+  /* ─── Hero sticky wrap (parallax base) ─── */
+  .hero-sticky-wrap {
     position: sticky;
     top: 0;
     z-index: 1;
     height: 100vh;
+    overflow: hidden;
   }
-
-  /* ─── All sections after hero stack above it ─── */
-  #about, #toolkit, #work, #experiences, footer, header {
-    position: relative;
-    z-index: 2;
-  }
-  header { z-index: 50; }
 
   /* ─── Hero blobs ─── */
   .fluid-shape {
     filter: blur(80px);
-    opacity: 0.32;
+    opacity: 0.28;
     pointer-events: none;
   }
-
   #hero-mouse-blob {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 480px;
+    height: 480px;
     border-radius: 50%;
-    background: radial-gradient(circle, #C04D43 0%, transparent 70%);
-    filter: blur(100px);
-    opacity: 0.42;
+    background: radial-gradient(circle, #EB3A2B 0%, transparent 70%);
+    filter: blur(90px);
+    opacity: 0.38;
     pointer-events: none;
     will-change: transform;
   }
 
-  /* ─── Hero content: parallax on scroll ─── */
-  .hero-content {
-    will-change: transform, opacity;
-    transition: none;
+  /* ─── Hero content parallax ─── */
+  .hero-content { will-change: transform, opacity; }
+
+  /* ─── Content wrapper — sits above sticky hero ─── */
+  .content-over-hero {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ─── Section overlay — first visible section slides over hero ─── */
+  .section-overlay {
+    border-radius: 2rem 2rem 0 0;
+    box-shadow: 0 -28px 80px rgba(0,0,0,0.75);
   }
 
   /* ─── Entrance animations ─── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(36px); }
+    from { opacity: 0; transform: translateY(32px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .fade-up            { opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; }
-  .fade-up-1          { animation-delay: 0.1s; }
-  .fade-up-2          { animation-delay: 0.28s; }
-  .fade-up-3          { animation-delay: 0.46s; }
+  .fade-up { opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .fade-up-1 { animation-delay: 0.10s; }
+  .fade-up-2 { animation-delay: 0.25s; }
+  .fade-up-3 { animation-delay: 0.40s; }
 
   /* ─── Section reveal ─── */
   .reveal {
     opacity: 0;
-    transform: translateY(52px);
+    transform: translateY(48px);
     transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
                 transform 0.85s cubic-bezier(0.22,1,0.36,1);
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ─── About: slides OVER the hero ─── */
-  #about {
-    background: #1a1010;
-    box-shadow: 0 -32px 80px rgba(0,0,0,0.7);
+  /* ══════════════════════════════════════
+     PROJECT FLEX ACCORDION
+  ══════════════════════════════════════ */
+  .projects-flex-grid { display: flex; flex-direction: column; gap: 2.5rem; }
+
+  .projects-row {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
   }
 
-  /* ─── Project card wrappers animate position ─── */
-  .project-card-wrapper {
-    transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
-    will-change: transform;
+  .project-fw,
+  .project-fn {
+    min-width: 0;
+    transition:
+      flex       0.65s cubic-bezier(0.25,0.46,0.45,0.94),
+      transform  0.65s cubic-bezier(0.25,0.46,0.45,0.94),
+      opacity    0.55s ease;
   }
+  .project-fw { flex: 2 1 0; }
+  .project-fn { flex: 1 1 0; }
+
+  /* Row 1: narrow card slightly lower — subtle offset only */
+  .projects-row-1 .project-fn { transform: translateY(20px); }
+
+  /* Row 1 — hover wide */
+  .projects-row-1:has(.project-fw:hover) .project-fw { flex: 2.6 1 0; }
+  .projects-row-1:has(.project-fw:hover) .project-fn { flex: 0.6 1 0; transform: translateY(36px); opacity: 0.6; }
+
+  /* Row 1 — hover narrow */
+  .projects-row-1:has(.project-fn:hover) .project-fw { flex: 1.2 1 0; opacity: 0.7; }
+  .projects-row-1:has(.project-fn:hover) .project-fn { flex: 2.0 1 0; transform: translateY(8px); }
+
+  /* Row 2: wide card slightly higher — subtle offset only */
+  .projects-row-2 .project-fw { transform: translateY(-20px); }
+
+  /* Row 2 — hover narrow */
+  .projects-row-2:has(.project-fn:hover) .project-fn { flex: 1.8 1 0; }
+  .projects-row-2:has(.project-fn:hover) .project-fw { flex: 1.2 1 0; transform: translateY(-36px); opacity: 0.6; }
+
+  /* Row 2 — hover wide */
+  .projects-row-2:has(.project-fw:hover) .project-fn { flex: 0.6 1 0; opacity: 0.6; }
+  .projects-row-2:has(.project-fw:hover) .project-fw { flex: 2.6 1 0; transform: translateY(-8px); }
+
+  /* Fixed heights — accordion is horizontal only */
+  .projects-row-1 .project-card-inner { height: 400px; }
+  .projects-row-2 .project-card-inner { height: 360px; }
 
   .project-card-inner {
-    transition: transform  0.55s cubic-bezier(0.25,0.46,0.45,0.94),
-                opacity    0.55s cubic-bezier(0.25,0.46,0.45,0.94),
-                box-shadow 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
-    will-change: transform, opacity;
+    width: 100%;
+    transition: box-shadow 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+    will-change: box-shadow;
+  }
+  .project-fw:hover .project-card-inner,
+  .project-fn:hover .project-card-inner {
+    box-shadow: 0 28px 80px rgba(235,58,43,0.28);
   }
 
-  .projects-grid.has-hover .project-card-wrapper:not(.is-hovered) .project-card-inner {
-    opacity: 0.38;
-    transform: scale(0.962);
+  /* ── Mobile: stack vertically, no offsets ── */
+  @media (max-width: 767px) {
+    .projects-flex-grid { gap: 1rem; }
+    .projects-row { flex-direction: column; gap: 1rem; }
+    .projects-row-1 .project-fn { transform: none !important; }
+    .projects-row-2 .project-fw { transform: none !important; }
+    .projects-row-1 .project-card-inner,
+    .projects-row-2 .project-card-inner { height: 240px; }
+    .project-fw, .project-fn {
+      flex: 1 1 auto;
+      width: 100%;
+      opacity: 1 !important;
+    }
+    /* Disable flex accordion on mobile */
+    .projects-row-1:has(.project-fw:hover) .project-fn,
+    .projects-row-1:has(.project-fn:hover) .project-fw,
+    .projects-row-2:has(.project-fn:hover) .project-fw,
+    .projects-row-2:has(.project-fw:hover) .project-fn {
+      flex: 1 1 auto !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
   }
 
-  .projects-grid.has-hover .project-card-wrapper.is-hovered .project-card-inner {
-    transform: scale(1.032);
-    box-shadow: 0 28px 72px rgba(235,58,43,0.28);
-    z-index: 10;
+  /* ── Mobile: toolkit grid stacks ── */
+  @media (max-width: 767px) {
+    .toolkit-cats { gap: 0.75rem; }
+    .toolkit-cat { padding: 1.5rem; }
+    /* Always show tools on mobile (no hover) */
+    .toolkit-cat .toolkit-cat-tools {
+      max-height: 260px;
+      opacity: 1;
+    }
   }
 
-  /* ─── Skill groups ─── */
-  .skill-group {
-    background: #241616;
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: border-color 0.3s ease, background 0.3s ease;
-  }
-  .skill-group:hover {
-    border-color: rgba(235,58,43,0.25);
-    background: #2e1d1c;
+  /* ── Mobile: about section intro tweaks ── */
+  @media (max-width: 767px) {
+    #about { border-radius: 1.25rem 1.25rem 0 0; }
   }
 
-  .skill-group-header {
+  /* ══════════════════════════════════════
+     TOOLKIT CATEGORY CARDS
+  ══════════════════════════════════════ */
+  .toolkit-cats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .toolkit-cats { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .toolkit-cat {
+    background: rgba(235,58,43,0.05);
+    border: 1px solid rgba(235,58,43,0.14);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    cursor: default;
+    transition:
+      background  0.45s cubic-bezier(0.25,0.46,0.45,0.94),
+      border-color 0.45s cubic-bezier(0.25,0.46,0.45,0.94),
+      transform   0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .toolkit-cat:hover,
+  .toolkit-cat:focus-within {
+    background: rgba(235,58,43,0.10);
+    border-color: rgba(235,58,43,0.38);
+    transform: translateY(-6px);
+  }
+
+  .toolkit-cat-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    color: #d0b5b3;
-    transition: color 0.3s ease;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: background 0.4s ease;
+    flex-shrink: 0;
   }
-  .skill-group:hover .skill-group-header { color: #f0e8e7; }
+  .toolkit-cat-icon.ai    { background: rgba(235,58,43,0.18);  color: #EB3A2B; }
+  .toolkit-cat-icon.adobe { background: rgba(255,148,135,0.15); color: #FF9487; }
+  .toolkit-cat-icon.ux    { background: rgba(192,77,67,0.18);   color: #C04D43; }
+  .toolkit-cat:hover .toolkit-cat-icon.ai    { background: rgba(235,58,43,0.30); }
+  .toolkit-cat:hover .toolkit-cat-icon.adobe { background: rgba(255,148,135,0.26); }
+  .toolkit-cat:hover .toolkit-cat-icon.ux    { background: rgba(192,77,67,0.30); }
 
-  .skill-group-arrow {
-    display: inline-block;
-    transition: transform 0.42s cubic-bezier(0.22,1,0.36,1);
-    font-size: 1.1rem;
-    color: #9e7470;
-  }
-  .skill-group:hover .skill-group-arrow { transform: rotate(180deg); color: #EB3A2B; }
-
-  .skill-group-panel {
+  .toolkit-cat-tools {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.52s cubic-bezier(0.22,1,0.36,1),
-                opacity    0.38s ease;
+    transition:
+      max-height 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
+      opacity    0.40s ease 0.06s;
   }
-  .skill-group:hover .skill-group-panel {
-    max-height: 420px;
+  .toolkit-cat:hover .toolkit-cat-tools,
+  .toolkit-cat:focus-within .toolkit-cat-tools {
+    max-height: 260px;
     opacity: 1;
   }
 
-  /* staggered item reveal */
-  .skill-item {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.28s ease, transform 0.28s ease,
-                background 0.2s ease, border-color 0.2s ease;
+  .toolkit-tool-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(235,58,43,0.09);
+    border: 1px solid rgba(235,58,43,0.20);
+    border-radius: 9999px;
+    padding: 0.28rem 0.8rem;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.70rem;
+    color: #C4B0AD;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transition: background 0.25s, color 0.25s;
   }
-  .skill-group:hover .skill-item { opacity: 1; transform: translateY(0); }
-  .skill-group:hover .skill-item:nth-child(1) { transition-delay: 0.04s; }
-  .skill-group:hover .skill-item:nth-child(2) { transition-delay: 0.09s; }
-  .skill-group:hover .skill-item:nth-child(3) { transition-delay: 0.14s; }
-  .skill-group:hover .skill-item:nth-child(4) { transition-delay: 0.19s; }
-  .skill-group:hover .skill-item:nth-child(5) { transition-delay: 0.24s; }
-  .skill-group:hover .skill-item:nth-child(6) { transition-delay: 0.29s; }
-
-  .skill-item:hover {
-    background: rgba(235,58,43,0.12) !important;
-    border-color: rgba(235,58,43,0.3) !important;
-    color: #f0e8e7;
-  }
+  .toolkit-tool-pill:hover { background: rgba(235,58,43,0.20); color: #F0DCDC; }
 
   /* ─── Experience cards ─── */
   .exp-card {
-    background: #1c1010;
+    background: #1a1212;
     border: 1px solid rgba(255,255,255,0.05);
     transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
   }
   .exp-card:hover {
-    background: #241616;
-    border-color: rgba(235,58,43,0.2);
+    background: #1f1515;
+    border-color: rgba(235,58,43,0.28);
     transform: translateY(-4px);
   }
 
   /* ─── Mobile nav ─── */
-  #mobile-menu         { display: none; }
-  #mobile-menu.open    { display: flex; }
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
 
   /* ─── Scrollbar ─── */
-  ::-webkit-scrollbar       { width: 4px; }
-  ::-webkit-scrollbar-track { background: #0e0808; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0a0606; }
   ::-webkit-scrollbar-thumb { background: #EB3A2B; border-radius: 4px; }
 </style>
 </head>
-<body class="font-body selection:bg-primary selection:text-white">
+<body class="font-body">
 
 <!-- ═══════════════════════════════════════
      HEADER
 ════════════════════════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-[#0e0808]/60 backdrop-blur-md flex justify-between items-center px-6 md:px-10 py-5 max-w-screen-2xl left-1/2 -translate-x-1/2">
+<header class="fixed top-0 w-full z-50 bg-[#0a0606]/60 backdrop-blur-md flex justify-between items-center px-6 md:px-10 py-5 max-w-screen-2xl left-1/2 -translate-x-1/2">
   <div class="text-2xl font-headline font-bold tracking-tighter text-primary">Gabriel</div>
-
   <nav class="hidden md:flex items-center gap-10 font-headline italic tracking-tight">
     <a class="text-primary border-b border-primary/30 pb-1" href="#work">Work</a>
-    <a class="text-slate-400 hover:text-primary transition-all duration-500" href="#about">About</a>
-    <a class="text-slate-400 hover:text-primary transition-all duration-500" href="#experiences">Experience</a>
-    <a class="text-slate-400 hover:text-primary transition-all duration-500" href="#contact">Contact</a>
+    <a class="text-on-surface-variant hover:text-primary transition-all duration-500" href="#about">About</a>
+    <a class="text-on-surface-variant hover:text-primary transition-all duration-500" href="#experiences">Experience</a>
+    <a class="text-on-surface-variant hover:text-primary transition-all duration-500" href="#contact">Contact</a>
   </nav>
-
   <button id="menu-btn" class="md:hidden text-primary p-2" aria-label="Open menu">
     <span class="material-symbols-outlined">menu</span>
   </button>
 </header>
 
 <!-- Mobile menu -->
-<div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0e0808]/95 backdrop-blur-xl flex-col items-center justify-center gap-10">
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0a0606]/95 backdrop-blur-xl flex-col items-center justify-center gap-10">
   <button id="menu-close" class="absolute top-6 right-6 text-primary">
     <span class="material-symbols-outlined text-3xl">close</span>
   </button>
-  <a class="font-headline italic text-4xl text-primary"                href="#work"        onclick="closeMobileMenu()">Work</a>
-  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#about"       onclick="closeMobileMenu()">About</a>
+  <a class="font-headline italic text-4xl text-primary" href="#work" onclick="closeMobileMenu()">Work</a>
+  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#about" onclick="closeMobileMenu()">About</a>
   <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#experiences" onclick="closeMobileMenu()">Experience</a>
-  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#contact"     onclick="closeMobileMenu()">Contact</a>
+  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#contact" onclick="closeMobileMenu()">Contact</a>
 </div>
 
 
 <!-- ═══════════════════════════════════════
-     HERO  (sticky — sections scroll OVER it)
+     HERO — sticky wrapper
 ════════════════════════════════════════ -->
-<section id="hero" class="flex items-center justify-center px-6 overflow-hidden bg-[#0e0808]">
+<div class="hero-sticky-wrap">
+<section id="hero" class="relative h-full w-full flex items-center justify-center px-6 overflow-hidden bg-surface-container-lowest">
 
   <!-- Ambient blobs -->
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute top-1/3 -left-24 w-80 h-80 bg-secondary-container rounded-full fluid-shape"></div>
-    <div class="absolute bottom-1/4 -right-24 w-[420px] h-[420px] bg-primary-container rounded-full fluid-shape"></div>
+    <div class="absolute top-1/3 -left-24 w-80 h-80 rounded-full fluid-shape" style="background:#C04D43;"></div>
+    <div class="absolute bottom-1/4 -right-24 w-[420px] h-[420px] rounded-full fluid-shape" style="background:#4a0f0a;"></div>
   </div>
 
   <!-- Mouse-tracking blob -->
   <div id="hero-mouse-blob" aria-hidden="true"></div>
 
-  <!-- Content -->
+  <!-- Content (parallax target) -->
   <div class="hero-content relative z-10 text-center max-w-6xl px-4">
     <p class="fade-up fade-up-1 font-label uppercase tracking-[0.35em] text-outline text-xs mb-8">
       AI Creative Technologist
@@ -323,9 +397,8 @@
     <p class="fade-up fade-up-3 mt-8 font-label uppercase tracking-[0.25em] text-outline text-xs md:text-sm max-w-md mx-auto leading-relaxed">
       Where artificial intelligence meets visual storytelling
     </p>
-
-    <div class="fade-up fade-up-3 mt-12 flex items-center justify-center gap-3 flex-wrap">
-      <a href="#work" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-on-primary-container text-white font-label font-semibold text-xs uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity duration-300">
+    <div class="fade-up fade-up-3 mt-12 flex items-center justify-center gap-3">
+      <a href="#work" class="inline-flex items-center gap-2 bg-primary text-white font-label font-semibold text-xs uppercase tracking-widest px-6 py-3 rounded-full hover:bg-secondary transition-colors duration-300">
         View My Work
         <span class="material-symbols-outlined text-base">arrow_downward</span>
       </a>
@@ -340,12 +413,18 @@
     <span class="material-symbols-outlined text-sm text-outline">keyboard_arrow_down</span>
   </div>
 </section>
+</div><!-- /hero-sticky-wrap -->
 
 
 <!-- ═══════════════════════════════════════
-     ABOUT  (slides over hero on scroll)
+     CONTENT WRAPPER — z-index above hero
 ════════════════════════════════════════ -->
-<section class="py-28 md:py-36 px-6 md:px-8" id="about">
+<div class="content-over-hero">
+
+<!-- ═══════════════════════════════════════
+     ABOUT — slides over hero
+════════════════════════════════════════ -->
+<section class="section-overlay py-24 md:py-32 px-6 md:px-8 bg-surface-container-low" id="about" style="position:relative; z-index:2;">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-start">
 
     <div class="md:w-1/2 reveal">
@@ -363,120 +442,131 @@
         From early-stage startups to global multinationals like Motorola, I have worked across industries — crafting campaigns, interfaces, and brand systems that combine strategic thinking with strong visual execution.
       </p>
 
-      <!-- Stats -->
-      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-8">
+      <!-- Stats — 2 col on mobile, 4 col on desktop -->
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
         <div>
           <div class="text-4xl font-headline text-white leading-none">100<span class="text-primary">+</span></div>
-          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-tight">Projects<br/>Delivered</div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-relaxed">Projects Delivered</div>
         </div>
         <div>
           <div class="text-4xl font-headline text-white leading-none">5<span class="text-primary">+</span></div>
-          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-tight">Years of<br/>Experience</div>
-        </div>
-        <div>
-          <div class="text-4xl font-headline text-white leading-none">Multi<span class="text-primary">co.</span></div>
-          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-tight">Multinational<br/>Projects</div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-relaxed">Years of Experience</div>
         </div>
         <div>
           <div class="font-headline text-white leading-none">
-            <span class="text-3xl">AI</span><span class="text-primary text-3xl"> + </span><span class="text-3xl">Adobe</span>
+            <span class="text-2xl md:text-3xl italic">Multico<span class="text-primary">.</span></span>
           </div>
-          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-tight">Full Creative<br/>Toolkit</div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-relaxed">Multinational Projects</div>
+        </div>
+        <div>
+          <div class="font-headline text-white leading-none space-y-0.5">
+            <div class="text-xl font-bold tracking-tight">AI <span class="text-primary">+</span></div>
+            <div class="text-xl font-bold tracking-tight">Adobe</div>
+          </div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-relaxed">Full Creative Toolkit</div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 
 <!-- ═══════════════════════════════════════
-     SKILL TOOLKIT  (3 expandable groups)
+     TOOLKIT
 ════════════════════════════════════════ -->
-<section class="py-20 px-6 md:px-8 bg-surface-container-lowest overflow-hidden" id="toolkit">
+<section class="py-20 px-6 md:px-8 bg-surface-container-lowest overflow-hidden">
   <div class="max-w-7xl mx-auto reveal">
     <span class="font-label text-primary uppercase tracking-widest text-xs block mb-4">— Toolkit</span>
-    <h3 class="font-headline italic text-3xl md:text-4xl text-on-surface mb-4">
-      The tools I master.
+    <h3 class="font-headline italic text-3xl md:text-4xl text-on-surface mb-3">
+      The platforms I command.
     </h3>
-    <p class="font-body text-on-surface-variant text-base max-w-xl mb-12">
-      A complete creative arsenal — from cutting-edge AI platforms to world-class design software and battle-tested UX processes.
+    <p class="font-body text-on-surface-variant text-base max-w-xl mb-10">
+      I leverage the most advanced tools on the market to generate images, produce videos, build interactive experiences, and craft entire digital worlds.
     </p>
 
-    <!-- 3-column skill groups -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+    <div class="toolkit-cats">
 
       <!-- AI Platforms -->
-      <div class="skill-group">
-        <div class="skill-group-header">
-          <div class="flex items-center gap-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-primary flex-shrink-0"></span>
-            <span class="font-label text-sm tracking-wide font-semibold">AI Platforms</span>
-          </div>
-          <span class="skill-group-arrow material-symbols-outlined">expand_more</span>
+      <div class="toolkit-cat" tabindex="0">
+        <div class="toolkit-cat-icon ai">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="7" width="10" height="10" rx="1"/>
+            <path d="M7 9H5M7 12H5M7 15H5M17 9h2M17 12h2M17 15h2M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2"/>
+          </svg>
         </div>
-        <div class="skill-group-panel">
-          <div class="flex flex-col gap-2 mt-5">
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Gemini</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Nano Banana</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Claude Code</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Anti-Gravity</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">ChatGPT</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Midjourney</div>
-          </div>
-          <div class="mt-4 pt-4 border-t border-white/5">
-            <span class="font-label text-[9px] uppercase tracking-widest text-outline">Generates → Images · Videos · Sites · Art</span>
+        <h4 class="font-headline text-xl italic text-on-surface mb-1">AI Platforms</h4>
+        <p class="font-body text-xs text-outline mb-4 tracking-wide">Generative · Vision · Language</p>
+        <div class="toolkit-cat-tools">
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="toolkit-tool-pill">Gemini</span>
+            <span class="toolkit-tool-pill">Nano Banana</span>
+            <span class="toolkit-tool-pill">Claude Code</span>
+            <span class="toolkit-tool-pill">Anti-Gravity</span>
+            <span class="toolkit-tool-pill">ChatGPT</span>
+            <span class="toolkit-tool-pill">Midjourney</span>
+            <span class="toolkit-tool-pill">RunwayML</span>
           </div>
         </div>
       </div>
 
       <!-- Adobe Suite -->
-      <div class="skill-group">
-        <div class="skill-group-header">
-          <div class="flex items-center gap-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-on-primary-container flex-shrink-0"></span>
-            <span class="font-label text-sm tracking-wide font-semibold">Adobe Suite</span>
-          </div>
-          <span class="skill-group-arrow material-symbols-outlined">expand_more</span>
+      <div class="toolkit-cat" tabindex="0">
+        <div class="toolkit-cat-icon adobe">
+          <!-- Adobe-style A mark -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13.5 2L21 22h-4.5l-2.25-5.6H9.75L13.5 2zm-3 0L3 22h4.5l1.38-3.6H14.1L10.5 2z"/>
+          </svg>
         </div>
-        <div class="skill-group-panel">
-          <div class="flex flex-col gap-2 mt-5">
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Photoshop</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Illustrator</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">After Effects</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Premiere Pro</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">InDesign</div>
-          </div>
-          <div class="mt-4 pt-4 border-t border-white/5">
-            <span class="font-label text-[9px] uppercase tracking-widest text-outline">Masters → Print · Motion · Brand</span>
+        <h4 class="font-headline text-xl italic text-on-surface mb-1">Adobe Suite</h4>
+        <p class="font-body text-xs text-outline mb-4 tracking-wide">Design · Motion · Visual</p>
+        <div class="toolkit-cat-tools">
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="toolkit-tool-pill">Photoshop</span>
+            <span class="toolkit-tool-pill">Illustrator</span>
+            <span class="toolkit-tool-pill">After Effects</span>
+            <span class="toolkit-tool-pill">Premiere Pro</span>
+            <span class="toolkit-tool-pill">InDesign</span>
+            <span class="toolkit-tool-pill">XD</span>
           </div>
         </div>
       </div>
 
       <!-- UX Process -->
-      <div class="skill-group">
-        <div class="skill-group-header">
-          <div class="flex items-center gap-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-tertiary flex-shrink-0"></span>
-            <span class="font-label text-sm tracking-wide font-semibold">UX Process</span>
-          </div>
-          <span class="skill-group-arrow material-symbols-outlined">expand_more</span>
+      <div class="toolkit-cat" tabindex="0">
+        <div class="toolkit-cat-icon ux">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
         </div>
-        <div class="skill-group-panel">
-          <div class="flex flex-col gap-2 mt-5">
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Agile / Sprints</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Design Thinking</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Wireframing</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Usability Testing</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Component Commits</div>
-            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Prototyping</div>
-          </div>
-          <div class="mt-4 pt-4 border-t border-white/5">
-            <span class="font-label text-[9px] uppercase tracking-widest text-outline">Delivers → Research · Flow · Handoff</span>
+        <h4 class="font-headline text-xl italic text-on-surface mb-1">UX Process</h4>
+        <p class="font-body text-xs text-outline mb-4 tracking-wide">Research · Prototype · Deliver</p>
+        <div class="toolkit-cat-tools">
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="toolkit-tool-pill">Agile</span>
+            <span class="toolkit-tool-pill">Sprint</span>
+            <span class="toolkit-tool-pill">User Research</span>
+            <span class="toolkit-tool-pill">Wireframing</span>
+            <span class="toolkit-tool-pill">Prototyping</span>
+            <span class="toolkit-tool-pill">Usability Testing</span>
+            <span class="toolkit-tool-pill">Design Thinking</span>
+            <span class="toolkit-tool-pill">Journey Mapping</span>
           </div>
         </div>
       </div>
 
+    </div>
+
+    <!-- Output type tags -->
+    <div class="flex flex-wrap gap-3 mt-10">
+      <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Image Generation</span>
+      <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Video Production</span>
+      <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Website Creation</span>
+      <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Brand Identity</span>
+      <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Generative Art</span>
     </div>
   </div>
 </section>
@@ -496,83 +586,93 @@
       </p>
     </div>
 
-    <!-- Asymmetric grid — hover reorganises siblings -->
-    <div class="projects-grid grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 reveal" id="projects-grid">
+    <!-- Flex Accordion Grid -->
+    <div class="projects-flex-grid reveal">
 
-      <!-- Card 1 — wide left -->
-      <div class="project-card-wrapper md:col-span-8" data-idx="0">
-        <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[16/9] cursor-pointer group">
-          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpGPXhFc0nqYk_OVhbOuaFLDxVq4TlP-aRkq4j62_obss0OOGCa3SMiScGUioAX1RmkejJ7VlJrTrV39oX5PVd9bXiJaTVjy2cRHpnRdnRItniSUydOBSl4jPVZTDH2Mc5e9MpkA_O3y3cPwfKKUgAfxJrC8h-8HNFZYNCfjy2vVcMrXvrn16Q7PbDKkRMGVtJhoRG3w2VuyvaMQigyWW68JJ8ePA2SGThyhU2jopvU4c-PPOzLyyE_vDUrmjLOlLwrPIEODnsK64"
-               alt="Nocturnal Dreams"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-75"></div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Art Direction</span>
-            <h4 class="font-headline text-3xl md:text-4xl text-white mt-3 italic">Nocturnal Dreams</h4>
-            <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">AI-generated visual campaign for a luxury fragrance brand.</p>
+      <!-- ── ROW 1 ── -->
+      <div class="projects-row projects-row-1">
+
+        <!-- Card 1: Nocturnal Dreams — WIDE -->
+        <div class="project-fw cursor-pointer group">
+          <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpGPXhFc0nqYk_OVhbOuaFLDxVq4TlP-aRkq4j62_obss0OOGCa3SMiScGUioAX1RmkejJ7VlJrTrV39oX5PVd9bXiJaTVjy2cRHpnRdnRItniSUydOBSl4jPVZTDH2Mc5e9MpkA_O3y3cPwfKKUgAfxJrC8h-8HNFZYNCfjy2vVcMrXvrn16Q7PbDKkRMGVtJhoRG3w2VuyvaMQigyWW68JJ8ePA2SGThyhU2jopvU4c-PPOzLyyE_vDUrmjLOlLwrPIEODnsK64"
+                 alt="Nocturnal Dreams"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/50 backdrop-blur-md px-3 py-1 rounded-full">Art Direction</span>
+              <h4 class="font-headline text-3xl md:text-4xl text-white mt-3 italic">Nocturnal Dreams</h4>
+              <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">AI-generated visual campaign for a luxury fragrance brand.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 2 — tall right, offset down -->
-      <div class="project-card-wrapper md:col-span-4 md:mt-20" data-idx="1">
-        <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[4/5] cursor-pointer group">
-          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
-               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx7ZOb7ZVi74kG2LixCJQjYikjMrkO23aU-dPzq4XDhXT144icHZJvcFSVaYmgah7eHXdbylqqPl-hVa11cz9jiRQ0UCqcFQ6uTZ3HoY6avcwjVJbrUW848xf7vpQ8E4m8GbEECoYEQsvMuh1EqvJopR_FAuTlma7RDVCbQvthU0dygkYA0MyxZycTdklBan3kgYMo5ujH15Hr5WE2ie1gjR-Ca8FTLzo1UPts4jMBXgpqGXOSBmCF_yLo2k4lUwdaH99v2wfboGY"
-               alt="Liquid Interface"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Interactive</span>
-            <h4 class="font-headline text-2xl md:text-3xl text-white mt-3 italic">Liquid Interface</h4>
-            <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Generative UI experiment for a fintech product launch.</p>
+        <!-- Card 2: Liquid Interface — NARROW -->
+        <div class="project-fn cursor-pointer group">
+          <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx7ZOb7ZVi74kG2LixCJQjYikjMrkO23aU-dPzq4XDhXT144icHZJvcFSVaYmgah7eHXdbylqqPl-hVa11cz9jiRQ0UCqcFQ6uTZ3HoY6avcwjVJbrUW848xf7vpQ8E4m8GbEECoYEQsvMuh1EqvJopR_FAuTlma7RDVCbQvthU0dygkYA0MyxZycTdklBan3kgYMo5ujH15Hr5WE2ie1gjR-Ca8FTLzo1UPts4jMBXgpqGXOSBmCF_yLo2k4lUwdaH99v2wfboGY"
+                 alt="Liquid Interface"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/50 backdrop-blur-md px-3 py-1 rounded-full">Interactive</span>
+              <h4 class="font-headline text-2xl md:text-3xl text-white mt-3 italic">Liquid Interface</h4>
+              <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Generative UI experiment for a fintech product launch.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 3 — tall left -->
-      <div class="project-card-wrapper md:col-span-5" data-idx="2">
-        <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[4/5] cursor-pointer group">
-          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
-               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD56waq8wED-Ijuwa9z4AuaJQRvefYkG_4IpT3kSb_60EKCmI6GI1qgJTmSJ5-8nADUikU2Ucu2K3bNX-AVo9-kYymxOYWKUMFPHB6Dvj2hyFD0SZk8cx_B2HV8_O260yl044xic-XQPuzyZfVW50UvoZR6jI-VdKz8YOVqN2jqlhGXadfu6fBnw774OGMB6sZEQ5sFYmn76Ox9PQO2eNRcmbp5fqaO2OkdC7I9_wPD7JAqOePSpWw6-t0-ulcue0E-YqRHRJZbvXE"
-               alt="The Vault 01"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Web Design</span>
-            <h4 class="font-headline text-2xl md:text-3xl text-white mt-3 italic">The Vault 01</h4>
-            <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Full AI-assisted website for a private members club in São Paulo.</p>
+      </div><!-- /row 1 -->
+
+      <!-- ── ROW 2 ── -->
+      <div class="projects-row projects-row-2">
+
+        <!-- Card 3: The Vault 01 — NARROW -->
+        <div class="project-fn cursor-pointer group">
+          <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuD56waq8wED-Ijuwa9z4AuaJQRvefYkG_4IpT3kSb_60EKCmI6GI1qgJTmSJ5-8nADUikU2Ucu2K3bNX-AVo9-kYymxOYWKUMFPHB6Dvj2hyFD0SZk8cx_B2HV8_O260yl044xic-XQPuzyZfVW50UvoZR6jI-VdKz8YOVqN2jqlhGXadfu6fBnw774OGMB6sZEQ5sFYmn76Ox9PQO2eNRcmbp5fqaO2OkdC7I9_wPD7JAqOePSpWw6-t0-ulcue0E-YqRHRJZbvXE"
+                 alt="The Vault 01"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/50 backdrop-blur-md px-3 py-1 rounded-full">Web Design</span>
+              <h4 class="font-headline text-2xl md:text-3xl text-white mt-3 italic">The Vault 01</h4>
+              <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Full AI-assisted website for a private members club in São Paulo.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 4 — wide right, offset up -->
-      <div class="project-card-wrapper md:col-span-7 md:-mt-16" data-idx="3">
-        <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[16/9] cursor-pointer group">
-          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
-               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbpe7R5AfuKRlDfgqsnUJsO5faiHW1vHpzBbs24-V8hOHAgb_Ri4ifW9iiwAApfV193v5e7sOqc09MKDB1eKh07fMbHUkIMWqW8NDZ6KOKdFW-dFUGYqKTCQBz5CcPTFCyGUWPISxS-gwL_9c1GXfA0Eyx-mRsxqxRCdwhU5qsS-Ilylvzu_PnyEVFk6BIXU4qtlunSl94FPzOaSs1xgtDHqmyh3Q1vC87sJB0bGiScTH7MfYNXEgdS8w3JTo-FPEoOPOiSUf-Mis"
-               alt="Ethereal Branding"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Visual Identity</span>
-            <h4 class="font-headline text-3xl md:text-4xl text-white mt-3 italic">Ethereal Branding</h4>
-            <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Complete brand identity powered by generative AI for a global tech startup.</p>
+        <!-- Card 4: Ethereal Branding — WIDE -->
+        <div class="project-fw cursor-pointer group">
+          <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbpe7R5AfuKRlDfgqsnUJsO5faiHW1vHpzBbs24-V8hOHAgb_Ri4ifW9iiwAApfV193v5e7sOqc09MKDB1eKh07fMbHUkIMWqW8NDZ6KOKdFW-dFUGYqKTCQBz5CcPTFCyGUWPISxS-gwL_9c1GXfA0Eyx-mRsxqxRCdwhU5qsS-Ilylvzu_PnyEVFk6BIXU4qtlunSl94FPzOaSs1xgtDHqmyh3Q1vC87sJB0bGiScTH7MfYNXEgdS8w3JTo-FPEoOPOiSUf-Mis"
+                 alt="Ethereal Branding"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/50 backdrop-blur-md px-3 py-1 rounded-full">Visual Identity</span>
+              <h4 class="font-headline text-3xl md:text-4xl text-white mt-3 italic">Ethereal Branding</h4>
+              <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Complete brand identity powered by generative AI for a global tech startup.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
+      </div><!-- /row 2 -->
+
+    </div><!-- /projects-flex-grid -->
   </div>
 </section>
 
 
 <!-- ═══════════════════════════════════════
-     MY LATEST EXPERIENCES
+     LATEST EXPERIENCES
 ════════════════════════════════════════ -->
 <section class="py-24 md:py-32 px-6 md:px-8 bg-surface-container-lowest" id="experiences">
   <div class="max-w-7xl mx-auto">
 
     <div class="mb-16 reveal">
       <span class="font-label text-primary uppercase tracking-widest text-xs block mb-4">— Career</span>
-      <h3 class="font-headline italic text-4xl md:text-5xl text-on-surface">My Latest Experiences.</h3>
+      <h3 class="font-headline italic text-4xl md:text-5xl text-on-surface">Latest Experiences.</h3>
       <p class="font-body text-on-surface-variant text-base mt-4 max-w-md">
         A track record of delivering AI-powered work across multinational corporations and ambitious brands.
       </p>
@@ -664,7 +764,7 @@
         </div>
       </div>
 
-      <!-- Mariá Modas — full width -->
+      <!-- Mariá Modas (full width) -->
       <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer md:col-span-2">
         <div class="flex items-start justify-between gap-4">
           <div>
@@ -675,7 +775,7 @@
           <span class="material-symbols-outlined text-primary text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 shrink-0">arrow_outward</span>
         </div>
         <p class="font-body text-sm text-outline leading-relaxed max-w-2xl">
-          First professional role — covered the full creative spectrum: online and offline materials, social media management, e-commerce catalogues, paid traffic oversight (Meta &amp; Google Analytics), and photography editing. A foundational experience that built a broad creative foundation.
+          First professional role — covered the full creative spectrum: online and offline materials, social media management, e-commerce catalogues, paid traffic oversight (Meta &amp; Google Analytics), and photography editing.
         </p>
         <div class="flex flex-wrap gap-2">
           <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Graphic Design</span>
@@ -693,7 +793,7 @@
 <!-- ═══════════════════════════════════════
      FOOTER / CONTACT
 ════════════════════════════════════════ -->
-<footer class="bg-[#0e0808] w-full border-t border-white/5 px-8 md:px-12 pt-20 pb-32 md:pb-16" id="contact">
+<footer class="bg-[#0a0606] w-full border-t border-white/5 px-8 md:px-12 pt-20 pb-16" id="contact">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
       <div>
@@ -707,7 +807,6 @@
         <a href="mailto:hello@gabriel.com" class="font-headline italic text-2xl text-on-surface hover:text-primary transition-colors duration-300">hello@gabriel.com</a>
       </div>
     </div>
-
     <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/5">
       <div class="flex gap-8 font-label text-xs tracking-[0.2em] uppercase text-slate-500">
         <a class="hover:text-primary transition-colors" href="#">Instagram</a>
@@ -715,30 +814,14 @@
         <a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
       </div>
       <div class="font-label text-xs tracking-[0.2em] uppercase text-slate-500">
-        © 2025 Gabriel. All rights reserved.
+        © 2026 Gabriel. All rights reserved.
       </div>
     </div>
   </div>
 </footer>
 
 
-<!-- ═══════════════════════════════════════
-     FLOATING BOTTOM NAV
-════════════════════════════════════════ -->
-<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 z-50 bg-[#3c0a08]/60 backdrop-blur-2xl px-5 py-2.5 rounded-full border border-white/5 shadow-[0_20px_50px_rgba(60,10,8,0.5)]">
-  <a class="bg-primary text-white rounded-full p-2 flex items-center justify-center transition-all duration-300 hover:opacity-80" href="#work" title="Projects">
-    <span class="material-symbols-outlined text-xl">grid_view</span>
-  </a>
-  <a class="text-white/55 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#about" title="About">
-    <span class="material-symbols-outlined text-xl">person</span>
-  </a>
-  <a class="text-white/55 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#experiences" title="Experience">
-    <span class="material-symbols-outlined text-xl">work</span>
-  </a>
-  <a class="text-white/55 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#contact" title="Contact">
-    <span class="material-symbols-outlined text-xl">mail</span>
-  </a>
-</nav>
+</div><!-- /content-over-hero -->
 
 
 <!-- ═══════════════════════════════════════
@@ -751,7 +834,7 @@
     const hero = document.getElementById('hero');
     if (!blob || !hero) return;
 
-    let targetX = window.innerWidth  / 2;
+    let targetX = window.innerWidth / 2;
     let targetY = window.innerHeight / 2;
     let currentX = targetX;
     let currentY = targetY;
@@ -759,8 +842,8 @@
 
     function updateBlob() {
       const rect = hero.getBoundingClientRect();
-      blob.style.left = (currentX - 250) + 'px';
-      blob.style.top  = (currentY - rect.top - 250) + 'px';
+      blob.style.left = (currentX - 240) + 'px';
+      blob.style.top  = (currentY - rect.top - 240) + 'px';
     }
 
     document.addEventListener('mousemove', (e) => {
@@ -777,62 +860,21 @@
   })();
 
 
-  // ─── Hero parallax: content rises & fades as you scroll ─────
+  // ─── Hero parallax — content rises & fades as section covers ─
   (function () {
-    const content = document.querySelector('.hero-content');
-    if (!content) return;
+    const heroContent = document.querySelector('.hero-content');
+    if (!heroContent) return;
 
-    let ticking = false;
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const y  = window.scrollY;
-          const vh = window.innerHeight;
-          if (y < vh * 1.2) {
-            const p = y / vh;                                  // 0 → 1
-            content.style.transform = `translateY(${-y * 0.36}px)`;
-            content.style.opacity   = String(Math.max(0, 1 - p * 1.5));
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  })();
-
-
-  // ─── Project cards: hover shifts hovered + repositions siblings
-  (function () {
-    const grid = document.getElementById('projects-grid');
-    if (!grid) return;
-
-    const wrappers = Array.from(grid.querySelectorAll('.project-card-wrapper'));
-
-    // For each hovered index: sibling shifts [{ i, tx, ty }]
-    const shifts = {
-      0: [{ i:1, tx:0,   ty:24  }, { i:2, tx:-10, ty:0  }, { i:3, tx:-10, ty:0  }],
-      1: [{ i:0, tx:16,  ty:0   }, { i:2, tx:0,   ty:-8 }, { i:3, tx:0,   ty:-8 }],
-      2: [{ i:3, tx:-14, ty:0   }, { i:0, tx:0,   ty:10 }, { i:1, tx:0,   ty:10 }],
-      3: [{ i:2, tx:14,  ty:0   }, { i:0, tx:0,   ty:-8 }, { i:1, tx:0,   ty:-8 }],
-    };
-
-    function clear() {
-      grid.classList.remove('has-hover');
-      wrappers.forEach((w) => { w.classList.remove('is-hovered'); w.style.transform = ''; });
+    function onScroll() {
+      const scrollY   = window.scrollY;
+      const heroH     = window.innerHeight;
+      if (scrollY > heroH) return;
+      const progress  = scrollY / heroH;
+      heroContent.style.transform = 'translateY(' + (scrollY * 0.28) + 'px)';
+      heroContent.style.opacity   = String(Math.max(0, 1 - progress * 1.9));
     }
 
-    wrappers.forEach((w, idx) => {
-      w.addEventListener('mouseenter', () => {
-        clear();
-        grid.classList.add('has-hover');
-        w.classList.add('is-hovered');
-        (shifts[idx] || []).forEach(({ i, tx, ty }) => {
-          if (wrappers[i]) wrappers[i].style.transform = `translate(${tx}px,${ty}px)`;
-        });
-      });
-      w.addEventListener('mouseleave', clear);
-    });
+    window.addEventListener('scroll', onScroll, { passive: true });
   })();
 
 
@@ -842,7 +884,10 @@
     if (!els.length) return;
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.10 });
     els.forEach((el) => io.observe(el));
@@ -855,34 +900,10 @@
   const menuClose  = document.getElementById('menu-close');
 
   function openMobileMenu()  { mobileMenu.classList.add('open');    document.body.style.overflow = 'hidden'; }
-  function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = '';       }
 
   if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
   if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
-
-
-  // ─── Active nav link on scroll ──────────────────────────────
-  (function () {
-    const sections = document.querySelectorAll('section[id], footer[id]');
-    const navLinks  = document.querySelectorAll('header nav a');
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((a) => {
-            const active = a.getAttribute('href') === '#' + entry.target.id;
-            a.classList.toggle('text-primary',      active);
-            a.classList.toggle('border-b',          active);
-            a.classList.toggle('border-primary/30', active);
-            a.classList.toggle('pb-1',              active);
-            a.classList.toggle('text-slate-400',    !active);
-          });
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-
-    sections.forEach((s) => io.observe(s));
-  })();
 </script>
 </body>
 </html>
