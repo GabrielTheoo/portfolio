@@ -144,84 +144,73 @@
 
   /* ══════════════════════════════════════
      PROJECT FLEX ACCORDION
+     Pure horizontal expand — zero vertical offsets
   ══════════════════════════════════════ */
-  .projects-flex-grid { display: flex; flex-direction: column; gap: 2.5rem; }
+  .projects-flex-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
   .projects-row {
     display: flex;
-    gap: 2.5rem;
-    align-items: flex-start;
+    gap: 1.5rem;
+    align-items: stretch; /* same height in each row, no vertical shift */
   }
 
+  /* Base flex ratios: wide ~69%, narrow ~31% */
+  .project-fw { flex: 2.2 1 0; min-width: 0; }
+  .project-fn { flex: 1   1 0; min-width: 0; }
+
+  /* Transition: only flex + opacity — NO transform */
   .project-fw,
   .project-fn {
-    min-width: 0;
     transition:
-      flex       0.65s cubic-bezier(0.25,0.46,0.45,0.94),
-      transform  0.65s cubic-bezier(0.25,0.46,0.45,0.94),
-      opacity    0.55s ease;
+      flex    0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-  .project-fw { flex: 2 1 0; }
-  .project-fn { flex: 1 1 0; }
 
-  /* Row 1: narrow card slightly lower — subtle offset only */
-  .projects-row-1 .project-fn { transform: translateY(20px); }
+  /* ── Row 1 hover (wide left, narrow right) ── */
+  .projects-row-1:has(.project-fw:hover) .project-fw { flex: 3.2 1 0; }
+  .projects-row-1:has(.project-fw:hover) .project-fn { flex: 0.8 1 0; opacity: 0.5; }
 
-  /* Row 1 — hover wide */
-  .projects-row-1:has(.project-fw:hover) .project-fw { flex: 2.6 1 0; }
-  .projects-row-1:has(.project-fw:hover) .project-fn { flex: 0.6 1 0; transform: translateY(36px); opacity: 0.6; }
+  .projects-row-1:has(.project-fn:hover) .project-fn { flex: 1.8 1 0; }
+  .projects-row-1:has(.project-fn:hover) .project-fw { flex: 1.6 1 0; opacity: 0.6; }
 
-  /* Row 1 — hover narrow */
-  .projects-row-1:has(.project-fn:hover) .project-fw { flex: 1.2 1 0; opacity: 0.7; }
-  .projects-row-1:has(.project-fn:hover) .project-fn { flex: 2.0 1 0; transform: translateY(8px); }
-
-  /* Row 2: wide card slightly higher — subtle offset only */
-  .projects-row-2 .project-fw { transform: translateY(-20px); }
-
-  /* Row 2 — hover narrow */
+  /* ── Row 2 hover (narrow left, wide right) ── */
   .projects-row-2:has(.project-fn:hover) .project-fn { flex: 1.8 1 0; }
-  .projects-row-2:has(.project-fn:hover) .project-fw { flex: 1.2 1 0; transform: translateY(-36px); opacity: 0.6; }
+  .projects-row-2:has(.project-fn:hover) .project-fw { flex: 1.6 1 0; opacity: 0.6; }
 
-  /* Row 2 — hover wide */
-  .projects-row-2:has(.project-fw:hover) .project-fn { flex: 0.6 1 0; opacity: 0.6; }
-  .projects-row-2:has(.project-fw:hover) .project-fw { flex: 2.6 1 0; transform: translateY(-8px); }
+  .projects-row-2:has(.project-fw:hover) .project-fw { flex: 3.2 1 0; }
+  .projects-row-2:has(.project-fw:hover) .project-fn { flex: 0.8 1 0; opacity: 0.5; }
 
   /* Fixed heights — accordion is horizontal only */
-  .projects-row-1 .project-card-inner { height: 400px; }
+  .projects-row-1 .project-card-inner { height: 420px; }
   .projects-row-2 .project-card-inner { height: 360px; }
 
   .project-card-inner {
     width: 100%;
-    transition: box-shadow 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
-    will-change: box-shadow;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: box-shadow 0.45s ease;
   }
   .project-fw:hover .project-card-inner,
   .project-fn:hover .project-card-inner {
-    box-shadow: 0 28px 80px rgba(235,58,43,0.28);
+    box-shadow: 0 24px 70px rgba(235,58,43,0.25);
   }
 
-  /* ── Mobile: stack vertically, no offsets ── */
+  /* ── Mobile: single column, no accordion ── */
   @media (max-width: 767px) {
     .projects-flex-grid { gap: 1rem; }
-    .projects-row { flex-direction: column; gap: 1rem; }
-    .projects-row-1 .project-fn { transform: none !important; }
-    .projects-row-2 .project-fw { transform: none !important; }
-    .projects-row-1 .project-card-inner,
-    .projects-row-2 .project-card-inner { height: 240px; }
-    .project-fw, .project-fn {
-      flex: 1 1 auto;
-      width: 100%;
-      opacity: 1 !important;
-    }
-    /* Disable flex accordion on mobile */
-    .projects-row-1:has(.project-fw:hover) .project-fn,
-    .projects-row-1:has(.project-fn:hover) .project-fw,
-    .projects-row-2:has(.project-fn:hover) .project-fw,
-    .projects-row-2:has(.project-fw:hover) .project-fn {
+    .projects-row { flex-direction: column; gap: 1rem; align-items: stretch; }
+    .project-fw,
+    .project-fn {
       flex: 1 1 auto !important;
       opacity: 1 !important;
-      transform: none !important;
+      width: 100%;
     }
+    .projects-row-1 .project-card-inner,
+    .projects-row-2 .project-card-inner { height: 240px; }
   }
 
   /* ── Mobile: toolkit grid stacks ── */
