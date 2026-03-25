@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nike Jordan Maestro — Gabriel's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:    #EB3A2B;
+    --red-2:  #FF3830;
+    --gold:   #C8922A;
+    --violet: #9B7FBF;
+    --black:  #080808;
+    --surface:#111010;
+    --card:   #181616;
+    --border: rgba(235,58,43,0.14);
+    --text:   #F0DCDC;
+    --muted:  #7a6e6e;
+    --white:  #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
+
+  /* ─── HEADER ─── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: rgba(8,8,8,0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--red);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .back-btn:hover { color: var(--red); }
+  .back-btn svg { transition: transform 0.3s; }
+  .back-btn:hover svg { transform: translateX(-3px); }
+
+  /* ─── HERO ─── */
+  .project-hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--black);
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.55;
+  }
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(8,8,8,0.1) 0%,
+      rgba(8,8,8,0.25) 40%,
+      rgba(8,8,8,0.85) 75%,
+      rgba(8,8,8,1) 100%
+    );
+  }
+  /* Red ambient glow */
+  .hero-glow {
+    position: absolute;
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(235,58,43,0.25) 0%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 2.5rem 5rem;
+    max-width: 1100px;
+  }
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.5rem;
+  }
+  .hero-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--red);
+    display: inline-block;
+  }
+  .hero-title {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+  .hero-title span { color: var(--red); }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  .meta-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid rgba(235,58,43,0.35);
+    color: var(--red);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+  }
+  .meta-year {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .live-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--red);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .live-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    display: block;
+  }
+
+  h2 {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1.75rem;
+  }
+
+  p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #9e8e8e;
+    max-width: 680px;
+  }
+  p + p { margin-top: 1.25rem; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 0 2.5rem;
+    max-width: calc(1100px);
+  }
+
+  /* ─── PROCESS STEPS ─── */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .process-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    transition: border-color 0.4s, transform 0.4s;
+  }
+  .process-card:hover {
+    border-color: rgba(235,58,43,0.45);
+    transform: translateY(-6px);
+  }
+  .process-num {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(235,58,43,0.18);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .process-card h4 {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .process-card p {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: none;
+  }
+
+  /* ─── AI TOOLS ─── */
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .tool-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(235,58,43,0.08);
+    border: 1px solid rgba(235,58,43,0.25);
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .tool-pill:hover {
+    background: rgba(235,58,43,0.18);
+    border-color: rgba(235,58,43,0.5);
+  }
+  .tool-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  /* ─── DESIGN SYSTEM ─── */
+  .ds-wrapper {
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: #f5f5f5;
+    position: relative;
+  }
+  .ds-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .ds-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.25rem 1.75rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ─── SITE PREVIEW ─── */
+  .site-preview {
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .preview-bar {
+    background: #1a1818;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .preview-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .preview-url {
+    flex: 1;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .site-iframe {
+    width: 100%;
+    height: 620px;
+    border: none;
+    display: block;
+    background: var(--black);
+    pointer-events: none;
+  }
+  .preview-overlay {
+    position: absolute;
+    inset: 0;
+    top: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  /* ─── STAT CARDS ─── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 3rem;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-num span { color: var(--red); }
+  .stat-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.75rem;
+  }
+
+  /* ─── CTA ─── */
+  .cta-block {
+    margin-top: 5rem;
+    background: linear-gradient(135deg, rgba(235,58,43,0.08) 0%, rgba(200,146,42,0.05) 100%);
+    border: 1px solid rgba(235,58,43,0.2);
+    border-radius: 2rem;
+    padding: 4rem 3rem;
+    text-align: center;
+  }
+  .cta-block h3 {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+  .cta-block p { margin: 0 auto 2.5rem; text-align: center; max-width: 480px; }
+  .cta-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* ─── FOOTER NAV ─── */
+  .project-footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-copy {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
+                transform 0.85s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 767px) {
+    header { padding: 1rem 1.25rem; }
+    .hero-content { padding: 0 1.25rem 4rem; }
+    section { padding: 4rem 1.25rem; }
+    .process-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .cta-block { padding: 2.5rem 1.5rem; }
+    .project-footer { padding: 2rem 1.25rem; }
+    .hero-title { font-size: 3rem; }
+    .site-iframe { height: 320px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="index.html">Gabriel</a>
+  <a class="back-btn" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 5l-7 7 7 7"/>
+    </svg>
+    Back to Portfolio
+  </a>
+</header>
+
+
+<!-- HERO -->
+<div class="project-hero">
+  <div class="hero-bg"></div>
+  <img class="hero-img"
+       src="https://jordan-maestro-site.vercel.app/assets/identity-hero.png"
+       alt="Nike Jordan Maestro Elite SE — hero visual"
+       onerror="this.style.opacity='0'"/>
+  <div class="hero-gradient"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-label">Case Study</div>
+    <h1 class="hero-title">
+      Nike<br/><span>Jordan</span><br/>Maestro
+    </h1>
+    <div class="hero-meta">
+      <span class="meta-tag">UX &amp; UI Design</span>
+      <span class="meta-tag">Web Development</span>
+      <span class="meta-tag">AI-Generated</span>
+      <span class="meta-tag">Brand Identity</span>
+      <span class="meta-year">2025</span>
+      <a class="live-btn" href="https://jordan-maestro-site.vercel.app" target="_blank" rel="noopener">
+        View Live Site
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M7 7h10v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- THE CHALLENGE -->
+<section class="reveal">
+  <div class="section-label">— The Challenge</div>
+  <h2>A world-class cleat.<br/>A digital presence that didn't match.</h2>
+  <p>
+    Browsing Nike's digital ecosystem, one thing stood out: the <strong style="color: var(--text);">Jordan Tiempo Maestro Elite SE Infrared 23</strong> — one of the most visually striking products in the football line — had no dedicated web experience that did it justice. For a cleat with that level of craft and heritage, the absence of an immersive digital narrative was a missed opportunity.
+  </p>
+  <p>
+    The challenge was clear: design and build a product website that matched the ambition of the cleat itself — merging Jordan Brand's basketball legacy with elite football culture, and doing it entirely through AI-powered tools.
+  </p>
+</section>
+
+<div class="divider" style="max-width:1100px; margin: 0 auto;"></div>
+
+
+<!-- THE PROCESS -->
+<section class="reveal">
+  <div class="section-label">— Process</div>
+  <h2>From research to<br/>fully rendered experience.</h2>
+  <p>
+    Every decision was deliberate. The project started with deep immersion in Nike and Jordan Brand's visual language — studying typography hierarchies, motion behavior, color application, and the emotional tone that makes the brand recognisable at a glance.
+  </p>
+
+  <div class="process-grid">
+    <div class="process-card reveal reveal-delay-1">
+      <div class="process-num">01</div>
+      <h4>Research &amp; Brand Audit</h4>
+      <p>Analysed Nike's existing digital touchpoints to identify gaps. Studied the Jordan Brand design language: color, type, motion, and storytelling structure.</p>
+    </div>
+    <div class="process-card reveal reveal-delay-2">
+      <div class="process-num">02</div>
+      <h4>AI-Powered Design System</h4>
+      <p>Built a full Figma design system using AI assistance — defining color tokens, typography scale, spacing, and component rules aligned to Nike brand guidelines.</p>
+    </div>
+    <div class="process-card reveal reveal-delay-3">
+      <div class="process-num">03</div>
+      <h4>Visual Production</h4>
+      <p>Generated all campaign imagery and product renders using AI tools. Every frame of the scroll animation was AI-produced, then curated for maximum visual impact.</p>
+    </div>
+    <div class="process-card reveal">
+      <div class="process-num">04</div>
+      <h4>UX &amp; Interaction Design</h4>
+      <p>Designed the full user experience with scroll-driven animation, parallax storytelling, colorway switching, and immersive product visualization — all performance-optimised.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px; margin: 0 auto;"></div>
+
+
+<!-- AI TOOLKIT -->
+<section class="reveal">
+  <div class="section-label">— AI Toolkit</div>
+  <h2>Built with the most<br/>powerful tools available.</h2>
+  <p>
+    This project was built end-to-end using AI — from ideation and image generation to code scaffolding and copy refinement. Each tool played a specific role in accelerating production without compromising quality.
+  </p>
+  <div class="tools-row">
+    <span class="tool-pill"><span class="tool-dot"></span>Gemini — Research &amp; Concept</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>Flow — Visual Generation</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--violet)"></span>Claude — Development &amp; Copy</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Figma — Design System</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>Vercel — Deployment</span>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px; margin: 0 auto;"></div>
+
+
+<!-- DESIGN SYSTEM -->
+<section class="reveal">
+  <div class="section-label">— Design System</div>
+  <h2>Every pixel rooted<br/>in brand truth.</h2>
+  <p>
+    A full design system was created in Figma using AI to ensure brand consistency across every screen. Color tokens, typography scales, spacing grids, and UI components were all defined before a single line of code was written — guaranteeing that Nike and Jordan Brand guidelines were respected throughout the build.
+  </p>
+
+  <div class="ds-wrapper reveal reveal-delay-1">
+    <img src="design-system.svg" alt="Jordan Cleat × SNKRS — Design System by Gabriel"/>
+    <div class="ds-caption">Jordan Cleat × SNKRS — Design System</div>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px; margin: 0 auto;"></div>
+
+
+<!-- RESULTS / LIVE PREVIEW -->
+<section class="reveal">
+  <div class="section-label">— The Result</div>
+  <h2>A cinematic product<br/>experience, live on the web.</h2>
+  <p>
+    The final site delivers a full immersive journey: a 106-frame scroll-driven 3D product animation, dynamic colorway selector, glassmorphism UI, animated starfield, and a specs section styled like an engineering brief. Fully in Portuguese, honoring the cleat's Brazilian football connection.
+  </p>
+
+  <div class="stats-row reveal reveal-delay-1">
+    <div class="stat-card">
+      <div class="stat-num">106<span>+</span></div>
+      <div class="stat-label">Animation Frames</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4</div>
+      <div class="stat-label">AI Tools Used</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">AI-Generated Visuals</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Stock Images Used</div>
+    </div>
+  </div>
+
+  <!-- Browser preview -->
+  <div class="site-preview reveal reveal-delay-2">
+    <div class="preview-bar">
+      <span class="preview-dot" style="background:#ff5f57"></span>
+      <span class="preview-dot" style="background:#febc2e"></span>
+      <span class="preview-dot" style="background:#28c840"></span>
+      <span class="preview-url">jordan-maestro-site.vercel.app</span>
+    </div>
+    <iframe class="site-iframe"
+            src="https://jordan-maestro-site.vercel.app"
+            title="Nike Jordan Maestro Site Live Preview"
+            loading="lazy"></iframe>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px; margin: 0 auto;"></div>
+
+
+<!-- CTA -->
+<section>
+  <div class="cta-block reveal">
+    <h3>Want something like this<br/>for your brand?</h3>
+    <p>I design and build AI-powered digital experiences that turn products into stories worth experiencing.</p>
+    <div class="cta-row">
+      <a class="live-btn" href="https://jordan-maestro-site.vercel.app" target="_blank" rel="noopener">
+        Visit the Site
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M7 7h10v10"/>
+        </svg>
+      </a>
+      <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);border:1px solid rgba(255,255,255,0.12);padding:0.75rem 1.5rem;border-radius:999px;text-decoration:none;transition:border-color 0.3s,color 0.3s;"
+         onmouseover="this.style.borderColor='rgba(235,58,43,0.5)';this.style.color='var(--red)'"
+         onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='var(--text)'">
+        Let's Talk
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER NAV -->
+<div class="project-footer">
+  <a class="back-btn" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 5l-7 7 7 7"/>
+    </svg>
+    All Projects
+  </a>
+  <a class="back-btn" href="project-motorola-ai.html" style="flex-direction:row-reverse;">
+    Next: Motorola AI
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)">
+      <path d="M19 12H5M12 5l-7 7 7 7"/>
+    </svg>
+  </a>
+</div>
+<div style="text-align:center; padding: 1.5rem; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">
+  © 2025 Gabriel. All rights reserved.
+</div>
+
+
+<!-- SCRIPTS -->
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

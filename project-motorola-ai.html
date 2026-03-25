@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Motorola × AI — Gabriel's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:    #EB3A2B;
+    --gold:   #C8922A;
+    --violet: #9B7FBF;
+    --black:  #080808;
+    --surface:#111010;
+    --card:   #181616;
+    --border: rgba(235,58,43,0.14);
+    --text:   #F0DCDC;
+    --muted:  #7a6e6e;
+    --white:  #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
+
+  /* ─── HEADER ─── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: rgba(8,8,8,0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family:'Newsreader',serif; font-style:italic; font-size:1.4rem; font-weight:700; color:var(--red); text-decoration:none; }
+  .back-btn {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:0.7rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--muted); text-decoration:none; transition:color 0.3s;
+  }
+  .back-btn:hover { color:var(--red); }
+  .back-btn svg { transition: transform 0.3s; }
+  .back-btn:hover svg { transform: translateX(-3px); }
+
+  /* ─── HERO ─── */
+  .project-hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  /* Background: first video as muted loop */
+  .hero-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .hero-gradient {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.5) 40%, rgba(8,8,8,0.92) 80%, rgba(8,8,8,1) 100%);
+  }
+  .hero-glow {
+    position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 350px;
+    background: radial-gradient(ellipse, rgba(235,58,43,0.22) 0%, transparent 70%);
+    filter: blur(60px); pointer-events: none;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 2.5rem 5rem;
+    max-width: 1100px;
+  }
+  .hero-label {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:0.65rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--red); margin-bottom:1.5rem;
+  }
+  .hero-label::before { content:''; width:24px; height:1px; background:var(--red); display:inline-block; }
+  .hero-title {
+    font-family:'Newsreader',serif; font-style:italic;
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight:300; line-height:0.9; letter-spacing:-0.03em; color:var(--white); margin-bottom:2rem;
+  }
+  .hero-title span { color:var(--red); }
+  .hero-meta { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+  .meta-tag {
+    font-size:0.65rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
+    border:1px solid rgba(235,58,43,0.35); color:var(--red); padding:0.4rem 0.9rem; border-radius:999px;
+  }
+  .meta-year { font-size:0.65rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-left:auto; }
+
+  /* ─── LAYOUT ─── */
+  section { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
+  .divider { width:100%; height:1px; background:var(--border); max-width:1100px; margin:0 auto; }
+
+  .section-label {
+    font-size:0.65rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--red); margin-bottom:1.25rem; display:flex; align-items:center; gap:0.75rem;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); display:block; }
+
+  h2 { font-family:'Newsreader',serif; font-style:italic; font-size:clamp(2rem,4vw,3.5rem); font-weight:300; line-height:1.1; color:var(--white); margin-bottom:1.75rem; }
+  p { font-size:1.0625rem; line-height:1.8; color:#9e8e8e; max-width:680px; }
+  p + p { margin-top:1.25rem; }
+
+  /* ─── HIGHLIGHT BLOCK ─── */
+  .highlight {
+    background: rgba(235,58,43,0.07);
+    border-left: 3px solid var(--red);
+    border-radius: 0 1rem 1rem 0;
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+  }
+  .highlight p { color: var(--text); max-width: none; font-size: 1rem; }
+  .highlight strong { color: var(--red); }
+
+  /* ─── STAT CARDS ─── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    text-align: center;
+    transition: border-color 0.4s, transform 0.4s;
+  }
+  .stat-card:hover { border-color: rgba(235,58,43,0.45); transform: translateY(-5px); }
+  .stat-num { font-family:'Newsreader',serif; font-style:italic; font-size:3rem; color:var(--white); line-height:1; }
+  .stat-num span { color:var(--red); }
+  .stat-label { font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-top:0.75rem; }
+
+  /* ─── PROCESS GRID ─── */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .process-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    transition: border-color 0.4s, transform 0.4s;
+  }
+  .process-card:hover { border-color: rgba(235,58,43,0.45); transform: translateY(-6px); }
+  .process-num { font-family:'Newsreader',serif; font-style:italic; font-size:3.5rem; font-weight:300; color:rgba(235,58,43,0.18); line-height:1; margin-bottom:1rem; }
+  .process-card h4 { font-family:'Newsreader',serif; font-style:italic; font-size:1.25rem; color:var(--white); margin-bottom:0.75rem; }
+  .process-card p { font-size:0.875rem; line-height:1.7; color:var(--muted); max-width:none; }
+
+  /* ─── VIDEO GRID ─── */
+  .video-section { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
+
+  .video-grid-hero {
+    margin-top: 3rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card);
+    position: relative;
+  }
+  .video-grid-hero video {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+  }
+  .video-overlay-label {
+    position: absolute;
+    bottom: 1.5rem; left: 1.75rem;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    background: rgba(8,8,8,0.55);
+    backdrop-filter: blur(8px);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .video-grid-sub {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .video-thumb {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card);
+    position: relative;
+    cursor: pointer;
+  }
+  .video-thumb video {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.4s;
+  }
+  .video-thumb:hover video { opacity: 0.85; }
+  .video-thumb-label {
+    position: absolute;
+    bottom: 1rem; left: 1.1rem;
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    background: rgba(8,8,8,0.5);
+    backdrop-filter: blur(6px);
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* ─── VIDEO MODAL ─── */
+  .video-modal {
+    display: none;
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(16px);
+    align-items: center; justify-content: center;
+  }
+  .video-modal.open { display: flex; }
+  .modal-inner {
+    position: relative;
+    width: 90vw; max-width: 960px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .modal-inner video { width: 100%; height: auto; display: block; max-height: 80vh; object-fit: contain; }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: rgba(255,255,255,0.1); border: none; color: var(--text);
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; transition: background 0.3s;
+  }
+  .modal-close:hover { background: var(--red); }
+
+  /* ─── TOOLS ─── */
+  .tools-row { display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:2rem; }
+  .tool-pill {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:rgba(235,58,43,0.08); border:1px solid rgba(235,58,43,0.25);
+    color:var(--text); font-size:0.8rem; font-weight:500; letter-spacing:0.04em;
+    padding:0.5rem 1.1rem; border-radius:999px;
+    transition:background 0.3s, border-color 0.3s;
+  }
+  .tool-pill:hover { background:rgba(235,58,43,0.18); border-color:rgba(235,58,43,0.5); }
+  .tool-dot { width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0; }
+
+  /* ─── CTA ─── */
+  .cta-block {
+    margin-top: 5rem;
+    background: linear-gradient(135deg, rgba(235,58,43,0.08) 0%, rgba(200,146,42,0.05) 100%);
+    border: 1px solid rgba(235,58,43,0.2);
+    border-radius: 2rem; padding: 4rem 3rem; text-align: center;
+  }
+  .cta-block h3 { font-family:'Newsreader',serif; font-style:italic; font-size:clamp(2rem,4vw,3rem); color:var(--white); margin-bottom:1.25rem; }
+  .cta-block p { margin:0 auto 2.5rem; text-align:center; max-width:480px; }
+  .cta-row { display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
+  .live-btn {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--red); color:var(--white);
+    font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;
+    padding:0.75rem 1.5rem; border-radius:999px; text-decoration:none;
+    transition:opacity 0.3s, transform 0.3s;
+  }
+  .live-btn:hover { opacity:0.85; transform:translateY(-2px); }
+
+  /* ─── FOOTER ─── */
+  .project-footer {
+    border-top:1px solid var(--border); padding:2.5rem;
+    max-width:1100px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity:0; transform:translateY(36px); transition:opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 767px) {
+    header { padding:1rem 1.25rem; }
+    .hero-content { padding:0 1.25rem 4rem; }
+    section, .video-section { padding:4rem 1.25rem; }
+    .process-grid { grid-template-columns:1fr; }
+    .stats-row { grid-template-columns:1fr 1fr; }
+    .video-grid-hero video { height:260px; }
+    .video-grid-sub { grid-template-columns:1fr; }
+    .video-thumb video { height:200px; }
+    .cta-block { padding:2.5rem 1.5rem; }
+    .project-footer { padding:2rem 1.25rem; }
+    .hero-title { font-size:3rem; }
+    .modal-inner video { max-height:60vh; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="index.html">Gabriel</a>
+  <a class="back-btn" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Portfolio
+  </a>
+</header>
+
+
+<!-- HERO -->
+<div class="project-hero">
+  <video class="hero-video-bg" autoplay muted loop playsinline>
+    <source src="videos/video-1.mp4" type="video/mp4"/>
+  </video>
+  <div class="hero-gradient"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-label">Case Study</div>
+    <h1 class="hero-title">
+      Motorola<br/><span>AI</span><br/>Pipeline
+    </h1>
+    <div class="hero-meta">
+      <span class="meta-tag">AI Strategy</span>
+      <span class="meta-tag">Generative Video</span>
+      <span class="meta-tag">Process Design</span>
+      <span class="meta-tag">Trade Marketing</span>
+      <span class="meta-year">2023 — 2025</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- THE CHALLENGE -->
+<section class="reveal">
+  <div class="section-label">— The Challenge</div>
+  <h2>A production team running out of assets before running out of ideas.</h2>
+  <p>
+    At <strong style="color:var(--text);">ProSolution Marketing</strong>, embedded inside Motorola's Trade Marketing operation, the creative team faced a recurring crisis: a severe shortage of high-quality product images and videos. Every campaign cycle, the team would spend days — sometimes weeks — hunting for the right asset, negotiating access, waiting on approval chains, and compromising on quality when nothing better was available.
+  </p>
+  <p>
+    The bottleneck wasn't creativity. It was infrastructure. And the cost showed up in every deadline that slipped, every training deck that launched late, and every sales associate who went into the field undertrained.
+  </p>
+
+  <div class="highlight">
+    <p><strong>The core problem:</strong> No scalable, fast, brand-safe way to generate product imagery and video on demand — causing delivery delays across all trade marketing materials.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- THE SOLUTION -->
+<section class="reveal">
+  <div class="section-label">— The Solution</div>
+  <h2>Build the pipeline.<br/>Then let it run.</h2>
+  <p>
+    Together with the creative team, I designed and validated a new content production workflow built entirely around <strong style="color:var(--text);">generative AI for image and video</strong>. The approach wasn't just to generate assets — it was to create a repeatable system that could be validated directly with Motorola's brand team and integrated into the existing content calendar.
+  </p>
+  <p>
+    We established a clear generation → review → approval loop with Motorola stakeholders, ensuring AI-generated content met brand guidelines before production. Once validated, assets could be produced in hours — not days.
+  </p>
+
+  <div class="process-grid">
+    <div class="process-card reveal reveal-delay-1">
+      <div class="process-num">01</div>
+      <h4>Pipeline Mapping</h4>
+      <p>Audited the existing asset sourcing workflow, identifying every friction point from brief to delivery. Mapped a new AI-first pipeline with clear ownership at each stage.</p>
+    </div>
+    <div class="process-card reveal reveal-delay-2">
+      <div class="process-num">02</div>
+      <h4>AI Generation</h4>
+      <p>Used generative AI tools to produce on-brand product videos and imagery on demand — tailored to campaign briefs, device colorways, and seasonal contexts.</p>
+    </div>
+    <div class="process-card reveal reveal-delay-3">
+      <div class="process-num">03</div>
+      <h4>Brand Validation</h4>
+      <p>Established a direct feedback loop with Motorola's brand team to review and approve AI outputs — building trust and a growing library of pre-approved assets.</p>
+    </div>
+    <div class="process-card reveal">
+      <div class="process-num">04</div>
+      <h4>Scale &amp; Integrate</h4>
+      <p>Rolled the pipeline into the full content calendar — training materials, sales kits, digital campaigns, and in-store activations all benefited from faster, richer asset production.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- THE VIDEOS -->
+<div class="video-section reveal">
+  <div class="section-label">— AI-Generated Product Videos</div>
+  <h2>Product videos. Created.<br/>Not sourced.</h2>
+  <p>
+    Below is a selection of AI-generated product videos produced for Motorola's trade marketing campaigns. Each was created using generative video tools, reviewed internally, and validated with the Motorola brand team before deployment.
+  </p>
+
+  <!-- Hero video -->
+  <div class="video-grid-hero reveal reveal-delay-1">
+    <video autoplay muted loop playsinline>
+      <source src="videos/video-1.mp4" type="video/mp4"/>
+    </video>
+    <span class="video-overlay-label">AI Product Video — Campaign 01</span>
+  </div>
+
+  <!-- Sub videos grid -->
+  <div class="video-grid-sub">
+    <div class="video-thumb" onclick="openModal('videos/video-2.mp4')">
+      <video autoplay muted loop playsinline>
+        <source src="videos/video-2.mp4" type="video/mp4"/>
+      </video>
+      <span class="video-thumb-label">Campaign 02 — Tap to expand</span>
+    </div>
+    <div class="video-thumb" onclick="openModal('videos/video-3.mp4')">
+      <video autoplay muted loop playsinline>
+        <source src="videos/video-3.mp4" type="video/mp4"/>
+      </video>
+      <span class="video-thumb-label">Campaign 03 — Tap to expand</span>
+    </div>
+    <div class="video-thumb" onclick="openModal('videos/video-4.mp4')">
+      <video autoplay muted loop playsinline>
+        <source src="videos/video-4.mp4" type="video/mp4"/>
+      </video>
+      <span class="video-thumb-label">Campaign 04 — Tap to expand</span>
+    </div>
+    <div class="video-thumb" onclick="openModal('videos/video-5.mp4')">
+      <video autoplay muted loop playsinline>
+        <source src="videos/video-5.mp4" type="video/mp4"/>
+      </video>
+      <span class="video-thumb-label">Campaign 05 — Tap to expand</span>
+    </div>
+  </div>
+</div>
+
+<!-- Video Modal -->
+<div class="video-modal" id="video-modal">
+  <div class="modal-inner">
+    <video id="modal-video" controls playsinline>
+      <source id="modal-source" src="" type="video/mp4"/>
+    </video>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- RESULTS -->
+<section class="reveal">
+  <div class="section-label">— The Results</div>
+  <h2>Faster delivery.<br/>More people trained. Less wasted time.</h2>
+  <p>
+    The impact of the new pipeline was measurable from the first campaign cycle. By eliminating the asset-hunting phase and replacing it with on-demand generation and validation, the team gained back significant production time — time that was reinvested directly into output volume.
+  </p>
+  <p>
+    Training materials improved in quality and quantity. More sales associates could be onboarded faster, with richer visual content. And Motorola gained a creative partner who could produce campaign-ready content in hours, not weeks.
+  </p>
+
+  <div class="stats-row reveal reveal-delay-1">
+    <div class="stat-card">
+      <div class="stat-num">~30<span>%</span></div>
+      <div class="stat-label">Reduction in Delivery Time</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">↑</div>
+      <div class="stat-label">Training Material Volume</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Days Lost to Asset Hunting</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5</div>
+      <div class="stat-label">AI-Produced Campaign Videos</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- TOOLS -->
+<section class="reveal">
+  <div class="section-label">— Tools &amp; Stack</div>
+  <h2>AI tools. Real results.</h2>
+  <p>
+    The pipeline was built using the latest generative AI platforms for image and video production, combined with traditional Adobe tools for post-processing and brand alignment.
+  </p>
+  <div class="tools-row">
+    <span class="tool-pill"><span class="tool-dot"></span>Gemini — Visual Research</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>Envato AI — Video Generation</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--violet)"></span>Claude — Process Design</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Photoshop — Post-processing</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>After Effects — Animation</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Figma — Layouts &amp; Specs</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- CTA -->
+<section>
+  <div class="cta-block reveal">
+    <h3>Want to bring AI<br/>into your creative workflow?</h3>
+    <p>I design processes and pipelines that make AI work for your team — faster, smarter, and fully brand-aligned.</p>
+    <div class="cta-row">
+      <a class="live-btn" href="index.html#contact">
+        Let's Talk
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);border:1px solid rgba(255,255,255,0.12);padding:0.75rem 1.5rem;border-radius:999px;text-decoration:none;transition:border-color 0.3s,color 0.3s;"
+         onmouseover="this.style.borderColor='rgba(235,58,43,0.5)';this.style.color='var(--red)'"
+         onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='var(--text)'">
+        View All Projects
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER NAV -->
+<div class="project-footer">
+  <a class="back-btn" href="project-nike-jordan.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Prev: Nike Jordan
+  </a>
+  <a class="back-btn" href="index.html" style="flex-direction:row-reverse;">
+    All Projects
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+  </a>
+</div>
+<div style="text-align:center; padding:1.5rem; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">
+  © 2025 Gabriel. All rights reserved.
+</div>
+
+
+<!-- SCRIPTS -->
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+
+  // Video modal
+  function openModal(src) {
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('modal-video');
+    const source = document.getElementById('modal-source');
+    source.src = src;
+    video.load();
+    video.play();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('modal-video');
+    video.pause();
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('video-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
