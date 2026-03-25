@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Life Thrive Solutions — Gabriel's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:      #EB3A2B;
+    --gold:     #C8922A;
+    --black:    #080808;
+    --card:     #181616;
+    --border:   rgba(235,58,43,0.14);
+    --text:     #F0DCDC;
+    --muted:    #7a6e6e;
+    --white:    #ffffff;
+
+    /* LifeThrive brand palette */
+    --lt-cream:  #F7F4F0;
+    --lt-sage:   #8BA98B;
+    --lt-warm:   #C9B99A;
+    --lt-dark:   #1f1f1f;
+    --lt-lavender: #B8ADC8;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
+
+  /* ─── HEADER ─── */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: rgba(8,8,8,0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family:'Newsreader',serif; font-style:italic; font-size:1.4rem; font-weight:700; color:var(--red); text-decoration:none; }
+  .back-btn {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:0.7rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--muted); text-decoration:none; transition:color 0.3s;
+  }
+  .back-btn:hover { color:var(--red); }
+  .back-btn svg { transition:transform 0.3s; }
+  .back-btn:hover svg { transform:translateX(-3px); }
+
+  /* ─── HERO ─── */
+  .project-hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  /* Warm brand gradient as hero background */
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg,
+      #1a1210 0%,
+      #0f1510 30%,
+      #0d1418 60%,
+      #0a0808 100%
+    );
+  }
+  /* Soft sage + warm glow — LifeThrive palette bleeding into dark */
+  .hero-orb-sage {
+    position: absolute;
+    top: 15%; right: 10%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,169,139,0.2) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .hero-orb-warm {
+    position: absolute;
+    bottom: 10%; left: 5%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,185,154,0.15) 0%, transparent 70%);
+    filter: blur(90px);
+    pointer-events: none;
+  }
+  .hero-orb-red {
+    position: absolute;
+    bottom: -80px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(235,58,43,0.18) 0%, transparent 70%);
+    filter: blur(60px); pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 2.5rem 5rem; max-width: 1100px;
+  }
+  .hero-label {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:0.65rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--red); margin-bottom:1.5rem;
+  }
+  .hero-label::before { content:''; width:24px; height:1px; background:var(--red); }
+  .hero-title {
+    font-family:'Newsreader',serif; font-style:italic;
+    font-size:clamp(3.5rem, 8vw, 7rem);
+    font-weight:300; line-height:0.9; letter-spacing:-0.03em;
+    color:var(--white); margin-bottom:2rem;
+  }
+  .hero-title .accent { color:var(--lt-sage); }
+  .hero-meta { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+  .meta-tag {
+    font-size:0.65rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
+    border:1px solid rgba(139,169,139,0.4); color:var(--lt-sage);
+    padding:0.4rem 0.9rem; border-radius:999px;
+  }
+  .meta-year { font-size:0.65rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-left:auto; }
+  .live-btn {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--lt-sage); color:var(--white);
+    font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;
+    padding:0.75rem 1.5rem; border-radius:999px; text-decoration:none;
+    transition:opacity 0.3s, transform 0.3s;
+  }
+  .live-btn:hover { opacity:0.85; transform:translateY(-2px); }
+
+  /* ─── LAYOUT ─── */
+  section { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
+  .divider { width:100%; height:1px; background:var(--border); max-width:1100px; margin:0 auto; }
+
+  .section-label {
+    font-size:0.65rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--lt-sage); margin-bottom:1.25rem;
+    display:flex; align-items:center; gap:0.75rem;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:rgba(139,169,139,0.2); }
+
+  h2 {
+    font-family:'Newsreader',serif; font-style:italic;
+    font-size:clamp(2rem,4vw,3.5rem); font-weight:300; line-height:1.1;
+    color:var(--white); margin-bottom:1.75rem;
+  }
+  p { font-size:1.0625rem; line-height:1.8; color:#9e8e8e; max-width:680px; }
+  p + p { margin-top:1.25rem; }
+
+  /* ─── QUOTE BLOCK ─── */
+  .quote-block {
+    margin: 2.5rem 0;
+    border-left: 3px solid var(--lt-sage);
+    border-radius: 0 1rem 1rem 0;
+    padding: 1.75rem 2rem;
+    background: rgba(139,169,139,0.05);
+  }
+  .quote-block p {
+    font-family: 'Bitter', Georgia, serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--lt-cream);
+    max-width: none;
+  }
+  .quote-source {
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lt-sage);
+  }
+
+  /* ─── BRAND PALETTE DISPLAY ─── */
+  .palette-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .palette-swatch {
+    flex: 1 1 120px;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .swatch-color {
+    height: 80px;
+  }
+  .swatch-info {
+    background: var(--card);
+    padding: 0.75rem 1rem;
+  }
+  .swatch-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text);
+    display: block;
+  }
+  .swatch-hex {
+    font-size: 0.65rem;
+    color: var(--muted);
+    font-family: 'Manrope', monospace;
+    letter-spacing: 0.05em;
+    margin-top: 0.2rem;
+    display: block;
+  }
+  .swatch-role {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--lt-sage);
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  /* ─── PROCESS GRID ─── */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .process-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 1.25rem; padding: 2rem 1.75rem;
+    transition: border-color 0.4s, transform 0.4s;
+  }
+  .process-card:hover { border-color:rgba(139,169,139,0.45); transform:translateY(-6px); }
+  .process-num {
+    font-family:'Newsreader',serif; font-style:italic; font-size:3.5rem; font-weight:300;
+    color:rgba(139,169,139,0.2); line-height:1; margin-bottom:1rem;
+  }
+  .process-card h4 { font-family:'Newsreader',serif; font-style:italic; font-size:1.25rem; color:var(--white); margin-bottom:0.75rem; }
+  .process-card p { font-size:0.875rem; line-height:1.7; color:var(--muted); max-width:none; }
+
+  /* ─── UX PILLARS ─── */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem; margin-top: 3rem;
+  }
+  .pillar-card {
+    background: rgba(139,169,139,0.06);
+    border: 1px solid rgba(139,169,139,0.18);
+    border-radius: 1.25rem; padding: 1.75rem;
+    transition: background 0.4s, border-color 0.4s;
+  }
+  .pillar-card:hover { background:rgba(139,169,139,0.12); border-color:rgba(139,169,139,0.4); }
+  .pillar-icon {
+    width: 40px; height: 40px; margin-bottom: 1rem;
+    border-radius: 10px;
+    background: rgba(139,169,139,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--lt-sage);
+  }
+  .pillar-card h4 { font-size:0.9rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; }
+  .pillar-card p { font-size:0.8rem; line-height:1.65; color:var(--muted); max-width:none; }
+
+  /* ─── STAT CARDS ─── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 1.25rem; padding: 1.75rem; text-align: center;
+    transition: border-color 0.4s, transform 0.4s;
+  }
+  .stat-card:hover { border-color:rgba(139,169,139,0.4); transform:translateY(-5px); }
+  .stat-num { font-family:'Newsreader',serif; font-style:italic; font-size:3rem; color:var(--white); line-height:1; }
+  .stat-num span { color:var(--lt-sage); }
+  .stat-label { font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-top:0.75rem; }
+
+  /* ─── SITE PREVIEW ─── */
+  .site-preview {
+    margin-top: 3rem; border: 1px solid rgba(139,169,139,0.2);
+    border-radius: 1.5rem; overflow: hidden;
+  }
+  .preview-bar {
+    background: #1a1818; padding: 0.75rem 1.25rem;
+    display: flex; align-items: center; gap: 0.5rem;
+    border-bottom: 1px solid rgba(139,169,139,0.1);
+  }
+  .preview-dot { width:10px; height:10px; border-radius:50%; }
+  .preview-url { flex:1; text-align:center; font-size:0.7rem; color:var(--muted); letter-spacing:0.05em; }
+  .site-iframe { width:100%; height:620px; border:none; display:block; background:#f5f5f5; }
+
+  /* ─── TOOLS ─── */
+  .tools-row { display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:2rem; }
+  .tool-pill {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:rgba(139,169,139,0.08); border:1px solid rgba(139,169,139,0.25);
+    color:var(--text); font-size:0.8rem; font-weight:500; padding:0.5rem 1.1rem;
+    border-radius:999px; transition:background 0.3s, border-color 0.3s;
+  }
+  .tool-pill:hover { background:rgba(139,169,139,0.18); border-color:rgba(139,169,139,0.5); }
+  .tool-dot { width:6px; height:6px; border-radius:50%; background:var(--lt-sage); flex-shrink:0; }
+
+  /* ─── TYPOGRAPHY SHOWCASE ─── */
+  .type-showcase {
+    margin-top: 3rem;
+    background: var(--lt-cream);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .type-label {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--lt-sage); margin-bottom: 1.5rem;
+  }
+  .type-headline {
+    font-family: 'Bitter', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--lt-dark);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .type-body {
+    font-family: 'Bitter', Georgia, serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.75;
+    max-width: 480px;
+  }
+  .type-caption {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #999; margin-top: 1.5rem;
+  }
+
+  /* ─── CTA ─── */
+  .cta-block {
+    margin-top: 5rem;
+    background: linear-gradient(135deg, rgba(139,169,139,0.08) 0%, rgba(201,185,154,0.05) 100%);
+    border: 1px solid rgba(139,169,139,0.2);
+    border-radius: 2rem; padding: 4rem 3rem; text-align: center;
+  }
+  .cta-block h3 { font-family:'Newsreader',serif; font-style:italic; font-size:clamp(2rem,4vw,3rem); color:var(--white); margin-bottom:1.25rem; }
+  .cta-block p { margin:0 auto 2.5rem; text-align:center; max-width:480px; }
+  .cta-row { display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
+
+  /* ─── FOOTER ─── */
+  .project-footer {
+    border-top:1px solid var(--border); padding:2.5rem;
+    max-width:1100px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity:0; transform:translateY(36px); transition:opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 767px) {
+    header { padding:1rem 1.25rem; }
+    .hero-content { padding:0 1.25rem 4rem; }
+    section { padding:4rem 1.25rem; }
+    .process-grid, .pillars-grid { grid-template-columns:1fr; }
+    .stats-row { grid-template-columns:1fr 1fr; }
+    .cta-block { padding:2.5rem 1.5rem; }
+    .project-footer { padding:2rem 1.25rem; }
+    .hero-title { font-size:3rem; }
+    .site-iframe { height:300px; }
+    .type-showcase { padding:2rem; }
+    .palette-grid { gap:0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="index.html">Gabriel</a>
+  <a class="back-btn" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Portfolio
+  </a>
+</header>
+
+
+<!-- HERO -->
+<div class="project-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orb-sage"></div>
+  <div class="hero-orb-warm"></div>
+  <div class="hero-orb-red"></div>
+
+  <div class="hero-content">
+    <div class="hero-label">Case Study</div>
+    <h1 class="hero-title">
+      Life<br/><span class="accent">Thrive</span><br/>Solutions
+    </h1>
+    <div class="hero-meta">
+      <span class="meta-tag">UX &amp; UI Design</span>
+      <span class="meta-tag">Webflow</span>
+      <span class="meta-tag">Brand Strategy</span>
+      <span class="meta-tag">Psychology</span>
+      <span class="meta-year">2024 — 2025</span>
+      <a class="live-btn" href="https://www.lifethrivesolutions.com" target="_blank" rel="noopener">
+        View Live Site
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- THE BRIEF -->
+<section class="reveal">
+  <div class="section-label">— The Brief</div>
+  <h2>A therapy practice in Florida<br/>that needed a digital home<br/>as warm as its mission.</h2>
+  <p>
+    <strong style="color:var(--text);">Life Thrive Solutions</strong> is a trauma-informed therapy practice based in Stuart, Florida — founded by Madonna DeBlauwe with a clear intention: to create a therapeutic space that feels <em>safe, human, and genuinely supportive</em>. The practice offers individual, couples, and family therapy, serving clients in-person in Stuart and across all of Florida via telehealth.
+  </p>
+  <p>
+    The challenge was building a digital presence that matched that mission — a website where potential clients would feel welcomed the moment they arrived, even before speaking to a therapist. A site that converts visitors into appointments not through pressure, but through trust.
+  </p>
+
+  <div class="quote-block">
+    <p>"A space where you can talk openly about trauma, anxiety, and the heavy moments of life without judgment, pressure, or clinical stiffness."</p>
+    <div class="quote-source">— Life Thrive Solutions brand voice</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- BRAND ANALYSIS -->
+<section class="reveal">
+  <div class="section-label">— Brand Analysis</div>
+  <h2>Understanding the brand<br/>before touching the design.</h2>
+  <p>
+    Before opening Figma, the first step was immersing in the brand. What does Life Thrive Solutions stand for? Who are their clients? What do those clients feel when they first visit the site — and what do we need them to feel instead?
+  </p>
+  <p>
+    The brand audit revealed a clear positioning: Life Thrive Solutions is explicitly <em>not clinical</em>. Their language, their philosophy, their care model — all of it rejects the cold, institutional aesthetic of traditional mental health websites. This shaped every design decision that followed.
+  </p>
+
+  <!-- Color palette -->
+  <div class="palette-grid reveal reveal-delay-1">
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#F7F4F0;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Soft Cream</span>
+        <span class="swatch-hex">#F7F4F0</span>
+        <span class="swatch-role">Primary Background</span>
+      </div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#8BA98B;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Sage Green</span>
+        <span class="swatch-hex">#8BA98B</span>
+        <span class="swatch-role">Brand Accent</span>
+      </div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#C9B99A;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Warm Sand</span>
+        <span class="swatch-hex">#C9B99A</span>
+        <span class="swatch-role">Secondary Tone</span>
+      </div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#B8ADC8;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Soft Lavender</span>
+        <span class="swatch-hex">#B8ADC8</span>
+        <span class="swatch-role">Supporting Accent</span>
+      </div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#1f1f1f;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Deep Charcoal</span>
+        <span class="swatch-hex">#1F1F1F</span>
+        <span class="swatch-role">Primary Text</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Typography showcase -->
+  <div class="type-showcase reveal reveal-delay-2">
+    <div class="type-label">— Typography: Bitter (Serif)</div>
+    <div class="type-headline">Therapy in Florida<br/>That Helps You Feel<br/>Safe, Seen, and Supported</div>
+    <p class="type-body">The choice of Bitter — a warm, editorial serif — was deliberate. Serif typography communicates trust, care, and human depth. It distances the brand from the cold, sans-serif clinical aesthetic of institutional healthcare.</p>
+    <div class="type-caption">Bitter · 400 / 700 · Google Fonts</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- UX STRATEGY -->
+<section class="reveal">
+  <div class="section-label">— UX Strategy</div>
+  <h2>Every decision designed<br/>to make someone feel<br/>safe enough to ask for help.</h2>
+  <p>
+    The UX of a therapy website carries unique weight. A person visiting this site may be in pain, in crisis, or taking one of the hardest steps of their life. The experience had to be frictionless, reassuring, and warm — guiding them naturally toward scheduling a session without pressure.
+  </p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card reveal reveal-delay-1">
+      <div class="pillar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h4>Emotional Safety First</h4>
+      <p>Warm photography, gentle curves, and soft copy create an environment where visitors feel accepted before they read a single word.</p>
+    </div>
+    <div class="pillar-card reveal reveal-delay-2">
+      <div class="pillar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h4>Zero Friction to Contact</h4>
+      <p>CTAs are placed at every natural decision moment. "Take Your Next Step" replaces aggressive "Book Now" language — meeting the client where they are.</p>
+    </div>
+    <div class="pillar-card reveal reveal-delay-3">
+      <div class="pillar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h4>Multi-Client Architecture</h4>
+      <p>Clear pathways for Individual, Couples, and Family therapy — each with its own entry point — so no visitor feels unseen or unaddressed.</p>
+    </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h4>Digital-First Accessibility</h4>
+      <p>Online therapy options prominently featured alongside in-person — because healing works best when it meets the client where they feel most comfortable.</p>
+    </div>
+    <div class="pillar-card reveal reveal-delay-1">
+      <div class="pillar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h4>Trust Signals by Design</h4>
+      <p>Insurance acceptance logos, named team leadership, and evidence-based practice references positioned strategically to build credibility without clinical coldness.</p>
+    </div>
+    <div class="pillar-card reveal reveal-delay-2">
+      <div class="pillar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 5.93 5.93l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h4>Lead Conversion</h4>
+      <p>Every page section flows toward a single goal: turning a hesitant visitor into a scheduled appointment — gently, respectfully, and effectively.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- PROCESS -->
+<section class="reveal">
+  <div class="section-label">— Design Process</div>
+  <h2>From brand audit to<br/>live Webflow build.</h2>
+  <p>
+    The full project was designed in Figma — from initial wireframes and component libraries to high-fidelity prototypes — before being handed off and built in Webflow in close collaboration with the development team.
+  </p>
+
+  <div class="process-grid">
+    <div class="process-card reveal reveal-delay-1">
+      <div class="process-num">01</div>
+      <h4>Discovery &amp; Brand Audit</h4>
+      <p>Deep-dive into the practice's values, clients, competitive landscape, and emotional positioning. This informed every visual and copy decision that followed.</p>
+    </div>
+    <div class="process-card reveal reveal-delay-2">
+      <div class="process-num">02</div>
+      <h4>Information Architecture</h4>
+      <p>Mapped all service pathways (Individual, Couples, Family), specialty pages, and conversion funnels. Built a clear, intuitive site structure before any visual design began.</p>
+    </div>
+    <div class="process-card reveal reveal-delay-3">
+      <div class="process-num">03</div>
+      <h4>UI Design in Figma</h4>
+      <p>Full high-fidelity design system in Figma: color tokens, Bitter typography scale, component library, responsive layouts, and interactive prototypes for stakeholder review.</p>
+    </div>
+    <div class="process-card reveal">
+      <div class="process-num">04</div>
+      <h4>Webflow Development</h4>
+      <p>Worked alongside the dev team to translate Figma designs pixel-perfectly into Webflow — preserving animations, responsive behavior, and brand fidelity at every breakpoint.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- RESULTS -->
+<section class="reveal">
+  <div class="section-label">— The Impact</div>
+  <h2>More sessions booked.<br/>More people helped.</h2>
+  <p>
+    A well-designed therapy website isn't just a digital business card. It's the first moment of trust between a practice and someone who needs help. When that experience is warm, clear, and welcoming, people take the next step. And when more people take that step, the practice grows — and more lives improve.
+  </p>
+  <p>
+    By aligning the brand's visual language and UX strategy with the emotional needs of the client, Life Thrive Solutions gained a digital presence that works as hard as their therapists do: building trust, capturing leads, and — most importantly — helping more people in Florida access the support they deserve.
+  </p>
+
+  <div class="stats-row reveal reveal-delay-1">
+    <div class="stat-card">
+      <div class="stat-num">1<span>st</span></div>
+      <div class="stat-label">Dedicated Digital Presence</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Client Pathways Designed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">FL</div>
+      <div class="stat-label">Statewide Telehealth Reach</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num"><span>↑</span></div>
+      <div class="stat-label">Lead Conversion Rate</div>
+    </div>
+  </div>
+
+  <!-- Live preview -->
+  <div class="site-preview reveal reveal-delay-2">
+    <div class="preview-bar">
+      <span class="preview-dot" style="background:#ff5f57"></span>
+      <span class="preview-dot" style="background:#febc2e"></span>
+      <span class="preview-dot" style="background:#28c840"></span>
+      <span class="preview-url">lifethrivesolutions.com</span>
+    </div>
+    <iframe class="site-iframe"
+            src="https://www.lifethrivesolutions.com"
+            title="Life Thrive Solutions — Live Site Preview"
+            loading="lazy"></iframe>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- TOOLS -->
+<section class="reveal">
+  <div class="section-label">— Tools &amp; Stack</div>
+  <h2>Designed in Figma.<br/>Built in Webflow.</h2>
+  <div class="tools-row">
+    <span class="tool-pill"><span class="tool-dot"></span>Figma — UI &amp; UX Design</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Webflow — Development</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Photoshop — Image Treatment</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Illustrator — Brand Assets</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Gemini — Brand Research</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Claude — Copy Refinement</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- CTA -->
+<section>
+  <div class="cta-block reveal">
+    <h3>Your brand deserves<br/>a digital presence<br/>that actually works.</h3>
+    <p>I design websites that feel right — for the people who visit them and the business behind them. Let's build yours.</p>
+    <div class="cta-row">
+      <a class="live-btn" href="https://www.lifethrivesolutions.com" target="_blank" rel="noopener">
+        Visit the Site
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a href="index.html#contact"
+        style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);border:1px solid rgba(255,255,255,0.12);padding:0.75rem 1.5rem;border-radius:999px;text-decoration:none;transition:border-color 0.3s,color 0.3s;"
+        onmouseover="this.style.borderColor='rgba(139,169,139,0.5)';this.style.color='var(--lt-sage)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='var(--text)'">
+        Let's Work Together
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER NAV -->
+<div class="project-footer">
+  <a class="back-btn" href="project-motorola-ai.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Prev: Motorola AI
+  </a>
+  <a class="back-btn" href="index.html" style="flex-direction:row-reverse;">
+    All Projects
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+  </a>
+</div>
+<div style="text-align:center; padding:1.5rem; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">
+  © 2025 Gabriel. All rights reserved.
+</div>
+
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
