@@ -438,8 +438,11 @@
     padding-bottom: 1px;
   }
 
-  /* mobile hamburger button — desktop only hidden */
+  /* mobile hamburger button */
   #main-header #menu-btn {
+    position: relative;
+    width: 36px;
+    height: 36px;
     color: #EB3A2B;
     background: none;
     border: none;
@@ -490,17 +493,28 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Mobile hamburger (shown only on mobile via CSS) -->
-  <button id="menu-btn" aria-label="Open menu">
-    <span class="material-symbols-outlined" style="font-size:1.3rem;">menu</span>
+  <!-- Mobile hamburger — toggles to X when menu is open -->
+  <button id="menu-btn" aria-label="Toggle menu">
+    <!-- Hamburger bars -->
+    <span id="icon-hamburger" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity 0.25s,transform 0.25s;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </span>
+    <!-- X icon -->
+    <span id="icon-close-x" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transform:rotate(-90deg);transition:opacity 0.25s,transform 0.25s;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="18" y1="6"  x2="6"  y2="18"/>
+        <line x1="6"  y1="6"  x2="18" y2="18"/>
+      </svg>
+    </span>
   </button>
 </header>
 
 <!-- Mobile menu -->
 <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0a0606]/95 backdrop-blur-xl flex-col items-center justify-center gap-10">
-  <button id="menu-close" class="absolute top-6 right-6 text-primary">
-    <span class="material-symbols-outlined text-3xl">close</span>
-  </button>
   <a class="font-headline italic text-4xl text-primary" href="#work" onclick="closeMobileMenu()">Work</a>
   <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#about" onclick="closeMobileMenu()">About</a>
   <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#experiences" onclick="closeMobileMenu()">Experience</a>
@@ -1102,16 +1116,41 @@
   })();
 
 
-  // ─── Mobile menu ────────────────────────────────────────────
-  const menuBtn    = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuClose  = document.getElementById('menu-close');
+  // ─── Mobile menu (hamburger ↔ X toggle) ─────────────────────
+  const menuBtn      = document.getElementById('menu-btn');
+  const mobileMenu   = document.getElementById('mobile-menu');
+  const iconHamburger = document.getElementById('icon-hamburger');
+  const iconCloseX    = document.getElementById('icon-close-x');
 
-  function openMobileMenu()  { mobileMenu.classList.add('open');    document.body.style.overflow = 'hidden'; }
-  function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = '';       }
+  function setMenuIcon(isOpen) {
+    if (!iconHamburger || !iconCloseX) return;
+    if (isOpen) {
+      iconHamburger.style.opacity   = '0';
+      iconHamburger.style.transform = 'rotate(90deg)';
+      iconCloseX.style.opacity      = '1';
+      iconCloseX.style.transform    = 'rotate(0deg)';
+    } else {
+      iconHamburger.style.opacity   = '1';
+      iconHamburger.style.transform = 'rotate(0deg)';
+      iconCloseX.style.opacity      = '0';
+      iconCloseX.style.transform    = 'rotate(-90deg)';
+    }
+  }
 
-  if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
-  if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+  function openMobileMenu()  {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setMenuIcon(true);
+  }
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+    setMenuIcon(false);
+  }
+
+  if (menuBtn) menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+  });
 
 
   // ─── Header: pill shrink + glass on scroll ──────────────────
