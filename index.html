@@ -13,60 +13,66 @@
     theme: {
       extend: {
         colors: {
-          "secondary-fixed-dim": "#ddb7ff",
-          "tertiary-fixed": "#ffe088",
-          "on-tertiary-fixed-variant": "#574500",
-          "on-background": "#e5e2e1",
-          "on-secondary-fixed": "#2c0050",
-          "outline-variant": "#4d444c",
-          "secondary": "#ddb7ff",
-          "tertiary": "#e9c349",
-          "outline": "#998d96",
-          "inverse-primary": "#af2b45",
-          "on-tertiary-fixed": "#241a00",
-          "on-primary-fixed-variant": "#8e0e2f",
-          "secondary-fixed": "#f0dbff",
-          "on-surface-variant": "#d0c3cc",
-          "surface-bright": "#3a3939",
-          "error-container": "#93000a",
-          "surface-container": "#201f1f",
-          "secondary-container": "#622599",
-          "surface-container-highest": "#353534",
-          "surface": "#131313",
-          "surface-container-low": "#1c1b1b",
-          "on-secondary-fixed-variant": "#622599",
-          "on-surface": "#e5e2e1",
-          "on-secondary-container": "#d1a1ff",
-          "on-error": "#690005",
-          "surface-container-lowest": "#0e0e0e",
-          "primary-fixed-dim": "#ffb2b8",
-          "on-primary-container": "#df4f66",
-          "primary-container": "#3c000d",
-          "surface-container-high": "#2a2a2a",
-          "surface-variant": "#353534",
-          "primary": "#ffb2b8",
-          "inverse-surface": "#e5e2e1",
-          "tertiary-container": "#cca830",
-          "on-primary-fixed": "#40000f",
-          "surface-dim": "#131313",
-          "on-tertiary": "#3c2f00",
-          "surface-tint": "#ffb2b8",
-          "on-tertiary-container": "#4f3e00",
-          "tertiary-fixed-dim": "#e9c349",
-          "inverse-on-surface": "#313030",
-          "error": "#ffb4ab",
-          "primary-fixed": "#ffdadb",
-          "on-secondary": "#4a0080",
-          "on-primary": "#67001d",
-          "on-error-container": "#ffdad6",
-          "background": "#131313"
+          /* ── Red palette ── */
+          "primary":                    "#EB3A2B",
+          "primary-fixed":              "#ffdad7",
+          "primary-fixed-dim":          "#ff9d96",
+          "on-primary":                 "#ffffff",
+          "on-primary-container":       "#ff6b5e",
+          "primary-container":          "#4a0d09",
+          "on-primary-fixed":           "#3c0a08",
+          "on-primary-fixed-variant":   "#8e1f17",
+          "inverse-primary":            "#C04D43",
+          "secondary":                  "#C04D43",
+          "secondary-fixed":            "#f0d0cc",
+          "secondary-fixed-dim":        "#e0a09a",
+          "on-secondary":               "#ffffff",
+          "on-secondary-container":     "#f0c0bb",
+          "on-secondary-fixed":         "#2c0009",
+          "secondary-container":        "#6B4C49",
+          "on-secondary-fixed-variant": "#6B4C49",
+          "tertiary":                   "#e9c349",
+          "tertiary-fixed":             "#ffe088",
+          "tertiary-fixed-dim":         "#e9c349",
+          "on-tertiary":                "#3c2f00",
+          "on-tertiary-fixed":          "#241a00",
+          "on-tertiary-fixed-variant":  "#574500",
+          "tertiary-container":         "#cca830",
+          "on-tertiary-container":      "#4f3e00",
+          "surface-dim":                "#120908",
+          "surface":                    "#1c1010",
+          "surface-bright":             "#3a2828",
+          "surface-container-lowest":   "#0e0808",
+          "surface-container-low":      "#1a1010",
+          "surface-container":          "#241616",
+          "surface-container-high":     "#2e1d1c",
+          "surface-container-highest":  "#413837",
+          "surface-variant":            "#413837",
+          "on-surface":                 "#f0e8e7",
+          "on-surface-variant":         "#d0b5b3",
+          "background":                 "#120908",
+          "on-background":              "#f0e8e7",
+          "outline":                    "#9e7470",
+          "outline-variant":            "#5c3d3b",
+          "error":                      "#ffb4ab",
+          "error-container":            "#93000a",
+          "on-error":                   "#690005",
+          "on-error-container":         "#ffdad6",
+          "inverse-surface":            "#f0e8e7",
+          "inverse-on-surface":         "#341e1d",
+          "surface-tint":               "#EB3A2B",
         },
         fontFamily: {
           "headline": ["Newsreader"],
-          "body": ["Manrope"],
-          "label": ["Manrope"]
+          "body":     ["Manrope"],
+          "label":    ["Manrope"]
         },
-        borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        borderRadius: {
+          "DEFAULT": "1rem",
+          "lg":      "2rem",
+          "xl":      "3rem",
+          "full":    "9999px"
+        },
       },
     },
   }
@@ -75,8 +81,8 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background-color: #0e0e0e;
-    color: #e5e2e1;
+    background-color: #0e0808;
+    color: #f0e8e7;
     overflow-x: hidden;
   }
 
@@ -84,114 +90,188 @@
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
 
+  /* ─── Hero: sticky so sections slide over it ─── */
+  #hero {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 100vh;
+  }
+
+  /* ─── All sections after hero stack above it ─── */
+  #about, #toolkit, #work, #experiences, footer, header {
+    position: relative;
+    z-index: 2;
+  }
+  header { z-index: 50; }
+
   /* ─── Hero blobs ─── */
   .fluid-shape {
     filter: blur(80px);
-    opacity: 0.35;
+    opacity: 0.32;
     pointer-events: none;
   }
 
   #hero-mouse-blob {
     position: absolute;
-    width: 480px;
-    height: 480px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, #622599 0%, transparent 70%);
-    filter: blur(90px);
-    opacity: 0.45;
+    background: radial-gradient(circle, #C04D43 0%, transparent 70%);
+    filter: blur(100px);
+    opacity: 0.42;
     pointer-events: none;
     will-change: transform;
+  }
+
+  /* ─── Hero content: parallax on scroll ─── */
+  .hero-content {
+    will-change: transform, opacity;
     transition: none;
   }
 
   /* ─── Entrance animations ─── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(32px); }
+    from { opacity: 0; transform: translateY(36px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .fade-up {
-    opacity: 0;
-    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-  .fade-up-1 { animation-delay: 0.1s; }
-  .fade-up-2 { animation-delay: 0.25s; }
-  .fade-up-3 { animation-delay: 0.4s; }
+  .fade-up            { opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .fade-up-1          { animation-delay: 0.1s; }
+  .fade-up-2          { animation-delay: 0.28s; }
+  .fade-up-3          { animation-delay: 0.46s; }
 
   /* ─── Section reveal ─── */
   .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(52px);
+    transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
+                transform 0.85s cubic-bezier(0.22,1,0.36,1);
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── About: slides OVER the hero ─── */
+  #about {
+    background: #1a1010;
+    box-shadow: 0 -32px 80px rgba(0,0,0,0.7);
   }
 
-  /* ─── Project cards ─── */
+  /* ─── Project card wrappers animate position ─── */
+  .project-card-wrapper {
+    transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+    will-change: transform;
+  }
+
   .project-card-inner {
-    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity   0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                box-shadow 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform  0.55s cubic-bezier(0.25,0.46,0.45,0.94),
+                opacity    0.55s cubic-bezier(0.25,0.46,0.45,0.94),
+                box-shadow 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
     will-change: transform, opacity;
   }
 
   .projects-grid.has-hover .project-card-wrapper:not(.is-hovered) .project-card-inner {
-    opacity: 0.45;
-    transform: scale(0.965);
+    opacity: 0.38;
+    transform: scale(0.962);
   }
 
   .projects-grid.has-hover .project-card-wrapper.is-hovered .project-card-inner {
-    transform: scale(1.035);
-    box-shadow: 0 30px 80px rgba(98, 37, 153, 0.35);
+    transform: scale(1.032);
+    box-shadow: 0 28px 72px rgba(235,58,43,0.28);
     z-index: 10;
   }
 
-  /* ─── Tool tags ─── */
-  .tool-tag {
-    background: rgba(98, 37, 153, 0.18);
-    border: 1px solid rgba(98, 37, 153, 0.35);
-    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  /* ─── Skill groups ─── */
+  .skill-group {
+    background: #241616;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background 0.3s ease;
   }
-  .tool-tag:hover {
-    background: rgba(98, 37, 153, 0.38);
-    border-color: rgba(221, 183, 255, 0.4);
-    transform: translateY(-2px);
+  .skill-group:hover {
+    border-color: rgba(235,58,43,0.25);
+    background: #2e1d1c;
+  }
+
+  .skill-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: #d0b5b3;
+    transition: color 0.3s ease;
+  }
+  .skill-group:hover .skill-group-header { color: #f0e8e7; }
+
+  .skill-group-arrow {
+    display: inline-block;
+    transition: transform 0.42s cubic-bezier(0.22,1,0.36,1);
+    font-size: 1.1rem;
+    color: #9e7470;
+  }
+  .skill-group:hover .skill-group-arrow { transform: rotate(180deg); color: #EB3A2B; }
+
+  .skill-group-panel {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.52s cubic-bezier(0.22,1,0.36,1),
+                opacity    0.38s ease;
+  }
+  .skill-group:hover .skill-group-panel {
+    max-height: 420px;
+    opacity: 1;
+  }
+
+  /* staggered item reveal */
+  .skill-item {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.28s ease, transform 0.28s ease,
+                background 0.2s ease, border-color 0.2s ease;
+  }
+  .skill-group:hover .skill-item { opacity: 1; transform: translateY(0); }
+  .skill-group:hover .skill-item:nth-child(1) { transition-delay: 0.04s; }
+  .skill-group:hover .skill-item:nth-child(2) { transition-delay: 0.09s; }
+  .skill-group:hover .skill-item:nth-child(3) { transition-delay: 0.14s; }
+  .skill-group:hover .skill-item:nth-child(4) { transition-delay: 0.19s; }
+  .skill-group:hover .skill-item:nth-child(5) { transition-delay: 0.24s; }
+  .skill-group:hover .skill-item:nth-child(6) { transition-delay: 0.29s; }
+
+  .skill-item:hover {
+    background: rgba(235,58,43,0.12) !important;
+    border-color: rgba(235,58,43,0.3) !important;
+    color: #f0e8e7;
   }
 
   /* ─── Experience cards ─── */
   .exp-card {
-    background: #1c1b1b;
+    background: #1c1010;
     border: 1px solid rgba(255,255,255,0.05);
     transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
   }
   .exp-card:hover {
-    background: #201f1f;
-    border-color: rgba(98, 37, 153, 0.25);
+    background: #241616;
+    border-color: rgba(235,58,43,0.2);
     transform: translateY(-4px);
   }
 
-  /* ─── Mobile nav menu ─── */
-  #mobile-menu {
-    display: none;
-  }
-  #mobile-menu.open {
-    display: flex;
-  }
+  /* ─── Mobile nav ─── */
+  #mobile-menu         { display: none; }
+  #mobile-menu.open    { display: flex; }
 
   /* ─── Scrollbar ─── */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: #0e0e0e; }
-  ::-webkit-scrollbar-thumb { background: #622599; border-radius: 4px; }
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0e0808; }
+  ::-webkit-scrollbar-thumb { background: #EB3A2B; border-radius: 4px; }
 </style>
 </head>
-<body class="font-body selection:bg-primary selection:text-on-primary">
+<body class="font-body selection:bg-primary selection:text-white">
 
 <!-- ═══════════════════════════════════════
      HEADER
 ════════════════════════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-md flex justify-between items-center px-6 md:px-10 py-5 max-w-screen-2xl left-1/2 -translate-x-1/2">
+<header class="fixed top-0 w-full z-50 bg-[#0e0808]/60 backdrop-blur-md flex justify-between items-center px-6 md:px-10 py-5 max-w-screen-2xl left-1/2 -translate-x-1/2">
   <div class="text-2xl font-headline font-bold tracking-tighter text-primary">Gabriel</div>
 
   <nav class="hidden md:flex items-center gap-10 font-headline italic tracking-tight">
@@ -207,23 +287,23 @@
 </header>
 
 <!-- Mobile menu -->
-<div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0e0e0e]/95 backdrop-blur-xl flex-col items-center justify-center gap-10">
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0e0808]/95 backdrop-blur-xl flex-col items-center justify-center gap-10">
   <button id="menu-close" class="absolute top-6 right-6 text-primary">
     <span class="material-symbols-outlined text-3xl">close</span>
   </button>
-  <a class="font-headline italic text-4xl text-primary" href="#work" onclick="closeMobileMenu()">Work</a>
-  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#about" onclick="closeMobileMenu()">About</a>
+  <a class="font-headline italic text-4xl text-primary"                href="#work"        onclick="closeMobileMenu()">Work</a>
+  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#about"       onclick="closeMobileMenu()">About</a>
   <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#experiences" onclick="closeMobileMenu()">Experience</a>
-  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#contact"     onclick="closeMobileMenu()">Contact</a>
 </div>
 
 
 <!-- ═══════════════════════════════════════
-     HERO
+     HERO  (sticky — sections scroll OVER it)
 ════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-surface-container-lowest">
+<section id="hero" class="flex items-center justify-center px-6 overflow-hidden bg-[#0e0808]">
 
-  <!-- Static ambient blobs -->
+  <!-- Ambient blobs -->
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <div class="absolute top-1/3 -left-24 w-80 h-80 bg-secondary-container rounded-full fluid-shape"></div>
     <div class="absolute bottom-1/4 -right-24 w-[420px] h-[420px] bg-primary-container rounded-full fluid-shape"></div>
@@ -233,7 +313,7 @@
   <div id="hero-mouse-blob" aria-hidden="true"></div>
 
   <!-- Content -->
-  <div class="relative z-10 text-center max-w-6xl px-4">
+  <div class="hero-content relative z-10 text-center max-w-6xl px-4">
     <p class="fade-up fade-up-1 font-label uppercase tracking-[0.35em] text-outline text-xs mb-8">
       AI Creative Technologist
     </p>
@@ -244,8 +324,8 @@
       Where artificial intelligence meets visual storytelling
     </p>
 
-    <div class="fade-up fade-up-3 mt-12 flex items-center justify-center gap-3">
-      <a href="#work" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-on-primary-container text-[#1a0008] font-label font-semibold text-xs uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity duration-300">
+    <div class="fade-up fade-up-3 mt-12 flex items-center justify-center gap-3 flex-wrap">
+      <a href="#work" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-on-primary-container text-white font-label font-semibold text-xs uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity duration-300">
         View My Work
         <span class="material-symbols-outlined text-base">arrow_downward</span>
       </a>
@@ -263,9 +343,9 @@
 
 
 <!-- ═══════════════════════════════════════
-     ABOUT
+     ABOUT  (slides over hero on scroll)
 ════════════════════════════════════════ -->
-<section class="py-28 md:py-36 px-6 md:px-8 bg-surface-container-low" id="about">
+<section class="py-28 md:py-36 px-6 md:px-8" id="about">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-start">
 
     <div class="md:w-1/2 reveal">
@@ -284,69 +364,119 @@
       </p>
 
       <!-- Stats -->
-      <div class="mt-12 flex flex-wrap gap-10">
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-8">
         <div>
           <div class="text-4xl font-headline text-white leading-none">100<span class="text-primary">+</span></div>
-          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-1">Projects Delivered</div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-tight">Projects<br/>Delivered</div>
         </div>
         <div>
           <div class="text-4xl font-headline text-white leading-none">5<span class="text-primary">+</span></div>
-          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-1">Years of Experience</div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-tight">Years of<br/>Experience</div>
         </div>
         <div>
-          <div class="text-4xl font-headline text-white leading-none">4<span class="text-primary">+</span></div>
-          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-1">AI Platforms Mastered</div>
+          <div class="text-4xl font-headline text-white leading-none">Multi<span class="text-primary">co.</span></div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-tight">Multinational<br/>Projects</div>
+        </div>
+        <div>
+          <div class="font-headline text-white leading-none">
+            <span class="text-3xl">AI</span><span class="text-primary text-3xl"> + </span><span class="text-3xl">Adobe</span>
+          </div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-2 leading-tight">Full Creative<br/>Toolkit</div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
 
 <!-- ═══════════════════════════════════════
-     AI TOOLKIT
+     SKILL TOOLKIT  (3 expandable groups)
 ════════════════════════════════════════ -->
-<section class="py-20 px-6 md:px-8 bg-surface-container-lowest overflow-hidden">
+<section class="py-20 px-6 md:px-8 bg-surface-container-lowest overflow-hidden" id="toolkit">
   <div class="max-w-7xl mx-auto reveal">
-    <span class="font-label text-primary uppercase tracking-widest text-xs block mb-4">— AI Toolkit</span>
+    <span class="font-label text-primary uppercase tracking-widest text-xs block mb-4">— Toolkit</span>
     <h3 class="font-headline italic text-3xl md:text-4xl text-on-surface mb-4">
-      The platforms I command.
+      The tools I master.
     </h3>
     <p class="font-body text-on-surface-variant text-base max-w-xl mb-12">
-      I leverage the most advanced AI tools on the market to generate images, produce videos, build interactive experiences, and craft entire digital worlds.
+      A complete creative arsenal — from cutting-edge AI platforms to world-class design software and battle-tested UX processes.
     </p>
 
-    <div class="flex flex-wrap gap-4 items-start">
-      <!-- Tool: Gemini -->
-      <div class="tool-tag flex items-center gap-3 px-5 py-3 rounded-full cursor-default">
-        <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim inline-block"></span>
-        <span class="font-label text-sm text-on-surface-variant tracking-wide">Gemini</span>
-      </div>
-      <!-- Tool: Nano Banana -->
-      <div class="tool-tag flex items-center gap-3 px-5 py-3 rounded-full cursor-default">
-        <span class="w-2 h-2 rounded-full bg-tertiary inline-block"></span>
-        <span class="font-label text-sm text-on-surface-variant tracking-wide">Nano Banana</span>
-      </div>
-      <!-- Tool: Claude Code -->
-      <div class="tool-tag flex items-center gap-3 px-5 py-3 rounded-full cursor-default">
-        <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
-        <span class="font-label text-sm text-on-surface-variant tracking-wide">Claude Code</span>
-      </div>
-      <!-- Tool: Anti-Gravity -->
-      <div class="tool-tag flex items-center gap-3 px-5 py-3 rounded-full cursor-default">
-        <span class="w-2 h-2 rounded-full bg-on-primary-container inline-block"></span>
-        <span class="font-label text-sm text-on-surface-variant tracking-wide">Anti-Gravity</span>
+    <!-- 3-column skill groups -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+
+      <!-- AI Platforms -->
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span class="font-label text-sm tracking-wide font-semibold">AI Platforms</span>
+          </div>
+          <span class="skill-group-arrow material-symbols-outlined">expand_more</span>
+        </div>
+        <div class="skill-group-panel">
+          <div class="flex flex-col gap-2 mt-5">
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Gemini</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Nano Banana</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Claude Code</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Anti-Gravity</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">ChatGPT</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Midjourney</div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-white/5">
+            <span class="font-label text-[9px] uppercase tracking-widest text-outline">Generates → Images · Videos · Sites · Art</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Output types -->
-      <div class="w-full mt-2"></div>
-      <div class="flex flex-wrap gap-3">
-        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Image Generation</span>
-        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Video Production</span>
-        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Website Creation</span>
-        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Brand Identity</span>
-        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Generative Art</span>
+      <!-- Adobe Suite -->
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-on-primary-container flex-shrink-0"></span>
+            <span class="font-label text-sm tracking-wide font-semibold">Adobe Suite</span>
+          </div>
+          <span class="skill-group-arrow material-symbols-outlined">expand_more</span>
+        </div>
+        <div class="skill-group-panel">
+          <div class="flex flex-col gap-2 mt-5">
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Photoshop</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Illustrator</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">After Effects</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Premiere Pro</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">InDesign</div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-white/5">
+            <span class="font-label text-[9px] uppercase tracking-widest text-outline">Masters → Print · Motion · Brand</span>
+          </div>
+        </div>
       </div>
+
+      <!-- UX Process -->
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary flex-shrink-0"></span>
+            <span class="font-label text-sm tracking-wide font-semibold">UX Process</span>
+          </div>
+          <span class="skill-group-arrow material-symbols-outlined">expand_more</span>
+        </div>
+        <div class="skill-group-panel">
+          <div class="flex flex-col gap-2 mt-5">
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Agile / Sprints</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Design Thinking</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Wireframing</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Usability Testing</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Component Commits</div>
+            <div class="skill-item font-label text-xs uppercase tracking-widest text-outline border border-white/5 px-4 py-2.5 rounded-lg">Prototyping</div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-white/5">
+            <span class="font-label text-[9px] uppercase tracking-widest text-outline">Delivers → Research · Flow · Handoff</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -366,15 +496,15 @@
       </p>
     </div>
 
-    <!-- Asymmetric Grid -->
+    <!-- Asymmetric grid — hover reorganises siblings -->
     <div class="projects-grid grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 reveal" id="projects-grid">
 
-      <!-- Project 1 — wide left -->
-      <div class="project-card-wrapper md:col-span-8">
+      <!-- Card 1 — wide left -->
+      <div class="project-card-wrapper md:col-span-8" data-idx="0">
         <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[16/9] cursor-pointer group">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpGPXhFc0nqYk_OVhbOuaFLDxVq4TlP-aRkq4j62_obss0OOGCa3SMiScGUioAX1RmkejJ7VlJrTrV39oX5PVd9bXiJaTVjy2cRHpnRdnRItniSUydOBSl4jPVZTDH2Mc5e9MpkA_O3y3cPwfKKUgAfxJrC8h-8HNFZYNCfjy2vVcMrXvrn16Q7PbDKkRMGVtJhoRG3w2VuyvaMQigyWW68JJ8ePA2SGThyhU2jopvU4c-PPOzLyyE_vDUrmjLOlLwrPIEODnsK64"
-               alt="Nocturnal Dreams — abstract flowing 3D silk in deep crimson and violet"/>
+               alt="Nocturnal Dreams"/>
           <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-75"></div>
           <div class="absolute bottom-6 left-6 right-6">
             <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Art Direction</span>
@@ -384,12 +514,12 @@
         </div>
       </div>
 
-      <!-- Project 2 — tall right, offset down -->
-      <div class="project-card-wrapper md:col-span-4 md:mt-20">
+      <!-- Card 2 — tall right, offset down -->
+      <div class="project-card-wrapper md:col-span-4 md:mt-20" data-idx="1">
         <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[4/5] cursor-pointer group">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx7ZOb7ZVi74kG2LixCJQjYikjMrkO23aU-dPzq4XDhXT144icHZJvcFSVaYmgah7eHXdbylqqPl-hVa11cz9jiRQ0UCqcFQ6uTZ3HoY6avcwjVJbrUW848xf7vpQ8E4m8GbEECoYEQsvMuh1EqvJopR_FAuTlma7RDVCbQvthU0dygkYA0MyxZycTdklBan3kgYMo5ujH15Hr5WE2ie1gjR-Ca8FTLzo1UPts4jMBXgpqGXOSBmCF_yLo2k4lUwdaH99v2wfboGY"
-               alt="Liquid Interface — sculptural glass illuminated by purple light"/>
+               alt="Liquid Interface"/>
           <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
           <div class="absolute bottom-6 left-6 right-6">
             <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Interactive</span>
@@ -399,12 +529,12 @@
         </div>
       </div>
 
-      <!-- Project 3 — tall left, no vertical offset -->
-      <div class="project-card-wrapper md:col-span-5">
+      <!-- Card 3 — tall left -->
+      <div class="project-card-wrapper md:col-span-5" data-idx="2">
         <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[4/5] cursor-pointer group">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD56waq8wED-Ijuwa9z4AuaJQRvefYkG_4IpT3kSb_60EKCmI6GI1qgJTmSJ5-8nADUikU2Ucu2K3bNX-AVo9-kYymxOYWKUMFPHB6Dvj2hyFD0SZk8cx_B2HV8_O260yl044xic-XQPuzyZfVW50UvoZR6jI-VdKz8YOVqN2jqlhGXadfu6fBnw774OGMB6sZEQ5sFYmn76Ox9PQO2eNRcmbp5fqaO2OkdC7I9_wPD7JAqOePSpWw6-t0-ulcue0E-YqRHRJZbvXE"
-               alt="The Vault 01 — dark moody architecture with pink neon lines"/>
+               alt="The Vault 01"/>
           <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
           <div class="absolute bottom-6 left-6 right-6">
             <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Web Design</span>
@@ -414,12 +544,12 @@
         </div>
       </div>
 
-      <!-- Project 4 — wide right, offset up -->
-      <div class="project-card-wrapper md:col-span-7 md:-mt-16">
+      <!-- Card 4 — wide right, offset up -->
+      <div class="project-card-wrapper md:col-span-7 md:-mt-16" data-idx="3">
         <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[16/9] cursor-pointer group">
           <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbpe7R5AfuKRlDfgqsnUJsO5faiHW1vHpzBbs24-V8hOHAgb_Ri4ifW9iiwAApfV193v5e7sOqc09MKDB1eKh07fMbHUkIMWqW8NDZ6KOKdFW-dFUGYqKTCQBz5CcPTFCyGUWPISxS-gwL_9c1GXfA0Eyx-mRsxqxRCdwhU5qsS-Ilylvzu_PnyEVFk6BIXU4qtlunSl94FPzOaSs1xgtDHqmyh3Q1vC87sJB0bGiScTH7MfYNXEgdS8w3JTo-FPEoOPOiSUf-Mis"
-               alt="Ethereal Branding — layered dark purple geometric patterns"/>
+               alt="Ethereal Branding"/>
           <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
           <div class="absolute bottom-6 left-6 right-6">
             <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Visual Identity</span>
@@ -435,14 +565,14 @@
 
 
 <!-- ═══════════════════════════════════════
-     LATEST EXPERIENCES
+     MY LATEST EXPERIENCES
 ════════════════════════════════════════ -->
 <section class="py-24 md:py-32 px-6 md:px-8 bg-surface-container-lowest" id="experiences">
   <div class="max-w-7xl mx-auto">
 
     <div class="mb-16 reveal">
       <span class="font-label text-primary uppercase tracking-widest text-xs block mb-4">— Career</span>
-      <h3 class="font-headline italic text-4xl md:text-5xl text-on-surface">Latest Experiences.</h3>
+      <h3 class="font-headline italic text-4xl md:text-5xl text-on-surface">My Latest Experiences.</h3>
       <p class="font-body text-on-surface-variant text-base mt-4 max-w-md">
         A track record of delivering AI-powered work across multinational corporations and ambitious brands.
       </p>
@@ -450,7 +580,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
 
-      <!-- Experience 1 — Dingus & Zazzy -->
+      <!-- Dingus & Zazzy -->
       <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer">
         <div class="flex items-start justify-between gap-4">
           <div>
@@ -471,7 +601,7 @@
         </div>
       </div>
 
-      <!-- Experience 2 — ProSolution / Motorola -->
+      <!-- ProSolution / Motorola -->
       <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer">
         <div class="flex items-start justify-between gap-4">
           <div>
@@ -492,7 +622,7 @@
         </div>
       </div>
 
-      <!-- Experience 3 — Privacy -->
+      <!-- Privacy -->
       <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer">
         <div class="flex items-start justify-between gap-4">
           <div>
@@ -513,7 +643,7 @@
         </div>
       </div>
 
-      <!-- Experience 4 — Eletrônica Santana -->
+      <!-- Eletrônica Santana -->
       <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer">
         <div class="flex items-start justify-between gap-4">
           <div>
@@ -534,7 +664,7 @@
         </div>
       </div>
 
-      <!-- Experience 5 — Mariá Modas (full width) -->
+      <!-- Mariá Modas — full width -->
       <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer md:col-span-2">
         <div class="flex items-start justify-between gap-4">
           <div>
@@ -563,13 +693,13 @@
 <!-- ═══════════════════════════════════════
      FOOTER / CONTACT
 ════════════════════════════════════════ -->
-<footer class="bg-[#0e0e0e] w-full border-t border-white/5 px-8 md:px-12 pt-20 pb-32 md:pb-16" id="contact">
+<footer class="bg-[#0e0808] w-full border-t border-white/5 px-8 md:px-12 pt-20 pb-32 md:pb-16" id="contact">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
       <div>
         <div class="text-3xl font-headline italic text-white uppercase tracking-widest mb-4">Gabriel</div>
         <p class="font-body text-on-surface-variant text-sm max-w-xs leading-relaxed">
-          AI Creative Technologist. Available for select projects & collaborations.
+          AI Creative Technologist. Available for select projects &amp; collaborations.
         </p>
       </div>
       <div class="flex flex-col gap-4">
@@ -581,8 +711,8 @@
     <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/5">
       <div class="flex gap-8 font-label text-xs tracking-[0.2em] uppercase text-slate-500">
         <a class="hover:text-primary transition-colors" href="#">Instagram</a>
+        <a class="hover:text-primary transition-colors" href="https://github.com/GabrielTheoo" target="_blank" rel="noopener">GitHub</a>
         <a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
-        <a class="hover:text-primary transition-colors" href="#">GitHub</a>
       </div>
       <div class="font-label text-xs tracking-[0.2em] uppercase text-slate-500">
         © 2025 Gabriel. All rights reserved.
@@ -595,8 +725,8 @@
 <!-- ═══════════════════════════════════════
      FLOATING BOTTOM NAV
 ════════════════════════════════════════ -->
-<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 z-50 bg-[#2D0A31]/55 backdrop-blur-2xl px-5 py-2.5 rounded-full border border-white/5 shadow-[0_20px_50px_rgba(45,10,49,0.4)]">
-  <a class="bg-primary text-[#2D0A31] rounded-full p-2 flex items-center justify-center transition-all duration-300 hover:opacity-80" href="#work" title="Projects">
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 z-50 bg-[#3c0a08]/60 backdrop-blur-2xl px-5 py-2.5 rounded-full border border-white/5 shadow-[0_20px_50px_rgba(60,10,8,0.5)]">
+  <a class="bg-primary text-white rounded-full p-2 flex items-center justify-center transition-all duration-300 hover:opacity-80" href="#work" title="Projects">
     <span class="material-symbols-outlined text-xl">grid_view</span>
   </a>
   <a class="text-white/55 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#about" title="About">
@@ -621,17 +751,16 @@
     const hero = document.getElementById('hero');
     if (!blob || !hero) return;
 
-    let targetX = window.innerWidth / 2;
+    let targetX = window.innerWidth  / 2;
     let targetY = window.innerHeight / 2;
     let currentX = targetX;
     let currentY = targetY;
     const LERP = 0.065;
 
-    // Position blob relative to hero section
-    function updateBlobPosition() {
+    function updateBlob() {
       const rect = hero.getBoundingClientRect();
-      blob.style.left = (currentX - 240) + 'px';
-      blob.style.top  = (currentY - rect.top - 240) + 'px';
+      blob.style.left = (currentX - 250) + 'px';
+      blob.style.top  = (currentY - rect.top - 250) + 'px';
     }
 
     document.addEventListener('mousemove', (e) => {
@@ -639,84 +768,114 @@
       targetY = e.clientY;
     });
 
-    function raf() {
+    (function raf() {
       currentX += (targetX - currentX) * LERP;
       currentY += (targetY - currentY) * LERP;
-      updateBlobPosition();
+      updateBlob();
       requestAnimationFrame(raf);
-    }
-    raf();
+    })();
   })();
 
-  // ─── Project cards hover (grow + shrink siblings) ──────────
+
+  // ─── Hero parallax: content rises & fades as you scroll ─────
+  (function () {
+    const content = document.querySelector('.hero-content');
+    if (!content) return;
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y  = window.scrollY;
+          const vh = window.innerHeight;
+          if (y < vh * 1.2) {
+            const p = y / vh;                                  // 0 → 1
+            content.style.transform = `translateY(${-y * 0.36}px)`;
+            content.style.opacity   = String(Math.max(0, 1 - p * 1.5));
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  })();
+
+
+  // ─── Project cards: hover shifts hovered + repositions siblings
   (function () {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
 
     const wrappers = Array.from(grid.querySelectorAll('.project-card-wrapper'));
 
-    wrappers.forEach((wrapper) => {
-      wrapper.addEventListener('mouseenter', () => {
-        grid.classList.add('has-hover');
-        wrappers.forEach((w) => w.classList.remove('is-hovered'));
-        wrapper.classList.add('is-hovered');
-      });
+    // For each hovered index: sibling shifts [{ i, tx, ty }]
+    const shifts = {
+      0: [{ i:1, tx:0,   ty:24  }, { i:2, tx:-10, ty:0  }, { i:3, tx:-10, ty:0  }],
+      1: [{ i:0, tx:16,  ty:0   }, { i:2, tx:0,   ty:-8 }, { i:3, tx:0,   ty:-8 }],
+      2: [{ i:3, tx:-14, ty:0   }, { i:0, tx:0,   ty:10 }, { i:1, tx:0,   ty:10 }],
+      3: [{ i:2, tx:14,  ty:0   }, { i:0, tx:0,   ty:-8 }, { i:1, tx:0,   ty:-8 }],
+    };
 
-      wrapper.addEventListener('mouseleave', () => {
-        grid.classList.remove('has-hover');
-        wrappers.forEach((w) => w.classList.remove('is-hovered'));
+    function clear() {
+      grid.classList.remove('has-hover');
+      wrappers.forEach((w) => { w.classList.remove('is-hovered'); w.style.transform = ''; });
+    }
+
+    wrappers.forEach((w, idx) => {
+      w.addEventListener('mouseenter', () => {
+        clear();
+        grid.classList.add('has-hover');
+        w.classList.add('is-hovered');
+        (shifts[idx] || []).forEach(({ i, tx, ty }) => {
+          if (wrappers[i]) wrappers[i].style.transform = `translate(${tx}px,${ty}px)`;
+        });
       });
+      w.addEventListener('mouseleave', clear);
     });
   })();
+
 
   // ─── Section reveal on scroll ───────────────────────────────
   (function () {
     const els = document.querySelectorAll('.reveal');
     if (!els.length) return;
-
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
       });
-    }, { threshold: 0.12 });
-
+    }, { threshold: 0.10 });
     els.forEach((el) => io.observe(el));
   })();
 
-  // ─── Mobile menu ────────────────────────────────────────────
-  const menuBtn   = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuClose = document.getElementById('menu-close');
 
-  function openMobileMenu() {
-    mobileMenu.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  // ─── Mobile menu ────────────────────────────────────────────
+  const menuBtn    = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuClose  = document.getElementById('menu-close');
+
+  function openMobileMenu()  { mobileMenu.classList.add('open');    document.body.style.overflow = 'hidden'; }
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
 
   if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
   if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
 
+
   // ─── Active nav link on scroll ──────────────────────────────
   (function () {
     const sections = document.querySelectorAll('section[id], footer[id]');
-    const navLinks = document.querySelectorAll('header nav a');
+    const navLinks  = document.querySelectorAll('header nav a');
 
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navLinks.forEach((a) => {
-            a.classList.toggle('text-primary', a.getAttribute('href') === '#' + entry.target.id);
-            a.classList.toggle('border-b', a.getAttribute('href') === '#' + entry.target.id);
-            a.classList.toggle('border-primary/30', a.getAttribute('href') === '#' + entry.target.id);
-            a.classList.toggle('pb-1', a.getAttribute('href') === '#' + entry.target.id);
-            a.classList.toggle('text-slate-400', a.getAttribute('href') !== '#' + entry.target.id);
+            const active = a.getAttribute('href') === '#' + entry.target.id;
+            a.classList.toggle('text-primary',      active);
+            a.classList.toggle('border-b',          active);
+            a.classList.toggle('border-primary/30', active);
+            a.classList.toggle('pb-1',              active);
+            a.classList.toggle('text-slate-400',    !active);
           });
         }
       });
