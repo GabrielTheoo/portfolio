@@ -438,7 +438,7 @@
     padding-bottom: 1px;
   }
 
-  /* mobile hamburger button */
+  /* mobile hamburger button — desktop only hidden */
   #main-header #menu-btn {
     color: #EB3A2B;
     background: none;
@@ -446,6 +446,11 @@
     cursor: pointer;
     padding: 0.25rem;
     line-height: 1;
+    display: none; /* hidden by default, shown on mobile via media query */
+  }
+  @media (max-width: 767px) {
+    #main-header #menu-btn { display: flex; align-items: center; justify-content: center; }
+    #main-header .header-nav { display: none !important; }
   }
 
   /* ─ mobile: always pill when not scrolled to avoid full bleed ─ */
@@ -477,15 +482,15 @@
 <header id="main-header">
   <a class="header-logo" href="#">Gabriel</a>
 
-  <!-- Desktop nav -->
-  <nav class="header-nav hidden md:flex" id="desktop-nav">
-    <a class="active" href="#work">Work</a>
+  <!-- Desktop nav (hidden on mobile via CSS) -->
+  <nav class="header-nav" id="desktop-nav">
     <a href="#about">About</a>
+    <a class="active" href="#work">Work</a>
     <a href="#experiences">Experience</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Mobile hamburger -->
+  <!-- Mobile hamburger (shown only on mobile via CSS) -->
   <button id="menu-btn" aria-label="Open menu">
     <span class="material-symbols-outlined" style="font-size:1.3rem;">menu</span>
   </button>
@@ -1061,7 +1066,7 @@
   (function () {
     const hdr        = document.getElementById('main-header');
     const navLinks   = document.querySelectorAll('#desktop-nav a');
-    const sections   = ['work','about','experiences','contact'];
+    const sections   = ['about','work','experiences','contact'];
     const THRESHOLD  = 72; // px before pill kicks in
 
     // toggle .scrolled
