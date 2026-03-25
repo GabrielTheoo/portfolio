@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gabriel | AI Creative Technologist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "secondary-fixed-dim": "#ddb7ff",
+          "tertiary-fixed": "#ffe088",
+          "on-tertiary-fixed-variant": "#574500",
+          "on-background": "#e5e2e1",
+          "on-secondary-fixed": "#2c0050",
+          "outline-variant": "#4d444c",
+          "secondary": "#ddb7ff",
+          "tertiary": "#e9c349",
+          "outline": "#998d96",
+          "inverse-primary": "#af2b45",
+          "on-tertiary-fixed": "#241a00",
+          "on-primary-fixed-variant": "#8e0e2f",
+          "secondary-fixed": "#f0dbff",
+          "on-surface-variant": "#d0c3cc",
+          "surface-bright": "#3a3939",
+          "error-container": "#93000a",
+          "surface-container": "#201f1f",
+          "secondary-container": "#622599",
+          "surface-container-highest": "#353534",
+          "surface": "#131313",
+          "surface-container-low": "#1c1b1b",
+          "on-secondary-fixed-variant": "#622599",
+          "on-surface": "#e5e2e1",
+          "on-secondary-container": "#d1a1ff",
+          "on-error": "#690005",
+          "surface-container-lowest": "#0e0e0e",
+          "primary-fixed-dim": "#ffb2b8",
+          "on-primary-container": "#df4f66",
+          "primary-container": "#3c000d",
+          "surface-container-high": "#2a2a2a",
+          "surface-variant": "#353534",
+          "primary": "#ffb2b8",
+          "inverse-surface": "#e5e2e1",
+          "tertiary-container": "#cca830",
+          "on-primary-fixed": "#40000f",
+          "surface-dim": "#131313",
+          "on-tertiary": "#3c2f00",
+          "surface-tint": "#ffb2b8",
+          "on-tertiary-container": "#4f3e00",
+          "tertiary-fixed-dim": "#e9c349",
+          "inverse-on-surface": "#313030",
+          "error": "#ffb4ab",
+          "primary-fixed": "#ffdadb",
+          "on-secondary": "#4a0080",
+          "on-primary": "#67001d",
+          "on-error-container": "#ffdad6",
+          "background": "#131313"
+        },
+        fontFamily: {
+          "headline": ["Newsreader"],
+          "body": ["Manrope"],
+          "label": ["Manrope"]
+        },
+        borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #0e0e0e;
+    color: #e5e2e1;
+    overflow-x: hidden;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  /* ─── Hero blobs ─── */
+  .fluid-shape {
+    filter: blur(80px);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  #hero-mouse-blob {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #622599 0%, transparent 70%);
+    filter: blur(90px);
+    opacity: 0.45;
+    pointer-events: none;
+    will-change: transform;
+    transition: none;
+  }
+
+  /* ─── Entrance animations ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .fade-up-1 { animation-delay: 0.1s; }
+  .fade-up-2 { animation-delay: 0.25s; }
+  .fade-up-3 { animation-delay: 0.4s; }
+
+  /* ─── Section reveal ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Project cards ─── */
+  .project-card-inner {
+    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity   0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+  }
+
+  .projects-grid.has-hover .project-card-wrapper:not(.is-hovered) .project-card-inner {
+    opacity: 0.45;
+    transform: scale(0.965);
+  }
+
+  .projects-grid.has-hover .project-card-wrapper.is-hovered .project-card-inner {
+    transform: scale(1.035);
+    box-shadow: 0 30px 80px rgba(98, 37, 153, 0.35);
+    z-index: 10;
+  }
+
+  /* ─── Tool tags ─── */
+  .tool-tag {
+    background: rgba(98, 37, 153, 0.18);
+    border: 1px solid rgba(98, 37, 153, 0.35);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  }
+  .tool-tag:hover {
+    background: rgba(98, 37, 153, 0.38);
+    border-color: rgba(221, 183, 255, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* ─── Experience cards ─── */
+  .exp-card {
+    background: #1c1b1b;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+  }
+  .exp-card:hover {
+    background: #201f1f;
+    border-color: rgba(98, 37, 153, 0.25);
+    transform: translateY(-4px);
+  }
+
+  /* ─── Mobile nav menu ─── */
+  #mobile-menu {
+    display: none;
+  }
+  #mobile-menu.open {
+    display: flex;
+  }
+
+  /* ─── Scrollbar ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0e0e0e; }
+  ::-webkit-scrollbar-thumb { background: #622599; border-radius: 4px; }
+</style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+
+<!-- ═══════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-md flex justify-between items-center px-6 md:px-10 py-5 max-w-screen-2xl left-1/2 -translate-x-1/2">
+  <div class="text-2xl font-headline font-bold tracking-tighter text-primary">Gabriel</div>
+
+  <nav class="hidden md:flex items-center gap-10 font-headline italic tracking-tight">
+    <a class="text-primary border-b border-primary/30 pb-1" href="#work">Work</a>
+    <a class="text-slate-400 hover:text-primary transition-all duration-500" href="#about">About</a>
+    <a class="text-slate-400 hover:text-primary transition-all duration-500" href="#experiences">Experience</a>
+    <a class="text-slate-400 hover:text-primary transition-all duration-500" href="#contact">Contact</a>
+  </nav>
+
+  <button id="menu-btn" class="md:hidden text-primary p-2" aria-label="Open menu">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0e0e0e]/95 backdrop-blur-xl flex-col items-center justify-center gap-10">
+  <button id="menu-close" class="absolute top-6 right-6 text-primary">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <a class="font-headline italic text-4xl text-primary" href="#work" onclick="closeMobileMenu()">Work</a>
+  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#about" onclick="closeMobileMenu()">About</a>
+  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#experiences" onclick="closeMobileMenu()">Experience</a>
+  <a class="font-headline italic text-4xl text-on-surface-variant hover:text-primary transition-colors" href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-surface-container-lowest">
+
+  <!-- Static ambient blobs -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/3 -left-24 w-80 h-80 bg-secondary-container rounded-full fluid-shape"></div>
+    <div class="absolute bottom-1/4 -right-24 w-[420px] h-[420px] bg-primary-container rounded-full fluid-shape"></div>
+  </div>
+
+  <!-- Mouse-tracking blob -->
+  <div id="hero-mouse-blob" aria-hidden="true"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center max-w-6xl px-4">
+    <p class="fade-up fade-up-1 font-label uppercase tracking-[0.35em] text-outline text-xs mb-8">
+      AI Creative Technologist
+    </p>
+    <h1 class="fade-up fade-up-2 font-headline italic text-6xl sm:text-8xl md:text-[9rem] lg:text-[10.5rem] leading-[0.88] tracking-tighter text-on-background drop-shadow-2xl">
+      CRAFTING<br/><span class="text-primary">DIGITAL ART</span>
+    </h1>
+    <p class="fade-up fade-up-3 mt-8 font-label uppercase tracking-[0.25em] text-outline text-xs md:text-sm max-w-md mx-auto leading-relaxed">
+      Where artificial intelligence meets visual storytelling
+    </p>
+
+    <div class="fade-up fade-up-3 mt-12 flex items-center justify-center gap-3">
+      <a href="#work" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-on-primary-container text-[#1a0008] font-label font-semibold text-xs uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity duration-300">
+        View My Work
+        <span class="material-symbols-outlined text-base">arrow_downward</span>
+      </a>
+      <a href="#contact" class="inline-flex items-center gap-2 font-label font-semibold text-xs uppercase tracking-widest px-6 py-3 rounded-full text-on-surface-variant hover:text-primary transition-colors duration-300 border border-white/10 hover:border-primary/30">
+        Let's Talk
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30 animate-bounce">
+    <span class="material-symbols-outlined text-sm text-outline">keyboard_arrow_down</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     ABOUT
+════════════════════════════════════════ -->
+<section class="py-28 md:py-36 px-6 md:px-8 bg-surface-container-low" id="about">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-start">
+
+    <div class="md:w-1/2 reveal">
+      <span class="font-label text-primary uppercase tracking-widest text-xs block mb-6">— Introduction</span>
+      <h2 class="font-headline italic text-4xl md:text-5xl lg:text-6xl text-on-surface leading-[1.1]">
+        I am Gabriel, an AI specialist transforming the way brands create and communicate in the digital world.
+      </h2>
+    </div>
+
+    <div class="md:w-1/2 pt-0 md:pt-6 reveal">
+      <p class="text-on-surface-variant text-lg leading-relaxed font-body">
+        I operate at the intersection of artificial intelligence and visual creativity — working with the most powerful AI platforms on the market to produce generative images, cinematic videos, immersive websites, and high-impact brand experiences.
+      </p>
+      <p class="text-on-surface-variant text-lg leading-relaxed font-body mt-6">
+        From early-stage startups to global multinationals like Motorola, I have worked across industries — crafting campaigns, interfaces, and brand systems that combine strategic thinking with strong visual execution.
+      </p>
+
+      <!-- Stats -->
+      <div class="mt-12 flex flex-wrap gap-10">
+        <div>
+          <div class="text-4xl font-headline text-white leading-none">100<span class="text-primary">+</span></div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-1">Projects Delivered</div>
+        </div>
+        <div>
+          <div class="text-4xl font-headline text-white leading-none">5<span class="text-primary">+</span></div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-1">Years of Experience</div>
+        </div>
+        <div>
+          <div class="text-4xl font-headline text-white leading-none">4<span class="text-primary">+</span></div>
+          <div class="font-label text-outline text-[10px] uppercase tracking-widest mt-1">AI Platforms Mastered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     AI TOOLKIT
+════════════════════════════════════════ -->
+<section class="py-20 px-6 md:px-8 bg-surface-container-lowest overflow-hidden">
+  <div class="max-w-7xl mx-auto reveal">
+    <span class="font-label text-primary uppercase tracking-widest text-xs block mb-4">— AI Toolkit</span>
+    <h3 class="font-headline italic text-3xl md:text-4xl text-on-surface mb-4">
+      The platforms I command.
+    </h3>
+    <p class="font-body text-on-surface-variant text-base max-w-xl mb-12">
+      I leverage the most advanced AI tools on the market to generate images, produce videos, build interactive experiences, and craft entire digital worlds.
+    </p>
+
+    <div class="flex flex-wrap gap-4 items-start">
+      <!-- Tool: Gemini -->
+      <div class="tool-tag flex items-center gap-3 px-5 py-3 rounded-full cursor-default">
+        <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim inline-block"></span>
+        <span class="font-label text-sm text-on-surface-variant tracking-wide">Gemini</span>
+      </div>
+      <!-- Tool: Nano Banana -->
+      <div class="tool-tag flex items-center gap-3 px-5 py-3 rounded-full cursor-default">
+        <span class="w-2 h-2 rounded-full bg-tertiary inline-block"></span>
+        <span class="font-label text-sm text-on-surface-variant tracking-wide">Nano Banana</span>
+      </div>
+      <!-- Tool: Claude Code -->
+      <div class="tool-tag flex items-center gap-3 px-5 py-3 rounded-full cursor-default">
+        <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+        <span class="font-label text-sm text-on-surface-variant tracking-wide">Claude Code</span>
+      </div>
+      <!-- Tool: Anti-Gravity -->
+      <div class="tool-tag flex items-center gap-3 px-5 py-3 rounded-full cursor-default">
+        <span class="w-2 h-2 rounded-full bg-on-primary-container inline-block"></span>
+        <span class="font-label text-sm text-on-surface-variant tracking-wide">Anti-Gravity</span>
+      </div>
+
+      <!-- Output types -->
+      <div class="w-full mt-2"></div>
+      <div class="flex flex-wrap gap-3">
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Image Generation</span>
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Video Production</span>
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Website Creation</span>
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Brand Identity</span>
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-4 py-2 rounded-full">Generative Art</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     MY PROJECTS
+════════════════════════════════════════ -->
+<section class="py-24 md:py-32 bg-surface" id="work">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-8">
+
+    <div class="mb-16 md:mb-20 reveal">
+      <span class="font-label text-primary uppercase tracking-widest text-xs block mb-4">— Selected Work</span>
+      <h3 class="font-headline italic text-5xl md:text-6xl text-on-surface">My Projects.</h3>
+      <p class="font-body text-on-surface-variant text-base mt-4 max-w-md">
+        A curated selection of AI-powered work delivered to brands that dare to be different.
+      </p>
+    </div>
+
+    <!-- Asymmetric Grid -->
+    <div class="projects-grid grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 reveal" id="projects-grid">
+
+      <!-- Project 1 — wide left -->
+      <div class="project-card-wrapper md:col-span-8">
+        <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[16/9] cursor-pointer group">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpGPXhFc0nqYk_OVhbOuaFLDxVq4TlP-aRkq4j62_obss0OOGCa3SMiScGUioAX1RmkejJ7VlJrTrV39oX5PVd9bXiJaTVjy2cRHpnRdnRItniSUydOBSl4jPVZTDH2Mc5e9MpkA_O3y3cPwfKKUgAfxJrC8h-8HNFZYNCfjy2vVcMrXvrn16Q7PbDKkRMGVtJhoRG3w2VuyvaMQigyWW68JJ8ePA2SGThyhU2jopvU4c-PPOzLyyE_vDUrmjLOlLwrPIEODnsK64"
+               alt="Nocturnal Dreams — abstract flowing 3D silk in deep crimson and violet"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-75"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Art Direction</span>
+            <h4 class="font-headline text-3xl md:text-4xl text-white mt-3 italic">Nocturnal Dreams</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">AI-generated visual campaign for a luxury fragrance brand.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 — tall right, offset down -->
+      <div class="project-card-wrapper md:col-span-4 md:mt-20">
+        <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[4/5] cursor-pointer group">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx7ZOb7ZVi74kG2LixCJQjYikjMrkO23aU-dPzq4XDhXT144icHZJvcFSVaYmgah7eHXdbylqqPl-hVa11cz9jiRQ0UCqcFQ6uTZ3HoY6avcwjVJbrUW848xf7vpQ8E4m8GbEECoYEQsvMuh1EqvJopR_FAuTlma7RDVCbQvthU0dygkYA0MyxZycTdklBan3kgYMo5ujH15Hr5WE2ie1gjR-Ca8FTLzo1UPts4jMBXgpqGXOSBmCF_yLo2k4lUwdaH99v2wfboGY"
+               alt="Liquid Interface — sculptural glass illuminated by purple light"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Interactive</span>
+            <h4 class="font-headline text-2xl md:text-3xl text-white mt-3 italic">Liquid Interface</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Generative UI experiment for a fintech product launch.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 — tall left, no vertical offset -->
+      <div class="project-card-wrapper md:col-span-5">
+        <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[4/5] cursor-pointer group">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD56waq8wED-Ijuwa9z4AuaJQRvefYkG_4IpT3kSb_60EKCmI6GI1qgJTmSJ5-8nADUikU2Ucu2K3bNX-AVo9-kYymxOYWKUMFPHB6Dvj2hyFD0SZk8cx_B2HV8_O260yl044xic-XQPuzyZfVW50UvoZR6jI-VdKz8YOVqN2jqlhGXadfu6fBnw774OGMB6sZEQ5sFYmn76Ox9PQO2eNRcmbp5fqaO2OkdC7I9_wPD7JAqOePSpWw6-t0-ulcue0E-YqRHRJZbvXE"
+               alt="The Vault 01 — dark moody architecture with pink neon lines"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Web Design</span>
+            <h4 class="font-headline text-2xl md:text-3xl text-white mt-3 italic">The Vault 01</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Full AI-assisted website for a private members club in São Paulo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 — wide right, offset up -->
+      <div class="project-card-wrapper md:col-span-7 md:-mt-16">
+        <div class="project-card-inner relative overflow-hidden rounded-xl bg-surface-container aspect-[16/9] cursor-pointer group">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbpe7R5AfuKRlDfgqsnUJsO5faiHW1vHpzBbs24-V8hOHAgb_Ri4ifW9iiwAApfV193v5e7sOqc09MKDB1eKh07fMbHUkIMWqW8NDZ6KOKdFW-dFUGYqKTCQBz5CcPTFCyGUWPISxS-gwL_9c1GXfA0Eyx-mRsxqxRCdwhU5qsS-Ilylvzu_PnyEVFk6BIXU4qtlunSl94FPzOaSs1xgtDHqmyh3Q1vC87sJB0bGiScTH7MfYNXEgdS8w3JTo-FPEoOPOiSUf-Mis"
+               alt="Ethereal Branding — layered dark purple geometric patterns"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-65"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Visual Identity</span>
+            <h4 class="font-headline text-3xl md:text-4xl text-white mt-3 italic">Ethereal Branding</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Complete brand identity powered by generative AI for a global tech startup.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     LATEST EXPERIENCES
+════════════════════════════════════════ -->
+<section class="py-24 md:py-32 px-6 md:px-8 bg-surface-container-lowest" id="experiences">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="mb-16 reveal">
+      <span class="font-label text-primary uppercase tracking-widest text-xs block mb-4">— Career</span>
+      <h3 class="font-headline italic text-4xl md:text-5xl text-on-surface">Latest Experiences.</h3>
+      <p class="font-body text-on-surface-variant text-base mt-4 max-w-md">
+        A track record of delivering AI-powered work across multinational corporations and ambitious brands.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+
+      <!-- Experience 1 — Dingus & Zazzy -->
+      <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="font-label text-outline text-[10px] uppercase tracking-widest">Jan 2026 — Present · Canada · Remote</span>
+            <h4 class="font-headline text-2xl text-on-surface mt-2 italic group-hover:text-primary transition-colors duration-300">Dingus &amp; Zazzy</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1">UX/UI Designer · Full-time</p>
+          </div>
+          <span class="material-symbols-outlined text-primary text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 shrink-0">arrow_outward</span>
+        </div>
+        <p class="font-body text-sm text-outline leading-relaxed">
+          Designing conversion-focused landing pages and responsive interfaces for international clients. Leading UX research, usability testing, and prototyping while crafting visual identities and institutional materials.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">UX/UI</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Landing Pages</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Brand Identity</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Prototyping</span>
+        </div>
+      </div>
+
+      <!-- Experience 2 — ProSolution / Motorola -->
+      <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="font-label text-outline text-[10px] uppercase tracking-widest">Jul 2023 — Dec 2025 · São Paulo · Hybrid</span>
+            <h4 class="font-headline text-2xl text-on-surface mt-2 italic group-hover:text-primary transition-colors duration-300">ProSolution Marketing</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1">Graphic Designer → Mid-level Designer · Motorola</p>
+          </div>
+          <span class="material-symbols-outlined text-primary text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 shrink-0">arrow_outward</span>
+        </div>
+        <p class="font-body text-sm text-outline leading-relaxed">
+          Embedded at Motorola as the lead creative for Trade Marketing. Produced training materials, sales assets, executive presentations, and digital campaigns — managing direct client relationships and cross-functional team alignment.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Motorola</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Trade Marketing</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Art Direction</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Campaigns</span>
+        </div>
+      </div>
+
+      <!-- Experience 3 — Privacy -->
+      <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="font-label text-outline text-[10px] uppercase tracking-widest">Jul 2022 — Apr 2023 · São Paulo · On-site</span>
+            <h4 class="font-headline text-2xl text-on-surface mt-2 italic group-hover:text-primary transition-colors duration-300">Privacy</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1">UX/UI Designer · Full-time</p>
+          </div>
+          <span class="material-symbols-outlined text-primary text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 shrink-0">arrow_outward</span>
+        </div>
+        <p class="font-body text-sm text-outline leading-relaxed">
+          Designed and shipped new product features including a full navigation redesign and a creator profile screen. Collaborated closely with engineering, analysed platform metrics, and produced executive-level performance reports.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Product Design</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">WordPress</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">User Research</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Analytics</span>
+        </div>
+      </div>
+
+      <!-- Experience 4 — Eletrônica Santana -->
+      <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="font-label text-outline text-[10px] uppercase tracking-widest">May 2021 — Jul 2022 · São Paulo</span>
+            <h4 class="font-headline text-2xl text-on-surface mt-2 italic group-hover:text-primary transition-colors duration-300">Eletrônica Santana</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1">Marketing &amp; Creative Assistant · Full-time</p>
+          </div>
+          <span class="material-symbols-outlined text-primary text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 shrink-0">arrow_outward</span>
+        </div>
+        <p class="font-body text-sm text-outline leading-relaxed">
+          Managed social media, e-commerce creative assets, and B2B/B2C campaigns. Produced email marketing, landing pages, and client presentations — building end-to-end creative pipelines from strategy to delivery.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">E-commerce</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Social Media</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Email Marketing</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">B2B / B2C</span>
+        </div>
+      </div>
+
+      <!-- Experience 5 — Mariá Modas (full width) -->
+      <div class="exp-card p-8 rounded-xl flex flex-col gap-6 group cursor-pointer md:col-span-2">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="font-label text-outline text-[10px] uppercase tracking-widest">Sep 2020 — Mar 2021 · São Paulo</span>
+            <h4 class="font-headline text-2xl text-on-surface mt-2 italic group-hover:text-primary transition-colors duration-300">Mariá Modas</h4>
+            <p class="font-body text-sm text-on-surface-variant mt-1">Junior Graphic Designer · Full-time</p>
+          </div>
+          <span class="material-symbols-outlined text-primary text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 shrink-0">arrow_outward</span>
+        </div>
+        <p class="font-body text-sm text-outline leading-relaxed max-w-2xl">
+          First professional role — covered the full creative spectrum: online and offline materials, social media management, e-commerce catalogues, paid traffic oversight (Meta &amp; Google Analytics), and photography editing. A foundational experience that built a broad creative foundation.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Graphic Design</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Social Media</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Photography</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-outline border border-white/5 px-3 py-1 rounded-full">Paid Traffic</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER / CONTACT
+════════════════════════════════════════ -->
+<footer class="bg-[#0e0e0e] w-full border-t border-white/5 px-8 md:px-12 pt-20 pb-32 md:pb-16" id="contact">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+      <div>
+        <div class="text-3xl font-headline italic text-white uppercase tracking-widest mb-4">Gabriel</div>
+        <p class="font-body text-on-surface-variant text-sm max-w-xs leading-relaxed">
+          AI Creative Technologist. Available for select projects & collaborations.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <span class="font-label text-primary uppercase tracking-widest text-xs">Get in touch</span>
+        <a href="mailto:hello@gabriel.com" class="font-headline italic text-2xl text-on-surface hover:text-primary transition-colors duration-300">hello@gabriel.com</a>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/5">
+      <div class="flex gap-8 font-label text-xs tracking-[0.2em] uppercase text-slate-500">
+        <a class="hover:text-primary transition-colors" href="#">Instagram</a>
+        <a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+        <a class="hover:text-primary transition-colors" href="#">GitHub</a>
+      </div>
+      <div class="font-label text-xs tracking-[0.2em] uppercase text-slate-500">
+        © 2025 Gabriel. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════
+     FLOATING BOTTOM NAV
+════════════════════════════════════════ -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 z-50 bg-[#2D0A31]/55 backdrop-blur-2xl px-5 py-2.5 rounded-full border border-white/5 shadow-[0_20px_50px_rgba(45,10,49,0.4)]">
+  <a class="bg-primary text-[#2D0A31] rounded-full p-2 flex items-center justify-center transition-all duration-300 hover:opacity-80" href="#work" title="Projects">
+    <span class="material-symbols-outlined text-xl">grid_view</span>
+  </a>
+  <a class="text-white/55 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#about" title="About">
+    <span class="material-symbols-outlined text-xl">person</span>
+  </a>
+  <a class="text-white/55 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#experiences" title="Experience">
+    <span class="material-symbols-outlined text-xl">work</span>
+  </a>
+  <a class="text-white/55 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#contact" title="Contact">
+    <span class="material-symbols-outlined text-xl">mail</span>
+  </a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script>
+  // ─── Mouse-tracking hero blob ───────────────────────────────
+  (function () {
+    const blob = document.getElementById('hero-mouse-blob');
+    const hero = document.getElementById('hero');
+    if (!blob || !hero) return;
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+    const LERP = 0.065;
+
+    // Position blob relative to hero section
+    function updateBlobPosition() {
+      const rect = hero.getBoundingClientRect();
+      blob.style.left = (currentX - 240) + 'px';
+      blob.style.top  = (currentY - rect.top - 240) + 'px';
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    });
+
+    function raf() {
+      currentX += (targetX - currentX) * LERP;
+      currentY += (targetY - currentY) * LERP;
+      updateBlobPosition();
+      requestAnimationFrame(raf);
+    }
+    raf();
+  })();
+
+  // ─── Project cards hover (grow + shrink siblings) ──────────
+  (function () {
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+
+    const wrappers = Array.from(grid.querySelectorAll('.project-card-wrapper'));
+
+    wrappers.forEach((wrapper) => {
+      wrapper.addEventListener('mouseenter', () => {
+        grid.classList.add('has-hover');
+        wrappers.forEach((w) => w.classList.remove('is-hovered'));
+        wrapper.classList.add('is-hovered');
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+        grid.classList.remove('has-hover');
+        wrappers.forEach((w) => w.classList.remove('is-hovered'));
+      });
+    });
+  })();
+
+  // ─── Section reveal on scroll ───────────────────────────────
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    els.forEach((el) => io.observe(el));
+  })();
+
+  // ─── Mobile menu ────────────────────────────────────────────
+  const menuBtn   = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuClose = document.getElementById('menu-close');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
+  if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+
+  // ─── Active nav link on scroll ──────────────────────────────
+  (function () {
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    const navLinks = document.querySelectorAll('header nav a');
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((a) => {
+            a.classList.toggle('text-primary', a.getAttribute('href') === '#' + entry.target.id);
+            a.classList.toggle('border-b', a.getAttribute('href') === '#' + entry.target.id);
+            a.classList.toggle('border-primary/30', a.getAttribute('href') === '#' + entry.target.id);
+            a.classList.toggle('pb-1', a.getAttribute('href') === '#' + entry.target.id);
+            a.classList.toggle('text-slate-400', a.getAttribute('href') !== '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach((s) => io.observe(s));
+  })();
+</script>
+</body>
+</html>
