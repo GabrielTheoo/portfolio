@@ -524,7 +524,7 @@
 <div class="project-hero">
   <div class="hero-bg"></div>
   <img class="hero-img"
-       src="https://jordan-maestro-site.vercel.app/assets/identity-hero.png"
+       src="https://gabrieltheoo.github.io/jordan-maestro-site-en/assets/identity-hero.png"
        alt="Nike Jordan Maestro Elite SE — hero visual"
        onerror="this.style.opacity='0'"/>
   <div class="hero-gradient"></div>
@@ -541,7 +541,7 @@
       <span class="meta-tag">AI-Generated</span>
       <span class="meta-tag">Brand Identity</span>
       <span class="meta-year">2026</span>
-      <a class="live-btn" href="https://jordan-maestro-site.vercel.app" target="_blank" rel="noopener">
+      <a class="live-btn" href="https://gabrieltheoo.github.io/jordan-maestro-site-en" target="_blank" rel="noopener">
         View Live Site
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M7 17L17 7M7 7h10v10"/>
@@ -671,11 +671,12 @@
       <span class="preview-dot" style="background:#ff5f57"></span>
       <span class="preview-dot" style="background:#febc2e"></span>
       <span class="preview-dot" style="background:#28c840"></span>
-      <span class="preview-url">jordan-maestro-site.vercel.app</span>
+      <span class="preview-url">gabrieltheoo.github.io/jordan-maestro-site-en</span>
     </div>
     <iframe class="site-iframe"
-            src="https://jordan-maestro-site.vercel.app"
+            src="https://gabrieltheoo.github.io/jordan-maestro-site-en"
             title="Nike Jordan Maestro Site Live Preview"
+            scrolling="no"
             loading="lazy"></iframe>
   </div>
 </section>
@@ -689,7 +690,7 @@
     <h3>Want something like this<br/>for your brand?</h3>
     <p>I design and build AI-powered digital experiences that turn products into stories worth experiencing.</p>
     <div class="cta-row">
-      <a class="live-btn" href="https://jordan-maestro-site.vercel.app" target="_blank" rel="noopener">
+      <a class="live-btn" href="https://gabrieltheoo.github.io/jordan-maestro-site-en" target="_blank" rel="noopener">
         Visit the Site
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M7 17L17 7M7 7h10v10"/>
@@ -733,7 +734,7 @@
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
   reveals.forEach(el => io.observe(el));
 
   // Pill header shrink on scroll
