@@ -829,45 +829,27 @@
     const hint    = document.getElementById('ba-hint');
     if (!wrapper || !clip || !handle) return;
 
-    let isDragging = false;
     let pct = 50;
 
     function setPosition(x) {
       const rect = wrapper.getBoundingClientRect();
       pct = Math.min(95, Math.max(5, ((x - rect.left) / rect.width) * 100));
-      clip.style.clipPath   = `inset(0 ${100 - pct}% 0 0)`;
-      handle.style.left     = pct + '%';
+      clip.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left   = pct + '%';
     }
 
-    // Mouse
-    wrapper.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      wrapper.classList.add('dragging');
+    // Mouse — follows cursor on hover, no click needed
+    wrapper.addEventListener('mousemove', (e) => {
       setPosition(e.clientX);
-    });
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      setPosition(e.clientX);
-    });
-    window.addEventListener('mouseup', () => {
-      isDragging = false;
-      wrapper.classList.remove('dragging');
     });
 
     // Touch
     wrapper.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      wrapper.classList.add('dragging');
       setPosition(e.touches[0].clientX);
     }, { passive: true });
-    window.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
+    wrapper.addEventListener('touchmove', (e) => {
       setPosition(e.touches[0].clientX);
     }, { passive: true });
-    window.addEventListener('touchend', () => {
-      isDragging = false;
-      wrapper.classList.remove('dragging');
-    });
   })();
 
   // ── Reveal on scroll ─────────────────────────────────────────
