@@ -36,15 +36,30 @@
   /* ─── HEADER ─── */
   header {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 3rem);
+    max-width: 1100px;
     z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 2.5rem;
-    background: rgba(8,8,8,0.7);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    background: rgba(8,8,8,0.55);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border: 1px solid rgba(235,58,43,0.18);
+    border-radius: 999px;
+    transition: padding 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+                background 0.4s ease,
+                border-color 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  }
+  header.scrolled {
+    padding: 0.65rem 1.75rem;
+    background: rgba(8,8,8,0.82);
+    border-color: rgba(235,58,43,0.28);
   }
   .logo { font-family:'Newsreader',serif; font-style:italic; font-size:1.4rem; font-weight:700; color:var(--red); text-decoration:none; }
   .back-btn {
@@ -368,14 +383,14 @@
   <div class="section-label">— The Challenge</div>
   <h2>A production team running out of assets before running out of ideas.</h2>
   <p>
-    At <strong style="color:var(--text);">ProSolution Marketing</strong>, embedded inside Motorola's Trade Marketing operation, the creative team faced a recurring crisis: a severe shortage of high-quality product images and videos. Every campaign cycle, the team would spend days — sometimes weeks — hunting for the right asset, negotiating access, waiting on approval chains, and compromising on quality when nothing better was available.
+    At <strong style="color:var(--text);">ProSolution Marketing</strong>, embedded inside Motorola's Trade Marketing operation, the creative team faced a recurring crisis: a severe shortage of high-quality product images and videos. Every campaign cycle, the team would spend days, sometimes weeks, hunting for the right asset, negotiating access, waiting on approval chains, and compromising on quality when nothing better was available.
   </p>
   <p>
     The bottleneck wasn't creativity. It was infrastructure. And the cost showed up in every deadline that slipped, every training deck that launched late, and every sales associate who went into the field undertrained.
   </p>
 
   <div class="highlight">
-    <p><strong>The core problem:</strong> No scalable, fast, brand-safe way to generate product imagery and video on demand — causing delivery delays across all trade marketing materials.</p>
+    <p><strong>The core problem:</strong> No scalable, fast, brand-safe way to generate product imagery and video on demand, causing delivery delays across all trade marketing materials.</p>
   </div>
 </section>
 
@@ -390,7 +405,7 @@
     Together with the creative team, I designed and validated a new content production workflow built entirely around <strong style="color:var(--text);">generative AI for image and video</strong>. The approach wasn't just to generate assets — it was to create a repeatable system that could be validated directly with Motorola's brand team and integrated into the existing content calendar.
   </p>
   <p>
-    We established a clear generation → review → approval loop with Motorola stakeholders, ensuring AI-generated content met brand guidelines before production. Once validated, assets could be produced in hours — not days.
+    We established a clear generation → review → approval loop with Motorola stakeholders, ensuring AI-generated content met brand guidelines before production. Once validated, assets could be produced in hours, not days.
   </p>
 
   <div class="process-grid">
@@ -402,12 +417,12 @@
     <div class="process-card reveal reveal-delay-2">
       <div class="process-num">02</div>
       <h4>AI Generation</h4>
-      <p>Used generative AI tools to produce on-brand product videos and imagery on demand — tailored to campaign briefs, device colorways, and seasonal contexts.</p>
+      <p>Used generative AI tools to produce on-brand product videos and imagery on demand, tailored to campaign briefs, device colorways, and seasonal contexts.</p>
     </div>
     <div class="process-card reveal reveal-delay-3">
       <div class="process-num">03</div>
       <h4>Brand Validation</h4>
-      <p>Established a direct feedback loop with Motorola's brand team to review and approve AI outputs — building trust and a growing library of pre-approved assets.</p>
+      <p>Established a direct feedback loop with Motorola's brand team to review and approve AI outputs, building trust and a growing library of pre-approved assets.</p>
     </div>
     <div class="process-card reveal">
       <div class="process-num">04</div>
@@ -433,7 +448,7 @@
     <video autoplay muted loop playsinline>
       <source src="videos/video-1.mp4" type="video/mp4"/>
     </video>
-    <span class="video-overlay-label">AI Product Video — Campaign 01</span>
+    <span class="video-overlay-label">AI Product Video / Campaign 01</span>
   </div>
 
   <!-- Sub videos grid -->
@@ -442,25 +457,25 @@
       <video autoplay muted loop playsinline>
         <source src="videos/video-2.mp4" type="video/mp4"/>
       </video>
-      <span class="video-thumb-label">Campaign 02 — Tap to expand</span>
+      <span class="video-thumb-label">Campaign 02 · Tap to expand</span>
     </div>
     <div class="video-thumb" onclick="openModal('videos/video-3.mp4')">
       <video autoplay muted loop playsinline>
         <source src="videos/video-3.mp4" type="video/mp4"/>
       </video>
-      <span class="video-thumb-label">Campaign 03 — Tap to expand</span>
+      <span class="video-thumb-label">Campaign 03 · Tap to expand</span>
     </div>
     <div class="video-thumb" onclick="openModal('videos/video-4.mp4')">
       <video autoplay muted loop playsinline>
         <source src="videos/video-4.mp4" type="video/mp4"/>
       </video>
-      <span class="video-thumb-label">Campaign 04 — Tap to expand</span>
+      <span class="video-thumb-label">Campaign 04 · Tap to expand</span>
     </div>
     <div class="video-thumb" onclick="openModal('videos/video-5.mp4')">
       <video autoplay muted loop playsinline>
         <source src="videos/video-5.mp4" type="video/mp4"/>
       </video>
-      <span class="video-thumb-label">Campaign 05 — Tap to expand</span>
+      <span class="video-thumb-label">Campaign 05 · Tap to expand</span>
     </div>
   </div>
 </div>
@@ -483,7 +498,7 @@
   <div class="section-label">— The Results</div>
   <h2>Faster delivery.<br/>More people trained. Less wasted time.</h2>
   <p>
-    The impact of the new pipeline was measurable from the first campaign cycle. By eliminating the asset-hunting phase and replacing it with on-demand generation and validation, the team gained back significant production time — time that was reinvested directly into output volume.
+    The impact of the new pipeline was measurable from the first campaign cycle. By eliminating the asset-hunting phase and replacing it with on-demand generation and validation, the team gained back significant production time, reinvested directly into output volume.
   </p>
   <p>
     Training materials improved in quality and quantity. More sales associates could be onboarded faster, with richer visual content. And Motorola gained a creative partner who could produce campaign-ready content in hours, not weeks.
@@ -520,12 +535,12 @@
     The pipeline was built using the latest generative AI platforms for image and video production, combined with traditional Adobe tools for post-processing and brand alignment.
   </p>
   <div class="tools-row">
-    <span class="tool-pill"><span class="tool-dot"></span>Gemini — Visual Research</span>
-    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>Envato AI — Video Generation</span>
-    <span class="tool-pill"><span class="tool-dot" style="background:var(--violet)"></span>Claude — Process Design</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Gemini · Visual Research</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>Envato AI · Video Generation</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--violet)"></span>Claude · Process Design</span>
     <span class="tool-pill"><span class="tool-dot"></span>Photoshop — Post-processing</span>
-    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>After Effects — Animation</span>
-    <span class="tool-pill"><span class="tool-dot"></span>Figma — Layouts &amp; Specs</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>After Effects · Animation</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Figma · Layouts &amp; Specs</span>
   </div>
 </section>
 
@@ -536,7 +551,7 @@
 <section>
   <div class="cta-block reveal">
     <h3>Want to bring AI<br/>into your creative workflow?</h3>
-    <p>I design processes and pipelines that make AI work for your team — faster, smarter, and fully brand-aligned.</p>
+    <p>I design processes and pipelines that make AI work for your team: faster, smarter, and fully brand-aligned.</p>
     <div class="cta-row">
       <a class="live-btn" href="index.html#contact">
         Let's Talk
@@ -564,7 +579,7 @@
   </a>
 </div>
 <div style="text-align:center; padding:1.5rem; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">
-  © 2025 Gabriel. All rights reserved.
+  © 2026 Gabriel. All rights reserved.
 </div>
 
 
@@ -599,6 +614,15 @@
     if (e.target === this) closeModal();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Pill header shrink on scroll
+  (function() {
+    const hdr = document.querySelector('header');
+    if (!hdr) return;
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  })();
 </script>
 </body>
 </html>

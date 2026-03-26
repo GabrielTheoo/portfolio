@@ -37,18 +37,33 @@
   ::-webkit-scrollbar-track { background: var(--black); }
   ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
 
-  /* ─── HEADER ─── */
+  /* ─── HEADER pill ─── */
   header {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 3rem);
+    max-width: 1100px;
     z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 2.5rem;
-    background: rgba(8,8,8,0.7);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    background: rgba(8,8,8,0.55);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border: 1px solid rgba(235,58,43,0.18);
+    border-radius: 999px;
+    transition: padding 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+                background 0.4s ease,
+                border-color 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  }
+  header.scrolled {
+    padding: 0.65rem 1.75rem;
+    background: rgba(8,8,8,0.82);
+    border-color: rgba(235,58,43,0.28);
   }
   .logo {
     font-family: 'Newsreader', serif;
@@ -525,7 +540,7 @@
       <span class="meta-tag">Web Development</span>
       <span class="meta-tag">AI-Generated</span>
       <span class="meta-tag">Brand Identity</span>
-      <span class="meta-year">2025</span>
+      <span class="meta-year">2026</span>
       <a class="live-btn" href="https://jordan-maestro-site.vercel.app" target="_blank" rel="noopener">
         View Live Site
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -542,10 +557,10 @@
   <div class="section-label">— The Challenge</div>
   <h2>A world-class cleat.<br/>A digital presence that didn't match.</h2>
   <p>
-    Browsing Nike's digital ecosystem, one thing stood out: the <strong style="color: var(--text);">Jordan Tiempo Maestro Elite SE Infrared 23</strong> — one of the most visually striking products in the football line — had no dedicated web experience that did it justice. For a cleat with that level of craft and heritage, the absence of an immersive digital narrative was a missed opportunity.
+    Browsing Nike's digital ecosystem, one thing stood out: the <strong style="color: var(--text);">Jordan Tiempo Maestro Elite SE Infrared 23</strong> — one of the most visually striking products in the football line, with no dedicated web experience that did it justice. For a cleat with that level of craft and heritage, the absence of an immersive digital narrative was a missed opportunity.
   </p>
   <p>
-    The challenge was clear: design and build a product website that matched the ambition of the cleat itself — merging Jordan Brand's basketball legacy with elite football culture, and doing it entirely through AI-powered tools.
+    The challenge was clear: design and build a product website that matched the ambition of the cleat itself, merging Jordan Brand's basketball legacy with elite football culture, and doing it entirely through AI-powered tools.
   </p>
 </section>
 
@@ -569,7 +584,7 @@
     <div class="process-card reveal reveal-delay-2">
       <div class="process-num">02</div>
       <h4>AI-Powered Design System</h4>
-      <p>Built a full Figma design system using AI assistance — defining color tokens, typography scale, spacing, and component rules aligned to Nike brand guidelines.</p>
+      <p>Built a full Figma design system using AI assistance, defining color tokens, typography scale, spacing, and component rules aligned to Nike brand guidelines.</p>
     </div>
     <div class="process-card reveal reveal-delay-3">
       <div class="process-num">03</div>
@@ -579,7 +594,7 @@
     <div class="process-card reveal">
       <div class="process-num">04</div>
       <h4>UX &amp; Interaction Design</h4>
-      <p>Designed the full user experience with scroll-driven animation, parallax storytelling, colorway switching, and immersive product visualization — all performance-optimised.</p>
+      <p>Designed the full user experience with scroll-driven animation, parallax storytelling, colorway switching, and immersive product visualization. All performance-optimised.</p>
     </div>
   </div>
 </section>
@@ -592,12 +607,12 @@
   <div class="section-label">— AI Toolkit</div>
   <h2>Built with the most<br/>powerful tools available.</h2>
   <p>
-    This project was built end-to-end using AI — from ideation and image generation to code scaffolding and copy refinement. Each tool played a specific role in accelerating production without compromising quality.
+    This project was built end-to-end using AI, from ideation and image generation to code scaffolding and copy refinement. Each tool played a specific role in accelerating production without compromising quality.
   </p>
   <div class="tools-row">
-    <span class="tool-pill"><span class="tool-dot"></span>Gemini — Research &amp; Concept</span>
-    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>Flow — Visual Generation</span>
-    <span class="tool-pill"><span class="tool-dot" style="background:var(--violet)"></span>Claude — Development &amp; Copy</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Gemini · Research &amp; Concept</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>Flow · Visual Generation</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:var(--violet)"></span>Claude · Development &amp; Copy</span>
     <span class="tool-pill"><span class="tool-dot"></span>Figma — Design System</span>
     <span class="tool-pill"><span class="tool-dot" style="background:var(--gold)"></span>Vercel — Deployment</span>
   </div>
@@ -611,12 +626,12 @@
   <div class="section-label">— Design System</div>
   <h2>Every pixel rooted<br/>in brand truth.</h2>
   <p>
-    A full design system was created in Figma using AI to ensure brand consistency across every screen. Color tokens, typography scales, spacing grids, and UI components were all defined before a single line of code was written — guaranteeing that Nike and Jordan Brand guidelines were respected throughout the build.
+    A full design system was created in Figma using AI to ensure brand consistency across every screen. Color tokens, typography scales, spacing grids, and UI components were all defined before a single line of code was written, guaranteeing that Nike and Jordan Brand guidelines were respected throughout the build.
   </p>
 
   <div class="ds-wrapper reveal reveal-delay-1">
-    <img src="design-system.svg" alt="Jordan Cleat × SNKRS — Design System by Gabriel"/>
-    <div class="ds-caption">Jordan Cleat × SNKRS — Design System</div>
+    <img src="design-system.svg" alt="Jordan Cleat × SNKRS / Design System by Gabriel"/>
+    <div class="ds-caption">Jordan Cleat × SNKRS / Design System</div>
   </div>
 </section>
 
@@ -706,7 +721,7 @@
   </a>
 </div>
 <div style="text-align:center; padding: 1.5rem; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">
-  © 2025 Gabriel. All rights reserved.
+  © 2026 Gabriel. All rights reserved.
 </div>
 
 
@@ -720,6 +735,15 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
+
+  // Pill header shrink on scroll
+  (function() {
+    const hdr = document.querySelector('header');
+    if (!hdr) return;
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  })();
 </script>
 </body>
 </html>

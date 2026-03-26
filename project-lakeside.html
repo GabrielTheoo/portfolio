@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lakeside — Dream Companies · Gabriel's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:    #EB3A2B;
+    --gold:   #C8922A;
+    --cream:  #EDE5D8;
+    --black:  #080808;
+    --card:   #111010;
+    --border: rgba(235,58,43,0.14);
+    --text:   #F0DCDC;
+    --muted:  #7a6e6e;
+    --white:  #ffffff;
+
+    /* Lakeside brand colours */
+    --lk-dark:   #0D0F0E;
+    --lk-gold:   #B8965A;
+    --lk-cream:  #EDE5D8;
+    --lk-stone:  #9A9082;
+    --lk-forest: #2C3B34;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--lk-gold); border-radius: 4px; }
+
+  /* ─── HEADER pill ─── */
+  header {
+    position: fixed;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 3rem);
+    max-width: 1100px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(8,8,8,0.55);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border: 1px solid rgba(184,150,90,0.22);
+    border-radius: 999px;
+    transition: padding 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+                background 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  header.scrolled {
+    padding: 0.65rem 1.75rem;
+    background: rgba(8,8,8,0.88);
+    border-color: rgba(184,150,90,0.38);
+  }
+  .logo { font-family:'Newsreader',serif; font-style:italic; font-size:1.4rem; font-weight:700; color:var(--red); text-decoration:none; }
+  .back-btn {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:0.7rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--muted); text-decoration:none; transition:color 0.3s;
+  }
+  .back-btn:hover { color:var(--lk-gold); }
+  .back-btn svg { transition:transform 0.3s; }
+  .back-btn:hover svg { transform:translateX(-3px); }
+
+  /* ─── HERO ─── */
+  .project-hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(150deg, #0d1510 0%, #0a0d0b 40%, #080808 100%);
+  }
+  .hero-orb-gold {
+    position:absolute; top:10%; right:8%; width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle,rgba(184,150,90,0.18) 0%,transparent 70%);
+    filter:blur(80px); pointer-events:none;
+  }
+  .hero-orb-forest {
+    position:absolute; bottom:15%; left:5%; width:380px; height:380px; border-radius:50%;
+    background:radial-gradient(circle,rgba(44,59,52,0.35) 0%,transparent 70%);
+    filter:blur(70px); pointer-events:none;
+  }
+  .hero-content {
+    position:relative; z-index:2;
+    padding: 0 2.5rem 5rem; max-width:1100px;
+  }
+  .hero-label {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:0.65rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--lk-gold); margin-bottom:1.5rem;
+  }
+  .hero-label::before { content:''; width:24px; height:1px; background:var(--lk-gold); }
+  .hero-title {
+    font-family:'Newsreader',serif; font-style:italic;
+    font-size:clamp(3.5rem,8vw,7rem); font-weight:300;
+    line-height:0.9; letter-spacing:-0.03em;
+    color:var(--white); margin-bottom:2rem;
+  }
+  .hero-title .accent { color:var(--lk-gold); }
+  .hero-meta { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+  .meta-tag {
+    font-size:0.65rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
+    border:1px solid rgba(184,150,90,0.4); color:var(--lk-gold);
+    padding:0.4rem 0.9rem; border-radius:999px;
+  }
+  .meta-year { font-size:0.65rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-left:auto; }
+  .live-btn {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--lk-gold); color:var(--lk-dark);
+    font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;
+    padding:0.75rem 1.5rem; border-radius:999px; text-decoration:none;
+    transition:opacity 0.3s,transform 0.3s;
+  }
+  .live-btn:hover { opacity:0.85; transform:translateY(-2px); }
+
+  /* ─── LAYOUT ─── */
+  .content-section { padding:6rem 2.5rem; max-width:1100px; margin:0 auto; }
+  .divider { width:100%; height:1px; background:var(--border); max-width:1100px; margin:0 auto; }
+
+  .section-label {
+    font-size:0.65rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--lk-gold); margin-bottom:1.25rem;
+    display:flex; align-items:center; gap:0.75rem;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:rgba(184,150,90,0.2); }
+
+  h2 {
+    font-family:'Newsreader',serif; font-style:italic;
+    font-size:clamp(2rem,4vw,3.5rem); font-weight:300; line-height:1.1;
+    color:var(--white); margin-bottom:1.75rem;
+  }
+  p { font-size:1.0625rem; line-height:1.8; color:#9e8e8e; max-width:680px; }
+  p + p { margin-top:1.25rem; }
+
+  /* ─── BEFORE / AFTER SLIDER ─── */
+  .ba-section {
+    padding: 5rem 0;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .ba-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .ba-tag {
+    font-size:0.65rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase;
+    padding: 0.35rem 0.9rem; border-radius:999px;
+  }
+  .ba-tag.before { background:rgba(255,255,255,0.06); color:var(--muted); border:1px solid rgba(255,255,255,0.1); }
+  .ba-tag.after  { background:rgba(184,150,90,0.15); color:var(--lk-gold); border:1px solid rgba(184,150,90,0.35); }
+
+  .ba-wrapper {
+    position: relative;
+    width: 100%;
+    height: 580px;
+    overflow: hidden;
+    cursor: col-resize;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(184,150,90,0.18);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    user-select: none;
+  }
+
+  /* BEFORE panel — current client site style */
+  .ba-before {
+    position:absolute; inset:0;
+    background: #F5F4F2;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .ba-before-nav {
+    background: #FFFFFF;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .ba-before-logo {
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.05em;
+  }
+  .ba-before-nav-links {
+    display: flex; gap: 1.5rem;
+  }
+  .ba-before-nav-links span {
+    font-size: 0.75rem; color: #666; font-family: Arial, sans-serif; letter-spacing: 0.05em;
+  }
+  .ba-before-hero {
+    flex: 1;
+    background: linear-gradient(180deg, #e8e4de 0%, #d4cfc8 100%);
+    display: flex;
+    align-items: center;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .ba-before-hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23c8c3ba"/><path d="M0 200 Q100 150 200 180 Q300 210 400 160 L400 300 L0 300Z" fill="%23b8b2a8"/><circle cx="320" cy="80" r="60" fill="%23d4cfc8"/></svg>') center/cover;
+    opacity: 0.4;
+  }
+  .ba-before-copy {
+    position: relative; z-index: 1;
+  }
+  .ba-before-copy h3 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: #2a2a2a;
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+  }
+  .ba-before-copy p {
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  .ba-before-cta {
+    margin-top: 1.25rem;
+    display: inline-block;
+    background: #116dff;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* AFTER panel — Gabriel's luxury redesign */
+  .ba-after {
+    position:absolute; inset:0;
+    background: var(--lk-dark);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .ba-after-nav {
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(184,150,90,0.12);
+  }
+  .ba-after-logo {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--lk-gold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  .ba-after-nav-links {
+    display: flex; gap: 1.75rem;
+  }
+  .ba-after-nav-links span {
+    font-size: 0.6rem; color: var(--lk-stone); letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Manrope', sans-serif;
+  }
+  .ba-after-hero {
+    flex: 1;
+    background: linear-gradient(135deg, #0d1510 0%, #0a100d 50%, #080808 100%);
+    display: flex;
+    align-items: center;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Gold orb */
+  .ba-after-hero::before {
+    content:'';
+    position:absolute; top:10%; right:10%;
+    width:300px; height:300px; border-radius:50%;
+    background:radial-gradient(circle,rgba(184,150,90,0.22) 0%,transparent 70%);
+    filter:blur(50px);
+  }
+  /* Subtle grid lines */
+  .ba-after-hero::after {
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(184,150,90,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,150,90,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .ba-after-copy {
+    position: relative; z-index: 1;
+  }
+  .ba-after-eyebrow {
+    font-size: 0.6rem; font-weight:700; letter-spacing:0.35em; text-transform:uppercase;
+    color: var(--lk-gold); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .ba-after-eyebrow::before { content:''; width:20px; height:1px; background:var(--lk-gold); }
+  .ba-after-copy h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--lk-cream);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+  }
+  .ba-after-copy p {
+    font-size: 0.8rem;
+    color: var(--lk-stone);
+    line-height: 1.7;
+    max-width: 280px;
+    font-family: 'Manrope', sans-serif;
+  }
+  .ba-after-cta {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--lk-gold);
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid rgba(184,150,90,0.5);
+  }
+
+  /* Clip reveal handle */
+  .ba-clip-after {
+    position: absolute; inset: 0;
+    clip-path: inset(0 50% 0 0);
+    transition: clip-path 0s; /* driven by JS directly */
+  }
+  .ba-handle {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--lk-gold);
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 0 20px rgba(184,150,90,0.6);
+  }
+  .ba-handle-knob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px; height: 44px;
+    background: var(--lk-gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  .ba-handle-knob svg { color: var(--lk-dark); }
+
+  /* Instruction overlay */
+  .ba-hint {
+    position: absolute; bottom: 1.25rem; left:50%; transform:translateX(-50%);
+    z-index:12;
+    font-size:0.6rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
+    color:rgba(255,255,255,0.5);
+    background:rgba(0,0,0,0.4); backdrop-filter:blur(6px);
+    padding:0.4rem 1rem; border-radius:999px; border:1px solid rgba(255,255,255,0.08);
+    pointer-events:none;
+    transition: opacity 0.5s;
+  }
+  .ba-wrapper.dragging .ba-hint { opacity:0; }
+
+  /* ─── QUOTE BLOCK ─── */
+  .quote-block {
+    margin:2.5rem 0; border-left:3px solid var(--lk-gold);
+    border-radius:0 1rem 1rem 0; padding:1.75rem 2rem;
+    background:rgba(184,150,90,0.05);
+  }
+  .quote-block p {
+    font-family:'Newsreader',serif; font-style:italic;
+    font-size:1.2rem; line-height:1.7; color:var(--lk-cream); max-width:none;
+  }
+  .quote-source { margin-top:0.75rem; font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--lk-gold); }
+
+  /* ─── PALETTE ─── */
+  .palette-grid { display:flex; flex-wrap:wrap; gap:1rem; margin-top:2.5rem; }
+  .palette-swatch { flex:1 1 120px; border-radius:1rem; overflow:hidden; border:1px solid rgba(255,255,255,0.06); }
+  .swatch-color { height:80px; }
+  .swatch-info { background:var(--card); padding:0.75rem 1rem; }
+  .swatch-name { font-size:0.75rem; font-weight:700; color:var(--text); display:block; }
+  .swatch-hex { font-size:0.65rem; color:var(--muted); letter-spacing:0.05em; margin-top:0.2rem; display:block; }
+  .swatch-role { font-size:0.6rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--lk-gold); margin-top:0.25rem; display:block; }
+
+  /* ─── PROCESS CARDS ─── */
+  .process-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-top:3rem; }
+  .process-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:1.25rem; padding:2rem 1.75rem;
+    transition:border-color 0.4s,transform 0.4s;
+  }
+  .process-card:hover { border-color:rgba(184,150,90,0.45); transform:translateY(-6px); }
+  .process-num { font-family:'Newsreader',serif; font-style:italic; font-size:3.5rem; font-weight:300; color:rgba(184,150,90,0.18); line-height:1; margin-bottom:1rem; }
+  .process-card h4 { font-family:'Newsreader',serif; font-style:italic; font-size:1.25rem; color:var(--white); margin-bottom:0.75rem; }
+  .process-card p { font-size:0.875rem; line-height:1.7; color:var(--muted); max-width:none; }
+
+  /* ─── STAT CARDS ─── */
+  .stats-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.5rem; margin-top:3rem; }
+  .stat-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:1.25rem; padding:1.75rem; text-align:center;
+    transition:border-color 0.4s,transform 0.4s;
+  }
+  .stat-card:hover { border-color:rgba(184,150,90,0.4); transform:translateY(-5px); }
+  .stat-num { font-family:'Newsreader',serif; font-style:italic; font-size:3rem; color:var(--white); line-height:1; }
+  .stat-num span { color:var(--lk-gold); }
+  .stat-label { font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-top:0.75rem; }
+
+  /* ─── TOOLS ─── */
+  .tools-row { display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:2rem; }
+  .tool-pill {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:rgba(184,150,90,0.08); border:1px solid rgba(184,150,90,0.25);
+    color:var(--text); font-size:0.8rem; font-weight:500; padding:0.5rem 1.1rem;
+    border-radius:999px; transition:background 0.3s,border-color 0.3s;
+  }
+  .tool-pill:hover { background:rgba(184,150,90,0.18); border-color:rgba(184,150,90,0.5); }
+  .tool-dot { width:6px; height:6px; border-radius:50%; background:var(--lk-gold); flex-shrink:0; }
+
+  /* ─── CTA ─── */
+  .cta-block {
+    margin-top:5rem;
+    background:linear-gradient(135deg,rgba(184,150,90,0.08) 0%,rgba(44,59,52,0.06) 100%);
+    border:1px solid rgba(184,150,90,0.2);
+    border-radius:2rem; padding:4rem 3rem; text-align:center;
+  }
+  .cta-block h3 { font-family:'Newsreader',serif; font-style:italic; font-size:clamp(2rem,4vw,3rem); color:var(--white); margin-bottom:1.25rem; }
+  .cta-block p { margin:0 auto 2.5rem; text-align:center; max-width:480px; }
+  .cta-row { display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity:0; transform:translateY(36px); transition:opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-d1 { transition-delay:0.1s; }
+  .reveal-d2 { transition-delay:0.2s; }
+  .reveal-d3 { transition-delay:0.3s; }
+
+  /* ─── FOOTER ─── */
+  .project-footer {
+    border-top:1px solid var(--border); padding:2.5rem;
+    max-width:1100px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 767px) {
+    header { top:0.75rem; width:calc(100% - 2rem); padding:0.75rem 1.25rem; border-radius:999px; }
+    .hero-content { padding:0 1.25rem 4rem; }
+    .content-section { padding:4rem 1.25rem; }
+    .ba-section { padding:3rem 0; }
+    .ba-label-row { padding:0 1.25rem; }
+    .ba-wrapper { height:360px; border-radius:1rem; }
+    .process-grid { grid-template-columns:1fr; }
+    .stats-row { grid-template-columns:1fr 1fr; }
+    .cta-block { padding:2.5rem 1.5rem; }
+    .project-footer { padding:2rem 1.25rem; }
+    .ba-before-nav-links, .ba-after-nav-links { display:none; }
+    .ba-before-copy h3, .ba-after-copy h3 { font-size:1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="index.html">Gabriel</a>
+  <a class="back-btn" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Portfolio
+  </a>
+</header>
+
+
+<!-- HERO -->
+<div class="project-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orb-gold"></div>
+  <div class="hero-orb-forest"></div>
+
+  <div class="hero-content">
+    <div class="hero-label">Case Study</div>
+    <h1 class="hero-title">
+      Lakeside<br/>by <span class="accent">Dream</span><br/>Companies
+    </h1>
+    <div class="hero-meta">
+      <span class="meta-tag">UX &amp; UI Design</span>
+      <span class="meta-tag">Brand Strategy</span>
+      <span class="meta-tag">Figma</span>
+      <span class="meta-tag">Luxury Real Estate</span>
+      <span class="meta-year">2025 — 2026</span>
+      <a class="live-btn" href="https://www.dreamcompanies.com/lakeside" target="_blank" rel="noopener">
+        View Current Site
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- THE BRIEF -->
+<section class="content-section reveal">
+  <div class="section-label">— The Brief</div>
+  <h2>A luxury lakeside property<br/>that deserved a digital<br/>experience to match.</h2>
+  <p>
+    <strong style="color:var(--text);">Lakeside by Dream Companies</strong> is a premium real estate development that positions itself firmly in the luxury segment. Every aspect of the property speaks to exclusivity, refinement, and aspirational living. The problem was simple: the digital presence did not.
+  </p>
+  <p>
+    The goal was to redesign the Lakeside web experience from the ground up, creating a UI that communicated the same sense of luxury and calm sophistication that a potential buyer would feel walking through the property itself. A site where the first impression sells.
+  </p>
+
+  <div class="quote-block">
+    <p>"Luxury is not about the price tag. It is about the feeling. The website needed to make someone feel they had already arrived."</p>
+    <div class="quote-source">— Design principle, Lakeside Redesign</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- BEFORE / AFTER SLIDER -->
+<div class="ba-section reveal">
+  <div class="ba-label-row">
+    <span class="ba-tag before">Before — Current Site</span>
+    <span class="ba-tag after">After — Gabriel's Redesign</span>
+  </div>
+
+  <div class="ba-wrapper" id="ba-wrapper">
+
+    <!-- BEFORE -->
+    <div class="ba-before">
+      <div class="ba-before-nav">
+        <div class="ba-before-logo">DREAM COMPANIES</div>
+        <div class="ba-before-nav-links">
+          <span>Properties</span>
+          <span>About</span>
+          <span>Contact</span>
+        </div>
+      </div>
+      <div class="ba-before-hero">
+        <div class="ba-before-copy">
+          <h3>Lakeside<br/>Luxury Living</h3>
+          <p>Discover an exclusive community designed for those who appreciate the finer things in life.</p>
+          <div class="ba-before-cta">Explore Properties</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFTER (clipped) -->
+    <div class="ba-clip-after" id="ba-clip">
+      <div class="ba-after">
+        <div class="ba-after-nav">
+          <div class="ba-after-logo">Lakeside</div>
+          <div class="ba-after-nav-links">
+            <span>Residences</span>
+            <span>Experience</span>
+            <span>Contact</span>
+          </div>
+        </div>
+        <div class="ba-after-hero">
+          <div class="ba-after-copy">
+            <div class="ba-after-eyebrow">Lakeside · Dream Companies</div>
+            <h3>Where Still Waters<br/>Meet Refined Living</h3>
+            <p>An intimate collection of lakeside residences designed for those who live beyond the ordinary.</p>
+            <div class="ba-after-cta">
+              Discover Residences
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider handle -->
+    <div class="ba-handle" id="ba-handle">
+      <div class="ba-handle-knob">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12H3M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+      </div>
+    </div>
+
+    <div class="ba-hint" id="ba-hint">Drag to compare</div>
+  </div>
+</div>
+
+
+<!-- BRAND ANALYSIS -->
+<section class="content-section reveal">
+  <div class="section-label">— Brand Analysis</div>
+  <h2>Understanding the brand<br/>before opening Figma.</h2>
+  <p>
+    Luxury real estate is one of the most emotionally-driven purchase decisions a person makes. The analysis began not with wireframes, but with understanding who Lakeside's buyer is, what they value, and what feelings the digital experience needed to evoke before a single word is read.
+  </p>
+  <p>
+    The brand audit identified a clear gap: the existing presence used a generic real estate template that felt interchangeable with thousands of other listings. Lakeside is not a listing. It is a lifestyle. The redesign needed to communicate that distance immediately.
+  </p>
+
+  <!-- Colour palette -->
+  <div class="palette-grid reveal reveal-d1">
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#0D0F0E;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Deep Night</span>
+        <span class="swatch-hex">#0D0F0E</span>
+        <span class="swatch-role">Primary Background</span>
+      </div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#B8965A;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Aged Gold</span>
+        <span class="swatch-hex">#B8965A</span>
+        <span class="swatch-role">Luxury Accent</span>
+      </div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#EDE5D8;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Warm Linen</span>
+        <span class="swatch-hex">#EDE5D8</span>
+        <span class="swatch-role">Typography / Light</span>
+      </div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#2C3B34;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Forest Deep</span>
+        <span class="swatch-hex">#2C3B34</span>
+        <span class="swatch-role">Supporting Dark</span>
+      </div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-color" style="background:#9A9082;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Warm Stone</span>
+        <span class="swatch-hex">#9A9082</span>
+        <span class="swatch-role">Body Text</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- UX STRATEGY -->
+<section class="content-section reveal">
+  <div class="section-label">— Design Strategy</div>
+  <h2>Every pixel earns<br/>its place.</h2>
+  <p>
+    Luxury design is defined by what is removed, not what is added. The redesign stripped away anything that distracted from the property itself: heavy navigation, excessive copy, template-driven layout patterns. What remained was space, intention, and the property's natural beauty.
+  </p>
+  <p>
+    Cormorant Garamond was chosen as the primary display typeface. A refined editorial serif with deep roots in print luxury, it carries the weight of heritage and restraint that the brand needed. It contrasted against clean geometric sans-serif body text to create a hierarchy that feels both premium and legible.
+  </p>
+
+  <div class="process-grid">
+    <div class="process-card reveal reveal-d1">
+      <div class="process-num">01</div>
+      <h4>Buyer Persona Mapping</h4>
+      <p>Profiled the primary buyer segment: high-net-worth individuals who have purchased luxury property before and expect the digital experience to reflect the product quality.</p>
+    </div>
+    <div class="process-card reveal reveal-d2">
+      <div class="process-num">02</div>
+      <h4>Competitive Landscape</h4>
+      <p>Benchmarked against leading luxury real estate brands globally. Identified the visual codes of luxury: negative space, editorial typography, restrained colour, and cinematic imagery.</p>
+    </div>
+    <div class="process-card reveal reveal-d3">
+      <div class="process-num">03</div>
+      <h4>Style Guide in Figma</h4>
+      <p>Created a comprehensive design system in Figma: colour tokens, type scales, spacing grid, component library, and brand guidelines to ensure consistency across every screen.</p>
+    </div>
+    <div class="process-card reveal">
+      <div class="process-num">04</div>
+      <h4>High-Fidelity UI Design</h4>
+      <p>Designed the full homepage and landing page in Figma with scroll animations, property gallery interactions, and immersive hero sections that let the property speak for itself.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- IMPACT -->
+<section class="content-section reveal">
+  <div class="section-label">— The Impact</div>
+  <h2>A digital presence<br/>as exclusive as the<br/>property itself.</h2>
+  <p>
+    The redesign transformed Lakeside from a generic real estate listing into a bespoke digital experience that communicates exclusivity from the first frame. Prospective buyers now encounter a visual narrative that mirrors the quality of the property they are considering.
+  </p>
+  <p>
+    When a luxury product is presented with a luxury experience, trust is built before a single conversation happens. The new Lakeside site creates that trust instantly, reducing friction in the lead qualification process and elevating the perceived value of the development.
+  </p>
+
+  <div class="stats-row reveal reveal-d1">
+    <div class="stat-card">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Custom Design System</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2<span>x</span></div>
+      <div class="stat-label">Pages Redesigned</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num"><span>↑</span></div>
+      <div class="stat-label">Perceived Brand Value</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0<span>px</span></div>
+      <div class="stat-label">Generic Templates Used</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- TOOLS -->
+<section class="content-section reveal">
+  <div class="section-label">— Tools &amp; Stack</div>
+  <h2>Designed in Figma.<br/>Built for luxury.</h2>
+  <div class="tools-row">
+    <span class="tool-pill"><span class="tool-dot"></span>Figma · UI &amp; Style Guide</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Photoshop · Image Retouching</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Illustrator · Brand Assets</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Gemini · Brand Research</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Claude · Copy &amp; Strategy</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Cormorant Garamond · Typography</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- CTA -->
+<section class="content-section">
+  <div class="cta-block reveal">
+    <h3>Your brand deserves<br/>a digital presence<br/>built for its level.</h3>
+    <p>I design experiences that convert, because they feel exactly right for the people they are built for.</p>
+    <div class="cta-row">
+      <a class="live-btn" href="https://www.figma.com/design/tr01UwY3BHbzCMjBgyJGMu/Dream-Home-Estates---Mockup?node-id=179-695" target="_blank" rel="noopener">
+        View Figma Design
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a href="index.html#contact"
+        style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);border:1px solid rgba(255,255,255,0.12);padding:0.75rem 1.5rem;border-radius:999px;text-decoration:none;transition:border-color 0.3s,color 0.3s;"
+        onmouseover="this.style.borderColor='rgba(184,150,90,0.5)';this.style.color='var(--lk-gold)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='var(--text)'">
+        Let's Work Together
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER NAV -->
+<div class="project-footer">
+  <a class="back-btn" href="project-lifethrive.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Prev: Life Thrive
+  </a>
+  <a class="back-btn" href="index.html" style="flex-direction:row-reverse;">
+    All Projects
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+  </a>
+</div>
+<div style="text-align:center;padding:1.5rem;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">
+  © 2026 Gabriel Teobaldo. All rights reserved.
+</div>
+
+
+<script>
+  // ── Before/After slider ───────────────────────────────────────
+  (function() {
+    const wrapper = document.getElementById('ba-wrapper');
+    const clip    = document.getElementById('ba-clip');
+    const handle  = document.getElementById('ba-handle');
+    const hint    = document.getElementById('ba-hint');
+    if (!wrapper || !clip || !handle) return;
+
+    let isDragging = false;
+    let pct = 50;
+
+    function setPosition(x) {
+      const rect = wrapper.getBoundingClientRect();
+      pct = Math.min(95, Math.max(5, ((x - rect.left) / rect.width) * 100));
+      clip.style.clipPath   = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left     = pct + '%';
+    }
+
+    // Mouse
+    wrapper.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      wrapper.classList.add('dragging');
+      setPosition(e.clientX);
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      setPosition(e.clientX);
+    });
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      wrapper.classList.remove('dragging');
+    });
+
+    // Touch
+    wrapper.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      wrapper.classList.add('dragging');
+      setPosition(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      setPosition(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+      wrapper.classList.remove('dragging');
+    });
+  })();
+
+  // ── Reveal on scroll ─────────────────────────────────────────
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+
+  // ── Pill header shrink on scroll ─────────────────────────────
+  (function() {
+    const hdr = document.querySelector('header');
+    if (!hdr) return;
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  })();
+</script>
+</body>
+</html>

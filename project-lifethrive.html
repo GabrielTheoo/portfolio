@@ -38,14 +38,33 @@
   ::-webkit-scrollbar-track { background: var(--black); }
   ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
 
-  /* ─── HEADER ─── */
+  /* ─── HEADER pill ─── */
   header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.25rem 2.5rem;
-    background: rgba(8,8,8,0.7);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
+    position: fixed;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 3rem);
+    max-width: 1100px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(8,8,8,0.55);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border: 1px solid rgba(235,58,43,0.18);
+    border-radius: 999px;
+    transition: padding 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+                background 0.4s ease,
+                border-color 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  }
+  header.scrolled {
+    padding: 0.65rem 1.75rem;
+    background: rgba(8,8,8,0.82);
+    border-color: rgba(235,58,43,0.28);
   }
   .logo { font-family:'Newsreader',serif; font-style:italic; font-size:1.4rem; font-weight:700; color:var(--red); text-decoration:none; }
   .back-btn {
@@ -425,10 +444,10 @@
   <div class="section-label">— The Brief</div>
   <h2>A therapy practice in Florida<br/>that needed a digital home<br/>as warm as its mission.</h2>
   <p>
-    <strong style="color:var(--text);">Life Thrive Solutions</strong> is a trauma-informed therapy practice based in Stuart, Florida — founded by Madonna DeBlauwe with a clear intention: to create a therapeutic space that feels <em>safe, human, and genuinely supportive</em>. The practice offers individual, couples, and family therapy, serving clients in-person in Stuart and across all of Florida via telehealth.
+    <strong style="color:var(--text);">Life Thrive Solutions</strong> is a trauma-informed therapy practice based in Stuart, Florida, founded by Madonna DeBlauwe with a clear intention: to create a therapeutic space that feels <em>safe, human, and genuinely supportive</em>. The practice offers individual, couples, and family therapy, serving clients in-person in Stuart and across all of Florida via telehealth.
   </p>
   <p>
-    The challenge was building a digital presence that matched that mission — a website where potential clients would feel welcomed the moment they arrived, even before speaking to a therapist. A site that converts visitors into appointments not through pressure, but through trust.
+    The challenge was building a digital presence that matched that mission: a website where potential clients would feel welcomed the moment they arrived, even before speaking to a therapist. A site that converts visitors into appointments not through pressure, but through trust.
   </p>
 
   <div class="quote-block">
@@ -445,10 +464,10 @@
   <div class="section-label">— Brand Analysis</div>
   <h2>Understanding the brand<br/>before touching the design.</h2>
   <p>
-    Before opening Figma, the first step was immersing in the brand. What does Life Thrive Solutions stand for? Who are their clients? What do those clients feel when they first visit the site — and what do we need them to feel instead?
+    Before opening Figma, the first step was immersing in the brand. What does Life Thrive Solutions stand for? Who are their clients? What do those clients feel when they first visit the site, and what should we make them feel instead?
   </p>
   <p>
-    The brand audit revealed a clear positioning: Life Thrive Solutions is explicitly <em>not clinical</em>. Their language, their philosophy, their care model — all of it rejects the cold, institutional aesthetic of traditional mental health websites. This shaped every design decision that followed.
+    The brand audit revealed a clear positioning: Life Thrive Solutions is explicitly <em>not clinical</em>. Their language, their philosophy, their care model: all of it rejects the cold, institutional aesthetic of traditional mental health websites. This shaped every design decision that followed.
   </p>
 
   <!-- Color palette -->
@@ -512,7 +531,7 @@
   <div class="section-label">— UX Strategy</div>
   <h2>Every decision designed<br/>to make someone feel<br/>safe enough to ask for help.</h2>
   <p>
-    The UX of a therapy website carries unique weight. A person visiting this site may be in pain, in crisis, or taking one of the hardest steps of their life. The experience had to be frictionless, reassuring, and warm — guiding them naturally toward scheduling a session without pressure.
+    The UX of a therapy website carries unique weight. A person visiting this site may be in pain, in crisis, or taking one of the hardest steps of their life. The experience had to be frictionless, reassuring, and warm, guiding them naturally toward scheduling a session without pressure.
   </p>
 
   <div class="pillars-grid">
@@ -528,21 +547,21 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
       </div>
       <h4>Zero Friction to Contact</h4>
-      <p>CTAs are placed at every natural decision moment. "Take Your Next Step" replaces aggressive "Book Now" language — meeting the client where they are.</p>
+      <p>CTAs are placed at every natural decision moment. "Take Your Next Step" replaces aggressive "Book Now" language, meeting the client where they are.</p>
     </div>
     <div class="pillar-card reveal reveal-delay-3">
       <div class="pillar-icon">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
       <h4>Multi-Client Architecture</h4>
-      <p>Clear pathways for Individual, Couples, and Family therapy — each with its own entry point — so no visitor feels unseen or unaddressed.</p>
+      <p>Clear pathways for Individual, Couples, and Family therapy, each with its own entry point — so no visitor feels unseen or unaddressed.</p>
     </div>
     <div class="pillar-card reveal">
       <div class="pillar-icon">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
       <h4>Digital-First Accessibility</h4>
-      <p>Online therapy options prominently featured alongside in-person — because healing works best when it meets the client where they feel most comfortable.</p>
+      <p>Online therapy options prominently featured alongside in-person, because healing works best when it meets the client where they feel most comfortable.</p>
     </div>
     <div class="pillar-card reveal reveal-delay-1">
       <div class="pillar-icon">
@@ -556,7 +575,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 5.93 5.93l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </div>
       <h4>Lead Conversion</h4>
-      <p>Every page section flows toward a single goal: turning a hesitant visitor into a scheduled appointment — gently, respectfully, and effectively.</p>
+      <p>Every page section flows toward a single goal: turning a hesitant visitor into a scheduled appointment. Gently, respectfully, and effectively.</p>
     </div>
   </div>
 </section>
@@ -569,7 +588,7 @@
   <div class="section-label">— Design Process</div>
   <h2>From brand audit to<br/>live Webflow build.</h2>
   <p>
-    The full project was designed in Figma — from initial wireframes and component libraries to high-fidelity prototypes — before being handed off and built in Webflow in close collaboration with the development team.
+    The full project was designed in Figma, from initial wireframes and component libraries to high-fidelity prototypes — before being handed off and built in Webflow in close collaboration with the development team.
   </p>
 
   <div class="process-grid">
@@ -591,7 +610,7 @@
     <div class="process-card reveal">
       <div class="process-num">04</div>
       <h4>Webflow Development</h4>
-      <p>Worked alongside the dev team to translate Figma designs pixel-perfectly into Webflow — preserving animations, responsive behavior, and brand fidelity at every breakpoint.</p>
+      <p>Worked alongside the dev team to translate Figma designs pixel-perfectly into Webflow, preserving animations, responsive behavior, and brand fidelity at every breakpoint.</p>
     </div>
   </div>
 </section>
@@ -607,7 +626,7 @@
     A well-designed therapy website isn't just a digital business card. It's the first moment of trust between a practice and someone who needs help. When that experience is warm, clear, and welcoming, people take the next step. And when more people take that step, the practice grows — and more lives improve.
   </p>
   <p>
-    By aligning the brand's visual language and UX strategy with the emotional needs of the client, Life Thrive Solutions gained a digital presence that works as hard as their therapists do: building trust, capturing leads, and — most importantly — helping more people in Florida access the support they deserve.
+    By aligning the brand's visual language and UX strategy with the emotional needs of the client, Life Thrive Solutions gained a digital presence that works as hard as their therapists do: building trust, capturing leads, and most importantly helping more people in Florida access the support they deserve.
   </p>
 
   <div class="stats-row reveal reveal-delay-1">
@@ -652,12 +671,12 @@
   <div class="section-label">— Tools &amp; Stack</div>
   <h2>Designed in Figma.<br/>Built in Webflow.</h2>
   <div class="tools-row">
-    <span class="tool-pill"><span class="tool-dot"></span>Figma — UI &amp; UX Design</span>
-    <span class="tool-pill"><span class="tool-dot"></span>Webflow — Development</span>
-    <span class="tool-pill"><span class="tool-dot"></span>Photoshop — Image Treatment</span>
-    <span class="tool-pill"><span class="tool-dot"></span>Illustrator — Brand Assets</span>
-    <span class="tool-pill"><span class="tool-dot"></span>Gemini — Brand Research</span>
-    <span class="tool-pill"><span class="tool-dot"></span>Claude — Copy Refinement</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Figma · UI &amp; UX Design</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Webflow · Development</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Photoshop · Image Treatment</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Illustrator · Brand Assets</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Gemini · Brand Research</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Claude · Copy Refinement</span>
   </div>
 </section>
 
@@ -668,7 +687,7 @@
 <section>
   <div class="cta-block reveal">
     <h3>Your brand deserves<br/>a digital presence<br/>that actually works.</h3>
-    <p>I design websites that feel right — for the people who visit them and the business behind them. Let's build yours.</p>
+    <p>I design websites that feel right, for the people who visit them and the business behind them. Let's build yours.</p>
     <div class="cta-row">
       <a class="live-btn" href="https://www.lifethrivesolutions.com" target="_blank" rel="noopener">
         Visit the Site
@@ -697,7 +716,7 @@
   </a>
 </div>
 <div style="text-align:center; padding:1.5rem; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">
-  © 2025 Gabriel. All rights reserved.
+  © 2026 Gabriel. All rights reserved.
 </div>
 
 
@@ -707,6 +726,15 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   reveals.forEach(el => io.observe(el));
+
+  // Pill header shrink on scroll
+  (function() {
+    const hdr = document.querySelector('header');
+    if (!hdr) return;
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  })();
 </script>
 </body>
 </html>
