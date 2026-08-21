@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Manrope, Newsreader } from "next/font/google";
+import { Instrument_Sans, Inter_Tight } from "next/font/google";
 import "./globals.css";
 
 import { MotionProvider } from "@/components/motion-provider";
@@ -7,25 +7,24 @@ import { SideRail } from "@/components/rail/side-rail";
 import { SvgFilters } from "@/components/ui/svg-filters";
 import { profile } from "@/content/profile";
 
-/** Display face. Closest free stand-in for the reference's licensed
- *  grotesk: tight, high-weight, holds up at 160px with negative tracking. */
+/**
+ * Type pairing, chosen against the reference rather than the old identity.
+ *
+ * The reference sets display in a tight grotesk at up to 160px with -0.02em
+ * tracking and body in a neutral one — a serif cannot carry that. Inter
+ * Tight holds the display sizes; Instrument Sans is the closer neutral for
+ * body than a geometric face would be. Both are free; the reference's own
+ * Tr 3 A and PP Neue Montreal are commercial licences.
+ */
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
   subsets: ["latin"],
   display: "swap",
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
-  display: "swap",
-});
-
-/** Kept for italic accents in case-study pull quotes. */
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -43,7 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${interTight.variable} ${manrope.variable} ${newsreader.variable} antialiased`}
+      className={`${interTight.variable} ${instrumentSans.variable} antialiased`}
     >
       <body>
         <SvgFilters />

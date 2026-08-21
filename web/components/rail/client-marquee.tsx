@@ -36,7 +36,7 @@ function Track({ ariaHidden }: { ariaHidden?: boolean }) {
 
 export function ClientMarquee() {
   return (
-    <div className="shrink-0 overflow-hidden rounded-sm bg-glass py-[0.7rem] pl-[0.888rem] backdrop-blur-xl">
+    <div data-rail-card className="shrink-0 overflow-hidden rounded-sm bg-glass py-[0.7rem] pl-[0.888rem] backdrop-blur-xl">
       <p className="sr-only">Clients: {CLIENTS.join(", ")}</p>
       <div className="marquee-mask flex">
         <Track ariaHidden />

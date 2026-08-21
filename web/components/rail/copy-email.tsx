@@ -32,7 +32,7 @@ export function CopyEmail({ email }: { email: string }) {
   };
 
   return (
-    <div className="shrink-0 rounded-sm bg-glass p-[0.552rem] backdrop-blur-xl">
+    <div data-rail-card className="shrink-0 rounded-sm bg-glass p-[0.552rem] backdrop-blur-xl">
       <button
         type="button"
         onClick={copy}

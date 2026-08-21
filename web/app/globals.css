@@ -58,18 +58,17 @@
      Display sizes are fluid: the reference's 160px at 1280px wide
      would overflow a phone, so each clamps down to a floor.      */
   --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-accent: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-body: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
 
-  --text-mega: clamp(3.5rem, 12.5vw, 10rem); /* → 160px */
+  --text-mega: clamp(3rem, 12.5vw, 10rem); /* → 160px */
   --text-mega--line-height: 0.9;
   --text-mega--letter-spacing: -0.02em;
 
-  --text-huge: clamp(2.75rem, 4.7vw, 3.78rem); /* → 60.4px */
+  --text-huge: clamp(2.25rem, 4.7vw, 3.78rem); /* → 60.4px */
   --text-huge--line-height: 1;
   --text-huge--letter-spacing: -0.019em;
 
-  --text-display: clamp(2.5rem, 4.6vw, 3.664rem); /* → 58.6px */
+  --text-display: clamp(2.1rem, 4.6vw, 3.664rem); /* → 58.6px */
   --text-display--line-height: 1;
   --text-display--letter-spacing: -0.015em;
 
@@ -152,6 +151,18 @@ body {
   );
 }
 
+/* ── Rail intro ──
+   The rail cards start hidden so the hero can hand over to them on scroll.
+   Scoped to the rail breakpoint: below it the rail is a toggled sheet, and
+   hiding its contents would leave the menu blank. Also gated on
+   `.reveal-ready`, so without GSAP the rail is simply visible. */
+@media (min-width: 72rem) {
+  .reveal-ready [data-rail-card] {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 /* ── Scroll reveal ──
    Elements start hidden and are released by GSAP. If GSAP never
    runs (JS error, bot, or reduced motion), `.reveal-ready` on
@@ -170,5 +181,9 @@ body {
   }
   .reveal-ready [data-reveal] {
     opacity: 1;
+  }
+  .reveal-ready [data-rail-card] {
+    opacity: 1;
+    visibility: visible;
   }
 }

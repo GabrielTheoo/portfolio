@@ -84,7 +84,7 @@ export function SideRail() {
         )}
       >
         {/* ── Intro card ── */}
-        <div className="rounded-sm bg-glass p-[0.888rem] backdrop-blur-xl">
+        <div data-rail-card className="rounded-sm bg-glass p-[0.888rem] backdrop-blur-xl">
           <div className="flex items-center justify-between gap-3">
             <Link
               href="/"
@@ -119,7 +119,7 @@ export function SideRail() {
         </div>
 
         {/* ── Stat pair, split by a hairline ── */}
-        <div className="flex items-center rounded-sm bg-glass px-[1.336rem] py-[0.8rem] backdrop-blur-xl">
+        <div data-rail-card className="flex items-center rounded-sm bg-glass px-[1.336rem] py-[0.8rem] backdrop-blur-xl">
           <RailStat value={firstStat.value} unit={firstStat.unit} label={firstStat.label} />
           <div aria-hidden className="h-11 w-px shrink-0 bg-rule" />
           <RailStat value={secondStat.value} unit={secondStat.unit} label={secondStat.label} />
@@ -135,7 +135,7 @@ export function SideRail() {
         <CopyEmail email={profile.email} />
 
         {/* ── Paired CTAs: primary swaps to secondary on hover ── */}
-        <div className="group/cta relative h-11 shrink-0">
+        <div data-rail-card className="group/cta relative h-11 shrink-0">
           <a
             href={`mailto:${profile.email}`}
             className="absolute inset-0 flex items-center justify-center rounded-md bg-accent text-copy font-medium text-on-accent transition-opacity duration-300 group-hover/cta:opacity-0"
@@ -154,7 +154,7 @@ export function SideRail() {
         </div>
 
         {/* ── Portrait, anchoring the bottom of the rail ── */}
-        <div className="relative mt-1 aspect-[4/5] shrink-0 overflow-hidden rounded-sm bg-card rail:aspect-square">
+        <div data-rail-card className="relative mt-1 aspect-[4/5] shrink-0 overflow-hidden rounded-sm bg-card rail:aspect-square">
           <Image
             src={journey.portrait.src}
             alt={journey.portrait.alt}

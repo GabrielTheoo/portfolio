@@ -27,10 +27,10 @@ export function Contact() {
         <a
           href={`mailto:${profile.email}`}
           data-reveal="up"
-          className="group rounded-sm bg-card p-[1.776rem] transition-colors duration-300 hover:bg-inner"
+          className="group min-w-0 rounded-sm bg-card p-[1.776rem] transition-colors duration-300 hover:bg-inner"
         >
           <p className="text-label font-bold uppercase leading-none text-ink-muted">Email</p>
-          <p className="mt-5 break-words font-display text-sub font-medium text-ink transition-colors group-hover:text-accent">
+          <p className="mt-5 break-all font-display text-sub font-medium text-ink transition-colors group-hover:text-accent">
             {profile.email}
           </p>
         </a>
@@ -38,7 +38,7 @@ export function Contact() {
         <a
           href={`tel:${profile.phone.replace(/[^\d+]/g, "")}`}
           data-reveal="up"
-          className="group rounded-sm bg-card p-[1.776rem] transition-colors duration-300 hover:bg-inner"
+          className="group min-w-0 rounded-sm bg-card p-[1.776rem] transition-colors duration-300 hover:bg-inner"
         >
           <p className="text-label font-bold uppercase leading-none text-ink-muted">Phone</p>
           <p className="mt-5 font-display text-sub font-medium text-ink transition-colors group-hover:text-accent">
@@ -46,7 +46,7 @@ export function Contact() {
           </p>
         </a>
 
-        <div data-reveal="up" className="rounded-sm bg-card p-[1.776rem]">
+        <div data-reveal="up" className="min-w-0 rounded-sm bg-card p-[1.776rem]">
           <p className="text-label font-bold uppercase leading-none text-ink-muted">Based in</p>
           <p className="mt-5 font-display text-sub font-medium text-ink">
             {profile.location}

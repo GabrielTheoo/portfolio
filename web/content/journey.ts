@@ -16,7 +16,7 @@ export const journey = {
     "From early-stage startups to global multinationals like Motorola, I have worked across industries: crafting campaigns, interfaces, and brand systems that combine strategic thinking with strong visual execution.",
   ],
   portrait: {
-    src: "/about/gabriel-portrait.jpg",
+    src: "/about/gabriel-portrait.webp",
     alt: "Gabriel Teobaldo, portrait",
   },
   milestones: [

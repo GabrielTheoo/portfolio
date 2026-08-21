@@ -3,16 +3,8 @@
 import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
+import { NAV_ITEMS } from "@/content/nav";
 
-/** Section ids drive both the links and the active-state observer. */
-export const NAV_ITEMS = [
-  { label: "Home", id: "top" },
-  { label: "About me", id: "about" },
-  { label: "Projects", id: "work" },
-  { label: "What you get", id: "capabilities" },
-  { label: "Resume", id: "resume" },
-  { label: "Contact", id: "contact" },
-];
 
 /**
  * Rail nav menu.
@@ -49,7 +41,7 @@ export function RailNav({ onNavigate }: { onNavigate?: () => void }) {
   }, []);
 
   return (
-    <nav className="rounded-sm bg-glass p-[0.888rem] backdrop-blur-xl">
+    <nav data-rail-card className="rounded-sm bg-glass p-[0.888rem] backdrop-blur-xl">
       <ul className="flex flex-col items-start gap-1">
         {NAV_ITEMS.map((item) => {
           const isActive = active === item.id;

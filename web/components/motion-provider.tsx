@@ -44,6 +44,69 @@ export function MotionProvider() {
       document.documentElement.classList.add("reveal-ready");
 
       const ctx = gsap.context(() => {
+        // ── Hero handoff ──
+        // Scrubbed across the hero's scroll length: the copy fades and lifts
+        // away while the rail cards assemble in, so the hero visibly hands
+        // over to the rest of the page.
+        const hero = document.querySelector<HTMLElement>("[data-hero]");
+        const heroFades = gsap.utils.toArray<HTMLElement>("[data-hero-fade]");
+        const railCards = gsap.utils.toArray<HTMLElement>("[data-rail-card]");
+        const railBreakpoint = window.matchMedia("(min-width: 72rem)").matches;
+
+        /** Release the rail unconditionally. The CSS hides it, so any path
+         *  that does not run the timeline has to call this or the rail would
+         *  stay invisible for good. */
+        const showRail = () => gsap.set(railCards, { autoAlpha: 1, x: 0 });
+
+        if (hero && railBreakpoint) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: hero,
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 0.6,
+              invalidateOnRefresh: true,
+              // If the measured distance collapses — a zero-height hero, a
+              // layout that has not settled — there is no scroll range to
+              // drive the handoff, so hand the rail over immediately rather
+              // than leaving the page with no navigation at all.
+              onRefresh: (self) => {
+                if (self.end - self.start < 1) showRail();
+              },
+            },
+          });
+
+          // Durations are explicit and normalised to a 1.0 timeline: on the
+          // defaults the copy hit zero at ~47% while the rail was still
+          // assembling, leaving a stretch of bare shader with a half-built
+          // rail. The copy now clears over most of the range and the rail
+          // starts a beat later, so it reads as a handoff.
+          tl.to(
+            heroFades,
+            { opacity: 0, y: -80, ease: "none", duration: 0.62 },
+            0,
+          );
+
+          // autoAlpha, not opacity: it flips visibility too, so the
+          // still-invisible rail cannot swallow clicks over the hero.
+          tl.fromTo(
+            railCards,
+            { autoAlpha: 0, x: -28 },
+            {
+              autoAlpha: 1,
+              x: 0,
+              ease: "none",
+              duration: 0.45,
+              stagger: 0.045,
+            },
+            0.28,
+          );
+        } else {
+          // No hero on this route, or below the rail breakpoint where the rail
+          // is a toggled sheet rather than a fixed column.
+          showRail();
+        }
+
         // Masked line reveals for display headings.
         gsap.utils.toArray<HTMLElement>('[data-reveal="line"]').forEach((el) => {
           gsap.from(el, {
