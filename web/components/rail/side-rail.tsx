@@ -152,10 +152,14 @@ export function SideRail() {
 
         {/* ── Portrait, anchoring the bottom of the rail ── */}
         <div data-rail-card className="relative mt-1 aspect-[4/5] shrink-0 overflow-hidden rounded-sm bg-card rail:aspect-square">
+          {/* Next flagged this as the LCP element: it sits in the rail above
+              the fold, so without priority the browser only discovers it
+              after the stylesheet resolves. */}
           <Image
             src={journey.portrait.src}
             alt={journey.portrait.alt}
             fill
+            priority
             sizes="15rem"
             className="object-cover"
           />
