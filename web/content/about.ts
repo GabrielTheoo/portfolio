@@ -12,7 +12,7 @@ export const about = {
   body: [
     "I am a graphic designer and UX professional working across branding, interface design and illustration, with advanced command of Photoshop, Illustrator, After Effects and Figma.",
     "What I build is meant to work, not just to look right: user research and usability testing sit behind the visual decisions, so the result serves the person using it and the business paying for it.",
-    "Six years across e-commerce, product teams and a multinational trade marketing floor. The through-line has always been the same — make the thing clear enough that people act.",
+    "Five years across e-commerce, product teams and a multinational trade marketing floor. The through-line has always been the same — make the thing clear enough that people act.",
   ],
   portrait: {
     src: "/about/gabriel-portrait.webp",

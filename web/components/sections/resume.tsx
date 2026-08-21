@@ -19,7 +19,7 @@ export function Resume() {
       <LabelPill tone="accent">Curriculum Vitae</LabelPill>
 
       <div className="mt-6">
-        <Display text={"Six years of\nshipped work"} size="display" />
+        <Display text={"Five years of\nshipped work"} size="display" />
       </div>
 
       <p data-reveal="up" className="mt-7 max-w-[26rem] text-copy text-ink-80">

@@ -41,8 +41,8 @@ export const hero = {
 };
 
 export const stats: Stat[] = [
-  { value: "100", unit: "+", label: "Projects delivered" },
-  { value: "6", unit: "+", label: "Years designing" },
+  { value: "50", unit: "+", label: "Projects" },
+  { value: "5", unit: "+", label: "Years of experience" },
   { value: "Motorola", label: "Multinational client" },
   { value: "Figma", unit: " → Live", label: "Design to deployment" },
 ];
