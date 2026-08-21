@@ -9,7 +9,7 @@
 export const capabilities = {
   eyebrow: "Capabilities",
   heading: "What\nYou Get?",
-  intro: "Five deliverables. All of them shipped to real clients.",
+  intro: "Five deliverables. All shipped to real clients.",
   items: [
     {
       index: "01",
@@ -25,7 +25,7 @@ export const capabilities = {
     },
     {
       index: "03",
-      title: "Design Systems",
+      title: "Systems",
       body: "Colour tokens, type scales, spacing grids and a documented component library. Built to survive the next feature and the next designer.",
       meta: "Tokens · Components · Documentation",
     },

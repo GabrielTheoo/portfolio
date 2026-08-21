@@ -41,7 +41,7 @@ export function RailNav({ onNavigate }: { onNavigate?: () => void }) {
   }, []);
 
   return (
-    <nav data-rail-card className="rounded-sm bg-glass p-[0.888rem] backdrop-blur-xl">
+    <nav data-rail-card className="glass rounded-sm p-[0.888rem]">
       <ul className="flex flex-col items-start gap-1">
         {NAV_ITEMS.map((item) => {
           const isActive = active === item.id;

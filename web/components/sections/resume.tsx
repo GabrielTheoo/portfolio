@@ -15,7 +15,7 @@ export function Resume() {
   const [current, ...past] = experience.roles;
 
   return (
-    <Section id="resume">
+    <Section id="resume" tone="solid">
       <LabelPill tone="accent">Curriculum Vitae</LabelPill>
 
       <div className="mt-6">
@@ -29,7 +29,7 @@ export function Resume() {
       {/* Current role — the wide card, carrying the full brief. */}
       <div
         data-reveal="up"
-        className="mt-16 rounded-sm bg-card p-[1.112rem] sm:p-[1.776rem]"
+        className="mt-16 glass-solid rounded-sm p-[1.112rem] sm:p-[1.776rem]"
       >
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div>
@@ -87,7 +87,7 @@ export function Resume() {
           <div
             key={`${role.company}-${role.period}`}
             data-reveal="up"
-            className="flex flex-col rounded-sm bg-card p-[1.336rem] transition-colors duration-300 hover:bg-inner"
+            className="flex flex-col glass-solid rounded-sm p-[1.336rem] transition-colors duration-300 hover:bg-inner"
           >
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-display text-sub font-medium text-ink">
@@ -140,7 +140,7 @@ export function Resume() {
             <div
               key={group.title}
               data-reveal="up"
-              className="rounded-sm bg-card p-[1.336rem]"
+              className="glass-solid rounded-sm p-[1.336rem]"
             >
               <h4 className="font-display text-sub font-medium text-ink">
                 {group.title}

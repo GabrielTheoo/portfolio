@@ -6,10 +6,11 @@
  * so the seam is invisible. Pure CSS — no rAF, and it pauses under
  * prefers-reduced-motion (see globals.css).
  */
+/** Real client work only. The Jordan project was a self-directed case
+ *  study, so it is not listed here even though it is in the portfolio. */
 const CLIENTS = [
+  "Steel Arte",
   "Motorola",
-  "Nike",
-  "Jordan",
   "Life Thrive",
   "Dream Companies",
   "Privacy",
@@ -36,7 +37,7 @@ function Track({ ariaHidden }: { ariaHidden?: boolean }) {
 
 export function ClientMarquee() {
   return (
-    <div data-rail-card className="shrink-0 overflow-hidden rounded-sm bg-glass py-[0.7rem] pl-[0.888rem] backdrop-blur-xl">
+    <div data-rail-card className="glass shrink-0 overflow-hidden rounded-sm py-[0.7rem] pl-[0.888rem]">
       <p className="sr-only">Clients: {CLIENTS.join(", ")}</p>
       <div className="marquee-mask flex">
         <Track ariaHidden />

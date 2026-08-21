@@ -18,7 +18,7 @@
   /* ── Surfaces, in the reference's layering order ──
      page → glass card → solid card → inner element → sub-card    */
   --color-page: #0a0606;
-  --color-glass: rgb(34 24 24 / 0.8);
+  --color-glass: rgb(38 26 26 / 0.5);
   --color-card: #1a1212;
   --color-inner: #282020;
   --color-subcard: rgb(77 56 54 / 0.35);
@@ -125,6 +125,46 @@ body {
 ::selection {
   background: var(--color-accent);
   color: var(--color-on-accent);
+}
+
+/* ── Glass ──
+   Registered with @utility rather than as a plain class: a hand-written
+   `backdrop-filter` here was silently dropped by the CSS pipeline, leaving
+   the panels flat and washed out. Going through Tailwind's own generator
+   emits it the same way the built-in backdrop utilities are emitted.
+
+   The look is three things stacked, not opacity alone: a blur that also
+   lifts saturation so colour bleeds through, a 1px inner top highlight
+   reading as the lit edge of a pane, and a shadow separating it from the
+   ground. */
+@utility glass {
+  background-color: rgb(38 26 26 / 0.5);
+  backdrop-filter: blur(28px) saturate(1.7);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.07),
+    inset 0 0 0 1px rgb(255 255 255 / 0.04),
+    0 10px 34px rgb(0 0 0 / 0.35);
+}
+
+/* Heavier variant for panels carrying dense copy, where the backdrop
+   showing through would cost legibility. */
+@utility glass-solid {
+  background-color: rgb(26 18 18 / 0.86);
+  backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.06),
+    0 10px 34px rgb(0 0 0 / 0.4);
+}
+
+/* ── Ambient backdrop ──
+   Carries the hero's character down the whole page: broad radial washes in
+   the brand red, fixed so they drift under the content as it scrolls. */
+.ambient {
+  background-image:
+    radial-gradient(60rem 40rem at 12% 8%, rgb(235 58 43 / 0.16), transparent 70%),
+    radial-gradient(50rem 38rem at 88% 32%, rgb(140 29 15 / 0.2), transparent 72%),
+    radial-gradient(46rem 34rem at 30% 72%, rgb(235 58 43 / 0.1), transparent 70%),
+    radial-gradient(40rem 30rem at 78% 96%, rgb(255 218 214 / 0.05), transparent 72%);
 }
 
 /* ── Client logo marquee ──

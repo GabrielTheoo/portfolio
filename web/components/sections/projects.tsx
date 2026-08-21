@@ -86,7 +86,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group flex w-[19rem] shrink-0 flex-col overflow-hidden rounded-sm bg-card transition-colors duration-300 hover:bg-inner sm:w-[26rem]"
+      className="group flex w-[19rem] shrink-0 flex-col overflow-hidden glass rounded-sm transition-colors duration-300 hover:bg-inner sm:w-[26rem]"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-page">
         {project.cover.kind === "video" ? (

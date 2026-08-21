@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Sans, Inter_Tight } from "next/font/google";
 import "./globals.css";
 
+import { AmbientBackdrop } from "@/components/ui/ambient-backdrop";
 import { MotionProvider } from "@/components/motion-provider";
 import { SideRail } from "@/components/rail/side-rail";
 import { SvgFilters } from "@/components/ui/svg-filters";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${interTight.variable} ${instrumentSans.variable} antialiased`}
     >
       <body>
+        <AmbientBackdrop />
         <SvgFilters />
         <SideRail />
         <MotionProvider />

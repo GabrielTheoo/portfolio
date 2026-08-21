@@ -1,25 +1,25 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { ClientMarquee } from "@/components/rail/client-marquee";
 import { CopyEmail } from "@/components/rail/copy-email";
 import { RailNav } from "@/components/rail/rail-nav";
+import { SOCIAL_ICONS } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
-import { profile, stats } from "@/content/profile";
-import { journey } from "@/content/journey";
+import { profile, railIntro, stats } from "@/content/profile";
 
 /**
  * Fixed left navigation rail.
  *
- * Mirrors the reference's anatomy: a stack of separate glass cards —
- * intro, a stat pair split by a hairline, the nav menu, a client-logo
- * marquee, a copy-to-clipboard email row, and paired CTA buttons.
+ * Six stacked glass panels, matching the reference's structure: intro, a
+ * stat pair split by a hairline, the nav menu, a client marquee, the email
+ * row, and the CTA. No portrait — that moved to the About section, and the
+ * intro copy grew to hold the top of the rail on its own.
  *
- * Below the rail breakpoint it collapses to a top bar plus a sheet, since
- * a 237px rail leaves nothing for content on a phone.
+ * Below the rail breakpoint it collapses to a top bar plus a sheet, since a
+ * 237px rail leaves nothing for content on a phone.
  */
 export function SideRail() {
   const [open, setOpen] = useState(false);
@@ -42,7 +42,7 @@ export function SideRail() {
   return (
     <>
       {/* ── Mobile top bar ── */}
-      <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between gap-4 bg-page/80 px-4 py-3 backdrop-blur-xl rail:hidden">
+      <div className="glass fixed inset-x-0 top-0 z-40 flex items-center justify-between gap-4 px-4 py-3 rail:hidden">
         <Link
           href="/"
           onClick={() => setOpen(false)}
@@ -78,13 +78,13 @@ export function SideRail() {
           !open && "hidden",
           // Desktop: fixed rail, always shown.
           "rail:left-[var(--rail-inset)] rail:right-auto rail:flex rail:w-[var(--rail-width)] rail:bg-transparent rail:px-0 rail:pb-4 rail:pt-4 rail:backdrop-blur-none",
-          // The card stack runs ~930px tall; on a shorter window it has to
-          // scroll rather than clip the portrait off the bottom.
+          // The stack can outrun a short window, so it scrolls rather than
+          // clipping the CTA off the bottom.
           "rail:overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
         )}
       >
-        {/* ── Intro card ── */}
-        <div data-rail-card className="rounded-sm bg-glass p-[0.888rem] backdrop-blur-xl">
+        {/* ── 1. Intro ── */}
+        <div data-rail-card className="glass rounded-sm p-[0.888rem]">
           <div className="flex items-center justify-between gap-3">
             <Link
               href="/"
@@ -95,43 +95,48 @@ export function SideRail() {
             </Link>
 
             <div className="flex gap-1.5">
-              {profile.socials.slice(0, 2).map((social) => (
-                <a
-                  key={social.label}
-                  href={social.url}
-                  target={social.url.startsWith("http") ? "_blank" : undefined}
-                  rel={social.url.startsWith("http") ? "noopener noreferrer" : undefined}
-                  aria-label={social.label}
-                  className="flex size-[1.688rem] items-center justify-center rounded-sm bg-inner text-ink-60 transition-colors hover:text-accent"
-                >
-                  <span className="text-label font-bold uppercase">
-                    {social.label.slice(0, 2)}
-                  </span>
-                </a>
-              ))}
+              {profile.socials.map((social) => {
+                const Icon = SOCIAL_ICONS[social.label];
+                if (!Icon) return null;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target={social.url.startsWith("http") ? "_blank" : undefined}
+                    rel={social.url.startsWith("http") ? "noopener noreferrer" : undefined}
+                    aria-label={social.label}
+                    className="flex size-[1.688rem] items-center justify-center rounded-sm bg-inner text-ink-60 transition-colors hover:bg-elevated hover:text-accent"
+                  >
+                    <Icon className="size-3.5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          <p className="mt-3.5 text-tiny text-ink-80">{profile.tagline}</p>
+          <p className="mt-3.5 text-tiny text-ink-80">{railIntro}</p>
         </div>
 
-        {/* ── Stat pair, split by a hairline ── */}
-        <div data-rail-card className="flex items-center rounded-sm bg-glass px-[1.336rem] py-[0.8rem] backdrop-blur-xl">
-          <RailStat value={firstStat.value} unit={firstStat.unit} label={firstStat.label} />
-          <div aria-hidden className="h-11 w-px shrink-0 bg-rule" />
-          <RailStat value={secondStat.value} unit={secondStat.unit} label={secondStat.label} />
+        {/* ── 2. Stat pair, split by a hairline ── */}
+        <div
+          data-rail-card
+          className="glass flex items-stretch rounded-sm px-[0.888rem] py-[0.888rem]"
+        >
+          <RailStat {...firstStat} />
+          <div aria-hidden className="mx-1 w-px shrink-0 self-center bg-rule" />
+          <RailStat {...secondStat} />
         </div>
 
-        {/* ── Nav menu ── */}
+        {/* ── 3. Nav ── */}
         <RailNav onNavigate={() => setOpen(false)} />
 
-        {/* ── Client marquee ── */}
+        {/* ── 4. Clients ── */}
         <ClientMarquee />
 
-        {/* ── Email with copy ── */}
+        {/* ── 5. Email ── */}
         <CopyEmail email={profile.email} />
 
-        {/* ── Paired CTAs: primary swaps to secondary on hover ── */}
+        {/* ── 6. CTA. Primary swaps to secondary on hover. ── */}
         <div data-rail-card className="group/cta relative h-11 shrink-0">
           <a
             href={`mailto:${profile.email}`}
@@ -149,26 +154,15 @@ export function SideRail() {
             View Resume
           </a>
         </div>
-
-        {/* ── Portrait, anchoring the bottom of the rail ── */}
-        <div data-rail-card className="relative mt-1 aspect-[4/5] shrink-0 overflow-hidden rounded-sm bg-card rail:aspect-square">
-          {/* Next flagged this as the LCP element: it sits in the rail above
-              the fold, so without priority the browser only discovers it
-              after the stylesheet resolves. */}
-          <Image
-            src={journey.portrait.src}
-            alt={journey.portrait.alt}
-            fill
-            priority
-            sizes="15rem"
-            className="object-cover"
-          />
-        </div>
       </header>
     </>
   );
 }
 
+/**
+ * One stat: value large in the accent, label bold beneath — the arrangement
+ * the reference uses, rather than a number with a caption beside it.
+ */
 function RailStat({
   value,
   unit,
@@ -179,12 +173,12 @@ function RailStat({
   label: string;
 }) {
   return (
-    <div className="flex-1 rounded-sm bg-subcard px-2 py-2.5 text-center">
-      <p className="font-display text-meta font-medium leading-none text-ink">
+    <div className="flex flex-1 flex-col items-center justify-start gap-2 rounded-sm bg-subcard px-2 py-3 text-center">
+      <p className="font-display text-xl font-bold leading-none text-accent">
         {value}
-        <span className="text-accent">{unit}</span>
+        {unit ? <span className="text-ink-60">{unit}</span> : null}
       </p>
-      <p className="mt-1.5 text-label font-medium leading-tight text-ink-60">{label}</p>
+      <p className="text-label font-bold leading-tight text-ink">{label}</p>
     </div>
   );
 }

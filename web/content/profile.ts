@@ -17,6 +17,16 @@ export const profile = {
 };
 
 /**
+ * Rail intro.
+ *
+ * Longer than a tagline on purpose: the card has to carry the top of the
+ * rail on its own now that the portrait has moved to the About section.
+ * Condensed from Gabriel's own bio.
+ */
+export const railIntro =
+  "Graphic designer and UX professional working across branding, interface design and illustration. Research and usability testing feed the work, so what ships is both good-looking and effective.";
+
+/**
  * Hero copy.
  *
  * Short lines set large. The page should carry weight through scale and

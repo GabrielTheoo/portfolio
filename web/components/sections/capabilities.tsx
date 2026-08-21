@@ -53,7 +53,7 @@ export function Capabilities() {
             key={item.index}
             data-reveal="up"
             className={
-              "flex flex-col rounded-sm bg-card p-[1.776rem] transition-colors duration-300 hover:bg-inner" +
+              "flex flex-col glass rounded-sm p-[1.776rem] transition-colors duration-300 hover:bg-inner" +
               (i === 0 ? " md:col-span-2 xl:col-span-1" : "")
             }
           >

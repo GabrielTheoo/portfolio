@@ -3,14 +3,15 @@ import { nikeJordan } from "./nike-jordan";
 import { motorolaAi } from "./motorola-ai";
 import { lifethrive } from "./lifethrive";
 import { lakeside } from "./lakeside";
+import { steelarte } from "./steelarte";
 
 /** Display order on the home grid and the prev/next case navigation. */
-export const projects: Project[] = [nikeJordan, motorolaAi, lifethrive, lakeside];
+export const projects: Project[] = [steelarte, lakeside, lifethrive, nikeJordan, motorolaAi];
 
 export const work = {
   eyebrow: "Selected work",
   heading: "Designed to be used.\nBuilt to convert.",
-  intro: "Four cases. Brand audit to live site.",
+  intro: "Five cases. Brand audit to live site.",
 };
 
 export function getProject(slug: string): Project | undefined {
@@ -27,4 +28,4 @@ export function getNeighbours(slug: string) {
   };
 }
 
-export { nikeJordan, motorolaAi, lifethrive, lakeside };
+export { steelarte, nikeJordan, motorolaAi, lifethrive, lakeside };

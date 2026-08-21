@@ -219,7 +219,7 @@ export default async function CasePage({
               {lifethrivePrinciples.map((principle) => (
                 <div
                   key={principle.title}
-                  className="rounded-sm bg-card p-8"
+                  className="glass-solid rounded-sm p-8"
                 >
                   <h3 className="font-display text-xl leading-none text-ink">
                     {principle.title}
@@ -308,7 +308,7 @@ export default async function CasePage({
               {project.process.steps.map((step) => (
                 <li
                   key={step.index}
-                  className="rounded-sm bg-card p-8"
+                  className="glass-solid rounded-sm p-8"
                 >
                   <span className="font-display text-sm leading-none text-accent">
                     {step.index}
@@ -367,7 +367,7 @@ export default async function CasePage({
             {project.results.stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-sm bg-card p-8"
+                className="glass-solid rounded-sm p-8"
               >
                 <dt className="font-display text-4xl leading-none text-ink md:text-5xl">
                   {stat.value}
@@ -450,7 +450,7 @@ export default async function CasePage({
             {prev ? (
               <Link
                 href={`/work/${prev.slug}`}
-                className="group rounded-sm bg-card p-8 transition-colors duration-300 hover:bg-card"
+                className="group glass-solid rounded-sm p-8 transition-colors duration-300 hover:bg-card"
               >
                 <p className="text-label font-bold uppercase tracking-[0.14em] text-ink-muted">
                   Previous
@@ -463,7 +463,7 @@ export default async function CasePage({
             {next ? (
               <Link
                 href={`/work/${next.slug}`}
-                className="group rounded-sm bg-card p-8 text-right transition-colors duration-300 hover:bg-card"
+                className="group glass-solid rounded-sm p-8 text-right transition-colors duration-300 hover:bg-card"
               >
                 <p className="text-label font-bold uppercase tracking-[0.14em] text-ink-muted">
                   Next

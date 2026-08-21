@@ -8,7 +8,7 @@ import { profile } from "@/content/profile";
 export function Transform() {
   return (
     <Section tight>
-      <div className="relative overflow-hidden rounded-sm bg-card p-[1.776rem] sm:p-16">
+      <div className="glass relative overflow-hidden rounded-sm p-[1.776rem] sm:p-16">
         {/* Ambient accent glow rather than a border, so the block lifts
             without drawing a line around it. */}
         <div
