@@ -15,12 +15,11 @@ export function Contact() {
       <LabelPill tone="accent">Get in touch</LabelPill>
 
       <div className="mt-6">
-        <Display text={"Let's talk about\nwhat you're building"} size="display" />
+        <Display text={"Got something\nto build?"} size="display" />
       </div>
 
       <p data-reveal="up" className="mt-7 max-w-[26rem] text-copy text-ink-80">
-        Available for select projects and collaborations. Email is the fastest
-        way to reach me.
+        Email is the fastest way to reach me.
       </p>
 
       <div className="mt-16 grid gap-3 md:grid-cols-3">

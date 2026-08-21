@@ -83,7 +83,7 @@ export function MotionProvider() {
           // starts a beat later, so it reads as a handoff.
           tl.to(
             heroFades,
-            { opacity: 0, y: -80, ease: "none", duration: 0.62 },
+            { opacity: 0, y: -80, ease: "none", duration: 0.78 },
             0,
           );
 
@@ -108,27 +108,40 @@ export function MotionProvider() {
         }
 
         // Masked line reveals for display headings.
+        //
+        // fromTo, never from: the CSS parks these at opacity 0, and `from`
+        // reads the *current* value as its destination — so it animated
+        // 0 → 0 and the whole page stayed blank. The end state has to be
+        // stated explicitly.
         gsap.utils.toArray<HTMLElement>('[data-reveal="line"]').forEach((el) => {
-          gsap.from(el, {
-            yPercent: 110,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            delay: Number(el.dataset.revealIndex ?? 0) * 0.08,
-            scrollTrigger: { trigger: el, start: "top 88%", once: true },
-          });
+          gsap.fromTo(
+            el,
+            { yPercent: 110, opacity: 0 },
+            {
+              yPercent: 0,
+              opacity: 1,
+              duration: 0.9,
+              ease: "power3.out",
+              delay: Number(el.dataset.revealIndex ?? 0) * 0.08,
+              scrollTrigger: { trigger: el, start: "top 88%", once: true },
+            },
+          );
         });
 
         // Everything else fades up, staggered by its group.
         gsap.utils.toArray<HTMLElement>('[data-reveal="up"]').forEach((el, i) => {
-          gsap.from(el, {
-            y: 28,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            delay: (i % 4) * 0.06,
-            scrollTrigger: { trigger: el, start: "top 90%", once: true },
-          });
+          gsap.fromTo(
+            el,
+            { y: 28, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power3.out",
+              delay: (i % 4) * 0.06,
+              scrollTrigger: { trigger: el, start: "top 90%", once: true },
+            },
+          );
         });
 
         // Horizontal project gallery: pin the viewport and translate the

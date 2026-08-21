@@ -38,10 +38,10 @@ export function Capabilities() {
           data-reveal="up"
           className="mt-12 font-display text-huge font-bold tracking-tight text-ink"
         >
-          Strategy, generation{" "}
-          <InlineChip {...CHIPS[0]} /> and craft, combined so the work ships{" "}
-          <InlineChip {...CHIPS[1]} /> in hours instead of weeks{" "}
-          <InlineChip {...CHIPS[2]} /> without losing the brand.
+          Research{" "}
+          <InlineChip {...CHIPS[0]} /> that finds the drop-off, design{" "}
+          <InlineChip {...CHIPS[1]} /> that answers it, and a build{" "}
+          <InlineChip {...CHIPS[2]} /> that actually ships.
         </p>
       </div>
 

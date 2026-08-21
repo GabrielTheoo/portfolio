@@ -3,7 +3,7 @@ import type { Project } from "../types";
 export const lifethrive: Project = {
   slug: "life-thrive-solutions",
   title: { lead: "Life", rest: "Thrive Solutions" },
-  summary: "Psychology & therapy website designed for a Florida practice.",
+  summary: "Trauma-informed therapy practice. Figma to Webflow, built for trust.",
   category: "UX & UI · Webflow",
   year: "2024 — 2025",
   tags: ["UX & UI Design", "Webflow", "Brand Strategy", "Psychology"],
@@ -21,7 +21,7 @@ export const lifethrive: Project = {
   },
   sections: [
     {
-      eyebrow: "— The Brief",
+      eyebrow: "The Brief",
       heading: "A therapy practice in Florida\nthat needed a digital home\nas warm as its mission.",
       body: [
         "Life Thrive Solutions is a trauma-informed therapy practice based in Stuart, Florida, founded by Madonna DeBlauwe with a clear intention: to create a therapeutic space that feels safe, human, and genuinely supportive. The practice offers individual, couples, and family therapy, serving clients in-person in Stuart and across all of Florida via telehealth.",
@@ -29,7 +29,7 @@ export const lifethrive: Project = {
       ],
     },
     {
-      eyebrow: "— Brand Analysis",
+      eyebrow: "Brand Analysis",
       heading: "Understanding the brand\nbefore touching the design.",
       body: [
         "Before opening Figma, the first step was immersing in the brand. What does Life Thrive Solutions stand for? Who are their clients? What do those clients feel when they first visit the site, and what should we make them feel instead?",
@@ -37,7 +37,7 @@ export const lifethrive: Project = {
       ],
     },
     {
-      eyebrow: "— UX Strategy",
+      eyebrow: "UX Strategy",
       heading: "Every decision designed\nto make someone feel\nsafe enough to ask for help.",
       body: [
         "The UX of a therapy website carries unique weight. A person visiting this site may be in pain, in crisis, or taking one of the hardest steps of their life. The experience had to be frictionless, reassuring, and warm, guiding them naturally toward scheduling a session without pressure.",
@@ -45,7 +45,7 @@ export const lifethrive: Project = {
     },
   ],
   palette: {
-    eyebrow: "— Palette",
+    eyebrow: "Palette",
     heading: "Warm, not clinical.",
     swatches: [
       { name: "Soft Cream", hex: "#F7F4F0", role: "Primary Background" },
@@ -63,7 +63,7 @@ export const lifethrive: Project = {
       "The choice of Bitter, a warm editorial serif, was deliberate. Serif typography communicates trust, care, and human depth. It distances the brand from the cold, sans-serif clinical aesthetic of institutional healthcare.",
   },
   process: {
-    eyebrow: "— Design Process",
+    eyebrow: "Design Process",
     heading: "From brand audit to\nlive Webflow build.",
     intro:
       "The full project was designed in Figma, from initial wireframes and component libraries to high-fidelity prototypes, before being handed off and built in Webflow in close collaboration with the development team.",
@@ -91,7 +91,7 @@ export const lifethrive: Project = {
     ],
   },
   results: {
-    eyebrow: "— The Impact",
+    eyebrow: "The Impact",
     heading: "More sessions booked.\nMore people helped.",
     body: [
       "A well-designed therapy website isn't just a digital business card. It's the first moment of trust between a practice and someone who needs help. When that experience is warm, clear, and welcoming, people take the next step. And when more people take that step, the practice grows, and more lives improve.",
@@ -105,7 +105,7 @@ export const lifethrive: Project = {
     ],
   },
   stack: {
-    eyebrow: "— Tools & Stack",
+    eyebrow: "Tools & Stack",
     heading: "Designed in Figma.\nBuilt in Webflow.",
     tools: [
       { name: "Figma", role: "UI & UX Design" },

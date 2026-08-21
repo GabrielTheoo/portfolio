@@ -112,10 +112,7 @@ export function SideRail() {
             </div>
           </div>
 
-          <p className="mt-3.5 text-tiny text-ink-80">
-            Building AI pipelines and interfaces for brands that need the work
-            made faster than a studio can source it.
-          </p>
+          <p className="mt-3.5 text-tiny text-ink-80">{profile.tagline}</p>
         </div>
 
         {/* ── Stat pair, split by a hairline ── */}

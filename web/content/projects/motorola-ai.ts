@@ -2,11 +2,11 @@ import type { Project } from "../types";
 
 export const motorolaAi: Project = {
   slug: "motorola-ai-pipeline",
-  title: { lead: "Motorola", rest: "AI Pipeline" },
-  summary: "Generative AI workflow that cut delivery time by 30% for Motorola.",
-  category: "AI Strategy",
+  title: { lead: "Motorola", rest: "Production Pipeline" },
+  summary: "Rebuilt how a trade marketing team produced assets. Delivery time down 30%.",
+  category: "Process Design",
   year: "2023 — 2025",
-  tags: ["AI Strategy", "Generative Video", "Process Design", "Trade Marketing"],
+  tags: ["Process Design", "Trade Marketing", "Production", "Generative Video"],
   cover: {
     kind: "video",
     src: "/projects/motorola-ai/video-1.mp4",
@@ -15,7 +15,7 @@ export const motorolaAi: Project = {
   },
   sections: [
     {
-      eyebrow: "— The Challenge",
+      eyebrow: "The Challenge",
       heading: "A production team running out of assets before running out of ideas.",
       body: [
         "At ProSolution Marketing, embedded inside Motorola's Trade Marketing operation, the creative team faced a recurring crisis: a severe shortage of high-quality product images and videos. Every campaign cycle, the team would spend days, sometimes weeks, hunting for the right asset, negotiating access, waiting on approval chains, and compromising on quality when nothing better was available.",
@@ -25,7 +25,7 @@ export const motorolaAi: Project = {
         "The core problem: no scalable, fast, brand-safe way to generate product imagery and video on demand, causing delivery delays across all trade marketing materials.",
     },
     {
-      eyebrow: "— The Solution",
+      eyebrow: "The Solution",
       heading: "Build the pipeline.\nThen let it run.",
       body: [
         "Together with the creative team, I designed and validated a new content production workflow built entirely around generative AI for image and video. The approach wasn't just to generate assets, it was to create a repeatable system that could be validated directly with Motorola's brand team and integrated into the existing content calendar.",
@@ -34,7 +34,7 @@ export const motorolaAi: Project = {
     },
   ],
   process: {
-    eyebrow: "— The Pipeline",
+    eyebrow: "The Pipeline",
     heading: "Four stages,\none repeatable system.",
     intro:
       "Each stage had explicit ownership, so the workflow survived handoffs and scaled past the person who designed it.",
@@ -62,7 +62,7 @@ export const motorolaAi: Project = {
     ],
   },
   gallery: {
-    eyebrow: "— AI-Generated Product Videos",
+    eyebrow: "Product Videos",
     heading: "Product videos. Created.\nNot sourced.",
     intro:
       "A selection of AI-generated product videos produced for Motorola's trade marketing campaigns. Each was created using generative video tools, reviewed internally, and validated with the Motorola brand team before deployment.",
@@ -105,7 +105,7 @@ export const motorolaAi: Project = {
     ],
   },
   results: {
-    eyebrow: "— The Results",
+    eyebrow: "The Results",
     heading: "Faster delivery.\nMore people trained. Less wasted time.",
     body: [
       "The impact of the new pipeline was measurable from the first campaign cycle. By eliminating the asset-hunting phase and replacing it with on-demand generation and validation, the team gained back significant production time, reinvested directly into output volume.",
@@ -115,12 +115,12 @@ export const motorolaAi: Project = {
       { value: "~30", unit: "%", label: "Reduction in Delivery Time" },
       { value: "↑", label: "Training Material Volume" },
       { value: "0", label: "Days Lost to Asset Hunting" },
-      { value: "5", label: "AI-Produced Campaign Videos" },
+      { value: "5", label: "Campaign videos produced" },
     ],
   },
   stack: {
-    eyebrow: "— Tools & Stack",
-    heading: "AI tools. Real results.",
+    eyebrow: "Tools & Stack",
+    heading: "The stack.",
     tools: [
       { name: "Gemini", role: "Visual Research" },
       { name: "Envato AI", role: "Video Generation" },
@@ -131,7 +131,7 @@ export const motorolaAi: Project = {
     ],
   },
   cta: {
-    heading: "Want to bring AI\ninto your creative workflow?",
-    body: "I design processes and pipelines that make AI work for your team: faster, smarter, and fully brand-aligned.",
+    heading: "Is your team stuck\nsourcing instead\nof making?",
+    body: "I find where the process leaks time and rebuild it so the work ships.",
   },
 };

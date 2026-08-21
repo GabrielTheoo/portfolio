@@ -3,9 +3,9 @@ import type { Stat, ToolGroup } from "./types";
 export const profile = {
   name: "Gabriel Teobaldo",
   shortName: "Gabriel",
-  role: "AI Creative Technologist",
-  /** One-line positioning used in meta tags and the footer. */
-  tagline: "AI Creative Technologist. Available for select projects and collaborations.",
+  role: "UX/UI Designer",
+  /** One-line positioning used in meta tags and the rail. */
+  tagline: "UX/UI designer. I design and build websites that convert.",
   email: "gabriel.teobaldo@hotmail.com",
   phone: "+55 (11) 99958-4897",
   location: "São Paulo, Brazil",
@@ -16,76 +16,77 @@ export const profile = {
   ],
 };
 
-export const about = {
-  eyebrow: "— Introduction",
-  heading:
-    "I am Gabriel, an AI specialist transforming the way brands create and communicate in the digital world.",
-  body: [
-    "I operate at the intersection of artificial intelligence and visual creativity. I work with the most powerful AI platforms on the market to produce generative images, cinematic videos, immersive websites, and high-impact brand experiences.",
-    "From early-stage startups to global multinationals like Motorola, I have worked across industries: crafting campaigns, interfaces, and brand systems that combine strategic thinking with strong visual execution.",
-  ],
+/**
+ * Hero copy.
+ *
+ * Short lines set large. The page should carry weight through scale and
+ * space, not word count — long paragraphs in a hero go unread.
+ */
+export const hero = {
+  eyebrow: "Available for select projects",
+  heading: "Websites that\nsell before\nyou say a word.",
+  sub: "UX/UI design and front-end build, end to end.",
+  primaryCta: "See the work",
+  secondaryCta: "Resume",
 };
 
 export const stats: Stat[] = [
-  { value: "100", unit: "+", label: "Projects Delivered" },
-  { value: "5", unit: "+", label: "Years of Experience" },
-  { value: "Multico", unit: ".", label: "Multinational Projects" },
-  { value: "AI", unit: "+ Adobe", label: "Full Creative Toolkit" },
+  { value: "100", unit: "+", label: "Projects delivered" },
+  { value: "6", unit: "+", label: "Years designing" },
+  { value: "Motorola", label: "Multinational client" },
+  { value: "Figma", unit: " → Live", label: "Design to deployment" },
 ];
 
 export const toolkit = {
-  eyebrow: "— Toolkit",
-  heading: "The platforms I command.",
-  intro:
-    "I leverage the most advanced tools on the market to generate images, produce videos, build interactive experiences, and craft entire digital worlds.",
+  eyebrow: "The toolkit",
+  heading: "How the work\ngets made.",
+  intro: "Research first. Design second. Shipped, not handed off.",
   groups: [
     {
-      title: "AI Platforms",
-      meta: "Generative · Vision · Language",
+      title: "UX Process",
+      meta: "Research · Prototype · Validate",
       items: [
-        "Gemini",
-        "Nano Banana",
-        "Claude Code",
-        "Anti-Gravity",
-        "ChatGPT",
-        "Midjourney",
-        "RunwayML",
+        "User Research",
+        "Journey Mapping",
+        "Wireframing",
+        "Prototyping",
+        "Usability Testing",
+        "Design Thinking",
+        "Agile",
       ],
     },
     {
-      title: "Designing Tools",
-      meta: "Design · Motion · Visual",
+      title: "Design & Build",
+      meta: "Interface · System · Ship",
+      items: [
+        "Figma",
+        "Design Systems",
+        "Webflow",
+        "Next.js",
+        "Tailwind",
+        "WordPress",
+        "Vercel",
+      ],
+    },
+    {
+      title: "Production",
+      meta: "Imagery · Motion · Brand",
       items: [
         "Photoshop",
         "Illustrator",
         "After Effects",
         "Premiere Pro",
         "InDesign",
-        "XD",
-        "Figma",
-      ],
-    },
-    {
-      title: "UX Process",
-      meta: "Research · Prototype · Deliver",
-      items: [
-        "Agile",
-        "Sprint",
-        "User Research",
-        "Wireframing",
-        "Prototyping",
-        "Usability Testing",
-        "Design Thinking",
-        "Journey Mapping",
+        "Midjourney",
       ],
     },
   ] satisfies ToolGroup[],
-  /** Marquee / capability strip under the toolkit grid. */
+  /** Capability strip under the toolkit grid. */
   capabilities: [
-    "Image Generation",
-    "Video Production",
-    "Website Creation",
+    "UX Research",
+    "Interface Design",
+    "Design Systems",
+    "Website Build",
     "Brand Identity",
-    "Generative Art",
   ],
 };

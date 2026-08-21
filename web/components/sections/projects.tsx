@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Display } from "@/components/ui/display";
 import { LabelPill } from "@/components/ui/label-pill";
-import { projects } from "@/content/projects";
+import { projects, work } from "@/content/projects";
 import type { Project } from "@/content/types";
 
 /**
@@ -24,14 +24,12 @@ export function Projects() {
       >
         <div className="px-5 rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <Display text={"Built with AI,\nMade to Perform"} size="display" />
-            <LabelPill tone="accent">{projects.length} selected cases</LabelPill>
+            <Display text={work.heading} size="display" />
+            <LabelPill tone="accent">{work.eyebrow}</LabelPill>
           </div>
 
           <p data-reveal="up" className="mt-7 max-w-[26rem] text-copy text-ink-80">
-            Every one shipped: an AI pipeline inside Motorola, a product site
-            with zero stock imagery, a therapy practice in Florida, a luxury
-            redesign. Scroll to move through them.
+            {work.intro}
           </p>
         </div>
 

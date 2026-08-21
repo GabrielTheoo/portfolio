@@ -8,10 +8,9 @@ import { lakeside } from "./lakeside";
 export const projects: Project[] = [nikeJordan, motorolaAi, lifethrive, lakeside];
 
 export const work = {
-  eyebrow: "— Selected Work",
-  heading: "My Projects.",
-  intro:
-    "A curated selection of AI-powered work delivered to brands that dare to be different.",
+  eyebrow: "Selected work",
+  heading: "Designed to be used.\nBuilt to convert.",
+  intro: "Four cases. Brand audit to live site.",
 };
 
 export function getProject(slug: string): Project | undefined {

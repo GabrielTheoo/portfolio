@@ -1,8 +1,7 @@
 import { ShaderBackground } from "@/components/ui/hero-shader";
-import { LabelPill } from "@/components/ui/label-pill";
 import { Display } from "@/components/ui/display";
 import { NAV_ITEMS } from "@/content/nav";
-import { profile } from "@/content/profile";
+import { hero, profile } from "@/content/profile";
 
 /**
  * Hero.
@@ -22,9 +21,9 @@ import { profile } from "@/content/profile";
 export function Hero() {
   // The extra height is scroll budget for the handoff, so it only applies
   // where the handoff runs. On phones the rail is a sheet and nothing
-  // animates, so 220svh there would just be dead scroll.
+  // animates, so the extra height there would just be dead scroll.
   return (
-    <section id="top" data-hero className="relative h-svh rail:h-[220svh]">
+    <section id="top" data-hero className="relative h-svh rail:h-[175svh]">
       <div className="sticky top-0 h-svh overflow-hidden">
         <ShaderBackground className="flex h-full flex-col">
           {/* ── Hero nav: hands over to the rail on scroll ── */}
@@ -67,22 +66,20 @@ export function Hero() {
             >
               <div className="absolute left-1 right-1 top-0 h-px rounded-full bg-gradient-to-r from-transparent via-white/25 to-transparent" />
               <span className="relative z-10 text-label font-bold uppercase leading-none text-ink-80">
-                Available for select projects
+                {hero.eyebrow}
               </span>
             </div>
 
             <Display
               as="h1"
-              text={"The AI Creative\nTechnologist.\nThat's Gabriel."}
+              text={hero.heading}
               size="huge"
               reveal={false}
-              className="max-w-[52rem]"
+              className="max-w-[46rem]"
             />
 
-            <p className="mt-8 max-w-[28rem] text-copy text-ink-80">
-              I build the pipelines and interfaces that let brands produce work
-              at a speed they could not before. Generative imagery, cinematic
-              video, and immersive web — from Motorola to early-stage startups.
+            <p className="mt-8 max-w-[26rem] text-copy text-ink-80">
+              {hero.sub}
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -90,18 +87,14 @@ export function Hero() {
                 href="#work"
                 className="inline-flex h-11 items-center rounded-md bg-accent px-8 text-copy font-medium text-on-accent transition-colors duration-200 hover:bg-accent-bright"
               >
-                View My Work
+                {hero.primaryCta}
               </a>
               <a
                 href="#resume"
                 className="inline-flex h-11 items-center rounded-md border border-rule-strong px-8 text-copy font-medium text-ink transition-colors duration-200 hover:bg-white/10"
               >
-                Resume
+                {hero.secondaryCta}
               </a>
-            </div>
-
-            <div className="mt-12">
-              <LabelPill>Scroll to begin</LabelPill>
             </div>
           </div>
         </ShaderBackground>

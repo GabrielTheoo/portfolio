@@ -1,56 +1,56 @@
 /**
  * "What You Get" — capability blocks.
  *
- * Written as deliverables, not skills: each one names the thing that lands in
- * the client's hands, because that is what they are actually buying.
+ * Written as deliverables, not skills: each names the thing that lands in
+ * the client's hands. Ordered the way the work actually runs, research
+ * first and production last, so AI-assisted image work reads as one tool at
+ * the end of a process rather than the product itself.
  */
 export const capabilities = {
-  eyebrow: "Capabilities Overview",
-  heading: "What You Get?",
-  intro:
-    "Five things I deliver. Each one has shipped to a real brand, not a case study exercise.",
+  eyebrow: "Capabilities",
+  heading: "What\nYou Get?",
+  intro: "Five deliverables. All of them shipped to real clients.",
   items: [
     {
       index: "01",
-      title: "Generative Imagery",
-      body: "Product renders, campaign visuals, and architectural photography produced on demand instead of sourced. When a client has no photo library, we stop treating that as a blocker.",
-      meta: "Midjourney · Gemini · Nano Banana",
+      title: "Research & Strategy",
+      body: "Journey mapping, usability testing, and analytics read closely enough to find where visitors actually leave. Findings become decisions, not a deck.",
+      meta: "User research · Journey mapping · Testing",
     },
     {
       index: "02",
-      title: "Cinematic Video",
-      body: "AI-generated product video built to a campaign brief, reviewed against brand guidelines, and delivered in hours. Five of them ran in Motorola trade marketing.",
-      meta: "Envato AI · RunwayML · After Effects",
+      title: "Interface Design",
+      body: "High-fidelity screens in Figma with the states, breakpoints and edge cases already resolved — so the build has nothing left to guess.",
+      meta: "Figma · Prototypes · Responsive",
     },
     {
       index: "03",
-      title: "Immersive Web",
-      body: "Sites that behave like products: scroll-driven animation, parallax narrative, colorway switching, glassmorphism. Designed in Figma, built and deployed, performance-optimised.",
-      meta: "Next.js · Webflow · Vercel",
+      title: "Design Systems",
+      body: "Colour tokens, type scales, spacing grids and a documented component library. Built to survive the next feature and the next designer.",
+      meta: "Tokens · Components · Documentation",
     },
     {
       index: "04",
-      title: "Design Systems",
-      body: "Colour tokens, type scales, spacing grids, and component libraries defined before the first line of code. Scalable, documented, and maintained as the product grows.",
-      meta: "Figma · Tokens · Component libraries",
+      title: "Website Build",
+      body: "The design shipped, not handed over. Next.js or Webflow, animated where it earns attention, fast on a phone, deployed and live.",
+      meta: "Next.js · Webflow · Vercel",
     },
     {
       index: "05",
-      title: "AI Pipelines",
-      body: "The process itself as a deliverable: mapping where your creative workflow leaks time, then replacing it with a generation, review, and approval loop your brand team trusts.",
-      meta: "Process design · Brand validation",
+      title: "Visual Production",
+      body: "Photography, campaign imagery and motion when a client's library falls short. Retouched, generated or shot — whatever gets the right frame.",
+      meta: "Photoshop · After Effects · Midjourney",
     },
   ],
 };
 
-/** Closing narrative block, in the slot the reference uses for its
- *  "Transform Your Experience" section. */
+/** Closing narrative, in the slot the reference uses for its CTA section. */
 export const transform = {
-  eyebrow: "The offer",
-  heading: "Most teams don't need\nmore designers.\nThey need a faster way\nto make the work.",
+  eyebrow: "The problem",
+  heading: "Most sites lose\nthe visitor\nbefore the first\nsentence.",
   body: [
-    "The bottleneck is almost never creativity. It is the days spent hunting for an asset that does not exist, the approval chain nobody owns, the design system that lives in one person's head.",
-    "I fix that layer. Then the visual work gets to be the interesting part again.",
+    "Not because the design is ugly. Because nothing on screen tells them they are in the right place.",
+    "That is the part I fix.",
   ],
-  ctaLabel: "Let's Talk",
+  ctaLabel: "Let's talk",
 };

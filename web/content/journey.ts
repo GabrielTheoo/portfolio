@@ -4,16 +4,18 @@
  * Separate from `experience.ts` on purpose: that file is the resume (roles,
  * titles, responsibilities), this one is the story (what changed each year).
  * Same history, two different jobs to do.
+ *
+ * Milestone bodies are deliberately one sentence. The section is a scan, not
+ * a read — the resume below it carries the detail.
  */
 export const journey = {
-  eyebrow: "Small steps, compounding",
+  eyebrow: "Print to product",
   heading: "About Me (&)\nMy Journey",
-  intro:
-    "Six years from designing catalogues for a clothing store to building AI pipelines inside a multinational. Every step taught the next one.",
+  intro: "Six years. Catalogues to design systems.",
   /** Closing paragraphs under the timeline. */
   body: [
-    "I operate at the intersection of artificial intelligence and visual creativity, working with the most powerful AI platforms on the market to produce generative images, cinematic videos, immersive websites, and high-impact brand experiences.",
-    "From early-stage startups to global multinationals like Motorola, I have worked across industries: crafting campaigns, interfaces, and brand systems that combine strategic thinking with strong visual execution.",
+    "I design interfaces and build the sites they live in. Research to wireframe to shipped front-end, without a handoff where the intent gets lost.",
+    "Six years across e-commerce, product, and a multinational trade marketing floor. The through-line is the same: make the thing clear enough that people act.",
   ],
   portrait: {
     src: "/about/gabriel-portrait.webp",
@@ -22,38 +24,38 @@ export const journey = {
   milestones: [
     {
       year: "2020",
-      title: "The first real brief",
-      body: "Started at Mariá Modas as a junior graphic designer, doing everything: print, social, e-commerce catalogues, paid traffic, photo editing. No specialism yet, which turned out to be the point.",
+      title: "Everything, badly",
+      body: "Junior designer at a clothing label doing print, social, catalogues and paid traffic. No specialism — which turned out to be the point.",
     },
     {
       year: "2021",
-      title: "Learning the funnel",
-      body: "Moved to Eletrônica Santana and got handed the whole creative pipeline: B2B and B2C campaigns, email marketing, landing pages. First time I saw design measured against revenue instead of taste.",
+      title: "Design meets revenue",
+      body: "Ran the full creative pipeline at an electronics retailer. First time my work was measured against sales instead of taste.",
     },
     {
       year: "2022",
       title: "Into the product",
-      body: "Joined Privacy as a UX/UI designer and shipped real features to real users, including a full navigation redesign. Learned to read platform metrics and defend a decision with data in front of executives.",
+      body: "UX/UI at Privacy. Shipped a full navigation redesign and learned to defend a decision with metrics in front of executives.",
     },
     {
       year: "2023",
       title: "Inside a multinational",
-      body: "Embedded at Motorola through ProSolution as the lead creative for Trade Marketing. Campaigns, training material, executive decks, and the constraint that would define the next two years: never enough assets.",
+      body: "Lead creative for Motorola's trade marketing through ProSolution. Campaigns, sales kits, executive decks, real approval chains.",
     },
     {
       year: "2024",
-      title: "Betting on generative AI",
-      body: "Instead of hunting for assets, I started producing them. Designed a generative AI pipeline for product imagery and video, validated it directly with Motorola's brand team, and cut delivery time by around 30%.",
+      title: "Fixing the bottleneck",
+      body: "Redesigned how the team produced assets instead of hunting for them. Delivery time dropped about 30%.",
     },
     {
       year: "2025",
-      title: "AI as the whole stack",
-      body: "Took the approach end-to-end on my own work: the Jordan Maestro product site, 100% AI-generated visuals, zero stock. Then a therapy practice in Florida and a luxury real estate redesign, both from brand audit to build.",
+      title: "End to end, my own",
+      body: "Three sites from brand audit to build: a product launch, a Florida therapy practice, a luxury property redesign.",
     },
     {
       year: "2026",
-      title: "Designing systems, not screens",
-      body: "Now at Earned Media Productions as a UX/UI designer, building and evolving scalable design systems for software products — balancing business goals, user needs, and what engineering can actually ship.",
+      title: "Systems, not screens",
+      body: "UX/UI at Earned Media Productions, building design systems for software products alongside the engineers who ship them.",
     },
   ],
 };

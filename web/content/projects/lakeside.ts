@@ -3,8 +3,7 @@ import type { Project } from "../types";
 export const lakeside: Project = {
   slug: "lakeside-dream-companies",
   title: { lead: "Lakeside by", rest: "Dream Companies" },
-  summary:
-    "End-to-end luxury redesign for Dream Companies' lakeside real estate property, with a before/after comparison.",
+  summary: "Luxury real estate. Generic template to bespoke experience.",
   category: "Luxury Real Estate · UX Redesign",
   year: "2026",
   tags: ["UX & UI Redesign", "Luxury Real Estate", "Design System", "AI Photography"],
@@ -22,7 +21,7 @@ export const lakeside: Project = {
   },
   sections: [
     {
-      eyebrow: "— The Brief",
+      eyebrow: "The Brief",
       heading: "A luxury lakeside property\nthat deserved a digital\nexperience to match.",
       body: [
         "Lakeside by Dream Companies is a premium real estate development that positions itself firmly in the luxury segment. Every aspect of the property speaks to exclusivity, refinement, and aspirational living. The problem was simple: the digital presence did not.",
@@ -30,7 +29,7 @@ export const lakeside: Project = {
       ],
     },
     {
-      eyebrow: "— Brand Analysis",
+      eyebrow: "Brand Analysis",
       heading: "Understanding the brand\nbefore opening Figma.",
       body: [
         "Luxury real estate is one of the most emotionally-driven purchase decisions a person makes. The analysis began not with wireframes, but with understanding who Lakeside's buyer is, what they value, and what feelings the digital experience needed to evoke before a single word is read.",
@@ -38,7 +37,7 @@ export const lakeside: Project = {
       ],
     },
     {
-      eyebrow: "— Design Strategy",
+      eyebrow: "Design Strategy",
       heading: "Every pixel earns\nits place.",
       body: [
         "Luxury design is defined by what is removed, not what is added. The redesign stripped away anything that distracted from the property itself: heavy navigation, excessive copy, template-driven layout patterns. What remained was space, intention, and the property's natural beauty.",
@@ -47,7 +46,7 @@ export const lakeside: Project = {
     },
   ],
   palette: {
-    eyebrow: "— Palette",
+    eyebrow: "Palette",
     heading: "Deep night, aged gold.",
     swatches: [
       { name: "Deep Night", hex: "#0D0F0E", role: "Primary Background" },
@@ -65,7 +64,7 @@ export const lakeside: Project = {
       "A refined editorial serif with deep roots in print luxury. It carries heritage and restraint, contrasted against clean geometric sans-serif body text for a hierarchy that reads premium and stays legible.",
   },
   process: {
-    eyebrow: "— Process",
+    eyebrow: "Process",
     heading: "From buyer persona\nto high-fidelity UI.",
     intro:
       "Five stages, each one narrowing the gap between what the property is and what the website said it was.",
@@ -98,7 +97,7 @@ export const lakeside: Project = {
     ],
   },
   gallery: {
-    eyebrow: "— Design Screens",
+    eyebrow: "Design Screens",
     heading: "Every screen. Every\ndetail. Figma-native.",
     intro:
       "The full homepage was designed as a single immersive experience: from the editorial hero through property listings, lending services, and the closing narrative. Each section uses negative space, gold accents, and Cormorant Garamond serif type to maintain the luxury register throughout.",
@@ -112,7 +111,7 @@ export const lakeside: Project = {
     ],
   },
   results: {
-    eyebrow: "— The Impact",
+    eyebrow: "The Impact",
     heading: "A digital presence\nas exclusive as the\nproperty itself.",
     body: [
       "The redesign transformed Lakeside from a generic real estate listing into a bespoke digital experience that communicates exclusivity from the first frame. Prospective buyers now encounter a visual narrative that mirrors the quality of the property they are considering.",
@@ -126,7 +125,7 @@ export const lakeside: Project = {
     ],
   },
   stack: {
-    eyebrow: "— Tools & Stack",
+    eyebrow: "Tools & Stack",
     heading: "Designed in Figma.\nBuilt for luxury.",
     tools: [
       { name: "Figma", role: "UI & Style Guide" },
