@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gabriel | High-End Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#ddb7ff",
+              "tertiary-fixed": "#ffe088",
+              "on-tertiary-fixed-variant": "#574500",
+              "on-background": "#e5e2e1",
+              "on-secondary-fixed": "#2c0050",
+              "outline-variant": "#4d444c",
+              "secondary": "#ddb7ff",
+              "tertiary": "#e9c349",
+              "outline": "#998d96",
+              "inverse-primary": "#af2b45",
+              "on-tertiary-fixed": "#241a00",
+              "on-primary-fixed-variant": "#8e0e2f",
+              "secondary-fixed": "#f0dbff",
+              "on-surface-variant": "#d0c3cc",
+              "surface-bright": "#3a3939",
+              "error-container": "#93000a",
+              "surface-container": "#201f1f",
+              "secondary-container": "#622599",
+              "surface-container-highest": "#353534",
+              "surface": "#131313",
+              "surface-container-low": "#1c1b1b",
+              "on-secondary-fixed-variant": "#622599",
+              "on-surface": "#e5e2e1",
+              "on-secondary-container": "#d1a1ff",
+              "on-error": "#690005",
+              "surface-container-lowest": "#0e0e0e",
+              "primary-fixed-dim": "#ffb2b8",
+              "on-primary-container": "#df4f66",
+              "primary-container": "#3c000d",
+              "surface-container-high": "#2a2a2a",
+              "surface-variant": "#353534",
+              "primary": "#ffb2b8",
+              "inverse-surface": "#e5e2e1",
+              "tertiary-container": "#cca830",
+              "on-primary-fixed": "#40000f",
+              "surface-dim": "#131313",
+              "on-tertiary": "#3c2f00",
+              "surface-tint": "#ffb2b8",
+              "on-tertiary-container": "#4f3e00",
+              "tertiary-fixed-dim": "#e9c349",
+              "inverse-on-surface": "#313030",
+              "error": "#ffb4ab",
+              "primary-fixed": "#ffdadb",
+              "on-secondary": "#4a0080",
+              "on-primary": "#67001d",
+              "on-error-container": "#ffdad6",
+              "background": "#131313"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0e0e0e;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fluid-shape {
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/50 backdrop-blur-md flex justify-between items-center px-8 py-6 max-w-screen-2xl left-1/2 -translate-x-1/2">
+<div class="text-2xl font-['Newsreader'] font-bold tracking-tighter text-[#ffb2b8]">Gabriel</div>
+<nav class="hidden md:flex items-center gap-12 font-['Newsreader'] italic tracking-tight">
+<a class="text-[#ffb2b8] border-b border-[#ffb2b8]/30 pb-1" href="#work">Work</a>
+<a class="text-slate-400 hover:text-[#ffb2b8] transition-all duration-500" href="#about">About</a>
+<a class="text-slate-400 hover:text-[#ffb2b8] transition-all duration-500" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-4 text-[#ffb2b8]">
+<button class="material-symbols-outlined hover:opacity-70 transition-all duration-500">menu</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-surface-container-lowest">
+<!-- Organic Floating Shapes -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-secondary-container rounded-full fluid-shape"></div>
+<div class="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-primary-container rounded-full fluid-shape"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-on-secondary-fixed-variant/10 rounded-full fluid-shape"></div>
+</div>
+<div class="relative z-10 text-center max-w-6xl">
+<h1 class="font-headline italic text-6xl md:text-[10rem] leading-[0.9] tracking-tighter text-on-background drop-shadow-2xl">
+                CRAFTING <br/> <span class="text-primary">DIGITAL ART</span>
+</h1>
+<p class="mt-8 font-label uppercase tracking-[0.3em] text-outline text-sm md:text-base">
+                Exploring the tension between function and form
+            </p>
+</div>
+</section>
+<!-- About Me Section -->
+<section class="py-32 px-8 bg-surface-container-low" id="about">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-start">
+<div class="md:w-1/2">
+<span class="font-label text-primary uppercase tracking-widest text-xs block mb-6">Introduction</span>
+<h2 class="font-headline italic text-4xl md:text-6xl text-on-surface leading-tight">
+                    I am Gabriel, a multidisciplinary designer weaving deep nocturnal aesthetics with modern digital precision.
+                </h2>
+</div>
+<div class="md:w-1/2 pt-4">
+<p class="text-on-surface-variant text-lg leading-relaxed font-body">
+                    My practice focuses on creating immersive experiences for luxury brands and experimental digital spaces. By leveraging tonal depth and high-contrast typography, I translate complex brand identities into visual poetry.
+                </p>
+<div class="mt-12 flex gap-8">
+<div>
+<div class="text-3xl font-headline text-white">12+</div>
+<div class="font-label text-outline text-[10px] uppercase tracking-widest">Global Awards</div>
+</div>
+<div>
+<div class="text-3xl font-headline text-white">08</div>
+<div class="font-label text-outline text-[10px] uppercase tracking-widest">Years Design</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="py-24 bg-surface" id="work">
+<div class="max-w-[1400px] mx-auto px-8">
+<div class="mb-20">
+<h3 class="font-headline italic text-5xl text-on-surface">Featured Work</h3>
+</div>
+<!-- Asymmetric Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Project 1 -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl bg-surface-container aspect-[16/9]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" data-alt="abstract flowing 3d silk texture in deep crimson and violet hues with dramatic shadows and cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpGPXhFc0nqYk_OVhbOuaFLDxVq4TlP-aRkq4j62_obss0OOGCa3SMiScGUioAX1RmkejJ7VlJrTrV39oX5PVd9bXiJaTVjy2cRHpnRdnRItniSUydOBSl4jPVZTDH2Mc5e9MpkA_O3y3cPwfKKUgAfxJrC8h-8HNFZYNCfjy2vVcMrXvrn16Q7PbDKkRMGVtJhoRG3w2VuyvaMQigyWW68JJ8ePA2SGThyhU2jopvU4c-PPOzLyyE_vDUrmjLOlLwrPIEODnsK64"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Art Direction</span>
+<h4 class="font-headline text-4xl text-white mt-4 italic">Nocturnal Dreams</h4>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="md:col-span-4 mt-12 md:mt-24 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl bg-surface-container aspect-[4/5]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100" data-alt="minimalist sculptural glass object illuminated by a single beam of purple light against a black void background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx7ZOb7ZVi74kG2LixCJQjYikjMrkO23aU-dPzq4XDhXT144icHZJvcFSVaYmgah7eHXdbylqqPl-hVa11cz9jiRQ0UCqcFQ6uTZ3HoY6avcwjVJbrUW848xf7vpQ8E4m8GbEECoYEQsvMuh1EqvJopR_FAuTlma7RDVCbQvthU0dygkYA0MyxZycTdklBan3kgYMo5ujH15Hr5WE2ie1gjR-Ca8FTLzo1UPts4jMBXgpqGXOSBmCF_yLo2k4lUwdaH99v2wfboGY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Interactive</span>
+<h4 class="font-headline text-3xl text-white mt-4 italic">Liquid Interface</h4>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="md:col-span-5 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl bg-surface-container aspect-[4/5]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100" data-alt="dark moody architectural interior with curved concrete walls and soft glowing pink neon lines defining the edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD56waq8wED-Ijuwa9z4AuaJQRvefYkG_4IpT3kSb_60EKCmI6GI1qgJTmSJ5-8nADUikU2Ucu2K3bNX-AVo9-kYymxOYWKUMFPHB6Dvj2hyFD0SZk8cx_B2HV8_O260yl044xic-XQPuzyZfVW50UvoZR6jI-VdKz8YOVqN2jqlhGXadfu6fBnw774OGMB6sZEQ5sFYmn76Ox9PQO2eNRcmbp5fqaO2OkdC7I9_wPD7JAqOePSpWw6-t0-ulcue0E-YqRHRJZbvXE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Web Design</span>
+<h4 class="font-headline text-3xl text-white mt-4 italic">The Vault 01</h4>
+</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="md:col-span-7 mt-12 md:-mt-12 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl bg-surface-container aspect-[16/9]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100" data-alt="geometric patterns formed by layered semi-transparent dark purple sheets with elegant glowing edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbpe7R5AfuKRlDfgqsnUJsO5faiHW1vHpzBbs24-V8hOHAgb_Ri4ifW9iiwAApfV193v5e7sOqc09MKDB1eKh07fMbHUkIMWqW8NDZ6KOKdFW-dFUGYqKTCQBz5CcPTFCyGUWPISxS-gwL_9c1GXfA0Eyx-mRsxqxRCdwhU5qsS-Ilylvzu_PnyEVFk6BIXU4qtlunSl94FPzOaSs1xgtDHqmyh3Q1vC87sJB0bGiScTH7MfYNXEgdS8w3JTo-FPEoOPOiSUf-Mis"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label text-primary-fixed-dim text-[10px] uppercase tracking-widest bg-primary-container/40 backdrop-blur-md px-3 py-1 rounded-full">Visual Identity</span>
+<h4 class="font-headline text-4xl text-white mt-4 italic">Ethereal Branding</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Archive Bento -->
+<section class="py-24 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<h3 class="font-headline italic text-4xl text-on-surface mb-16">Archived Experiments</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Archive Card 1 -->
+<div class="bg-surface-container-low p-8 rounded-xl hover:bg-surface-container transition-colors duration-500 flex flex-col justify-between h-64 border border-white/5">
+<div>
+<span class="font-label text-outline text-[10px] uppercase">2023</span>
+<h5 class="font-headline text-2xl text-on-surface-variant mt-2 italic">Aura Lab</h5>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label text-xs text-outline">Exploration</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_outward</span>
+</div>
+</div>
+<!-- Archive Card 2 -->
+<div class="bg-surface-container-low p-8 rounded-xl hover:bg-surface-container transition-colors duration-500 flex flex-col justify-between h-64 border border-white/5">
+<div>
+<span class="font-label text-outline text-[10px] uppercase">2023</span>
+<h5 class="font-headline text-2xl text-on-surface-variant mt-2 italic">Velvet Motion</h5>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label text-xs text-outline">Video</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_outward</span>
+</div>
+</div>
+<!-- Archive Card 3 -->
+<div class="bg-surface-container-low p-8 rounded-xl hover:bg-surface-container transition-colors duration-500 flex flex-col justify-between h-64 border border-white/5">
+<div>
+<span class="font-label text-outline text-[10px] uppercase">2022</span>
+<h5 class="font-headline text-2xl text-on-surface-variant mt-2 italic">Obsidian</h5>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label text-xs text-outline">Typeface</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_outward</span>
+</div>
+</div>
+<!-- Archive Card 4 -->
+<div class="bg-surface-container-low p-8 rounded-xl hover:bg-surface-container transition-colors duration-500 flex flex-col justify-between h-64 border border-white/5">
+<div>
+<span class="font-label text-outline text-[10px] uppercase">2022</span>
+<h5 class="font-headline text-2xl text-on-surface-variant mt-2 italic">Mono-Noir</h5>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label text-xs text-outline">Code</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Bottom Navigation -->
+<nav class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-8 z-50 bg-[#2D0A31]/50 backdrop-blur-2xl px-6 py-3 rounded-full border border-white/5 shadow-[0_20px_50px_rgba(45,10,49,0.3)]">
+<a class="bg-[#ffb2b8] text-[#2D0A31] rounded-full p-2 scale-110 flex items-center justify-center transition-all duration-300" href="#work" title="Projects">
+<span class="material-symbols-outlined">grid_view</span>
+</a>
+<a class="text-white/60 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#about" title="Profile">
+<span class="material-symbols-outlined">person</span>
+</a>
+<a class="text-white/60 p-2 hover:text-white transition-all duration-300 flex items-center justify-center" href="#contact" title="E-mail">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-[#0e0e0e] w-full border-t border-white/5 flex flex-col md:flex-row justify-between items-center px-12 py-16 mt-24" id="contact">
+<div class="text-lg font-['Newsreader'] italic text-white mb-8 md:mb-0 uppercase tracking-widest">
+            GABRIEL
+        </div>
+<div class="flex gap-12 font-['Manrope'] text-xs tracking-[0.2em] uppercase text-slate-500 mb-8 md:mb-0">
+<a class="hover:text-[#ffb2b8] transition-colors" href="#">Instagram</a>
+<a class="hover:text-[#ffb2b8] transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-[#ffb2b8] transition-colors" href="#">Archive</a>
+</div>
+<div class="font-['Manrope'] text-xs tracking-[0.2em] uppercase text-slate-500 text-center md:text-right">
+            © 2024 GABRIEL. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

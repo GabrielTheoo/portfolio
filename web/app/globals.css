@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Design tokens — carried over from the shipped site so the
+   shader hero and the sections below it read as one brand.
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* Primary — the red the brand already owns. */
+  --color-primary: #eb3a2b;
+  --color-primary-bright: #ff5c4d;
+  --color-primary-fixed: #ffdad6;
+  --color-primary-fixed-dim: #ff9487;
+  --color-primary-container: #4a0f0a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-fixed: #3b0a00;
+  --color-on-primary-fixed-variant: #8c1d0f;
+
+  /* Secondary / tertiary accents. */
+  --color-secondary: #c04d43;
+  --color-secondary-container: #5c2622;
+  --color-tertiary: #e9c349;
+
+  /* Surfaces — tonal layering, no borders needed to separate them. */
+  --color-surface-lowest: #0a0606;
+  --color-surface: #130c0c;
+  --color-surface-low: #1a1212;
+  --color-surface-container: #221818;
+  --color-surface-high: #282020;
+  --color-surface-highest: #332928;
+  --color-surface-bright: #3a2e2e;
+
+  /* Text. */
+  --color-on-surface: #f0dcdc;
+  --color-on-surface-variant: #c4b0ad;
+  --color-outline: #927371;
+  --color-outline-variant: #4d3836;
+
+  /* Type. */
+  --font-headline: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  /* Display leading — tight, the way the reference sets it. */
+  --leading-display: 0.95;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface-lowest);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Thin accent scrollbar, matching the shipped site. */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-lowest);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

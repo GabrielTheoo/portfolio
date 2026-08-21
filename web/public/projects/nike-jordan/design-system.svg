@@ -1,0 +1,135 @@
+<svg width="1440" height="2200" viewBox="0 0 1440 2200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="2200" fill="#F5F5F5"/>
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1440" height="120" fill="#0D0D0D"/>
+  <text x="60" y="52" font-family="Helvetica Neue,Helvetica,Arial" font-size="28" font-weight="700" fill="white" letter-spacing="6">DESIGN SYSTEM</text>
+  <text x="60" y="84" font-family="Helvetica Neue,Helvetica,Arial" font-size="14" fill="#FF3830" letter-spacing="4">JORDAN CLEAT × SNKRS</text>
+  <!-- 01 COLOR PALETTE -->
+  <text x="60" y="172" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" font-weight="700" fill="#999" letter-spacing="3">01 — COLOR PALETTE</text>
+  <line x1="60" y1="182" x2="1380" y2="182" stroke="#DDD" stroke-width="1"/>
+  <rect x="60" y="200" width="190" height="190" rx="12" fill="#FF3830"/>
+  <text x="60" y="412" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">Red Primary</text>
+  <text x="60" y="430" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">#FF3830</text>
+  <text x="60" y="446" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#999">R255 G56 B48</text>
+  <rect x="280" y="200" width="190" height="190" rx="12" fill="#C41E1E"/>
+  <text x="280" y="412" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">Red Dark</text>
+  <text x="280" y="430" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">#C41E1E</text>
+  <text x="280" y="446" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#999">R196 G30 B30</text>
+  <rect x="500" y="200" width="190" height="190" rx="12" fill="#0D0D0D"/>
+  <text x="500" y="412" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">Black</text>
+  <text x="500" y="430" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">#0D0D0D</text>
+  <text x="500" y="446" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#999">R13 G13 B13</text>
+  <rect x="720" y="200" width="190" height="190" rx="12" fill="#C8922A"/>
+  <text x="720" y="412" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">Gold</text>
+  <text x="720" y="430" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">#C8922A</text>
+  <text x="720" y="446" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#999">R200 G146 B42</text>
+  <rect x="940" y="200" width="190" height="190" rx="12" fill="#9B7FBF"/>
+  <text x="940" y="412" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">Violet</text>
+  <text x="940" y="430" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">#9B7FBF</text>
+  <text x="940" y="446" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#999">R155 G127 B191</text>
+  <rect x="1160" y="200" width="190" height="190" rx="12" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
+  <text x="1160" y="412" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">White</text>
+  <text x="1160" y="430" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">#FFFFFF</text>
+  <text x="1160" y="446" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#999">R255 G255 B255</text>
+  <!-- 02 LOGOS -->
+  <text x="60" y="524" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" font-weight="700" fill="#999" letter-spacing="3">02 — LOGOS &amp; BRAND MARKS</text>
+  <line x1="60" y1="534" x2="1380" y2="534" stroke="#DDD" stroke-width="1"/>
+  <rect x="60" y="554" width="380" height="260" rx="12" fill="#0D0D0D"/>
+  <g transform="translate(170,630) scale(11)"><path d="M10.84 1.14V1.08C10.84 0.8 10.93 0.55 11.11 0.33C11.29 0.11 11.52 0 11.8 0C12.08 0 12.33 0.0900001 12.55 0.27C12.77 0.45 12.89 0.69 12.91 0.99C12.93 1.29 12.84 1.54 12.64 1.74C12.44 1.94 12.2 2.04 11.92 2.04L11.74 2.1L11.8 2.19L11.74 2.52L11.62 3.48C11.66 3.52 11.68 3.56 11.68 3.6L11.56 4.2C11.52 4.28 11.48 4.34 11.44 4.38L11.38 4.62C11.3 4.94 11.23 5.2 11.17 5.4C11.11 5.6 11.06 5.76 11.02 5.88V6C10.98 6.2 10.95 6.36 10.93 6.48C10.91 6.6 10.84 6.8 10.72 7.08C10.64 7.24 10.64 7.5 10.72 7.86L10.78 7.92C10.78 8.04 10.83 8.18 10.93 8.34C11.03 8.5 11.08 8.64 11.08 8.76C11.12 9.56 11.06 10.24 10.9 10.8L11.02 11.16C11.5 11.4 11.64 11.66 11.44 11.94L11.74 12.06C12.22 12.3 12.56 12.51 12.76 12.69C12.96 12.87 13.16 13.06 13.36 13.26C13.52 13.3 13.64 13.36 13.72 13.44L13.9 13.5C14.74 14.06 15.58 14.74 16.42 15.54L16.66 15.72V15.78L16.6 15.9L16.78 16.02H16.84C16.96 16.1 17.04 16.14 17.08 16.14H17.14C17.18 16.14 17.22 16.12 17.26 16.08L17.38 16.02C17.46 15.94 17.54 15.88 17.62 15.84H17.86C17.9 15.84 17.9 15.86 17.86 15.9L17.62 16.02L17.32 16.38H17.74L18.16 16.44C18.28 16.4 18.38 16.36 18.46 16.32L18.76 16.14C18.88 16.1 19 16.14 19.12 16.26H19.18C19.22 16.3 19.2 16.36 19.12 16.44L18.4 17.1C18.2 17.26 18.02 17.36 17.86 17.4L17.08 17.94C17.04 17.98 17 17.98 16.96 17.94L16.78 17.7L16.66 17.46L16.51 17.25L16.33 17.01L16.18 16.83L16.06 16.68L15.82 16.5C15.74 16.5 15.66 16.48 15.58 16.44L14.8 15.84C14.68 15.84 14.54 15.78 14.38 15.66C13.78 15.14 13.38 14.82 13.18 14.7L12.82 14.46L12.1 14.34C11.86 14.3 11.54 14.18 11.14 13.98L10.66 13.74C10.34 13.58 10.12 13.5 10 13.5L9.76 13.38C9.6 13.34 9.48 13.3 9.4 13.26L9.28 13.14C9.2 13.14 9.12 13.16 9.04 13.2L7.84 13.8L6.34 14.46C5.94 14.78 5.56 15.04 5.2 15.24L4.54 15.54L3.52 16.26C3.44 16.34 3.36 16.34 3.28 16.26L3.16 16.38C3.04 16.42 2.96 16.44 2.92 16.44L2.68 16.56V16.68H2.56L2.44 16.86C2.36 17.02 2.28 17.11 2.2 17.13C2.12 17.15 2.07 17.18 2.05 17.22C2.03 17.26 2.01 17.29 1.99 17.31L1.87 17.43L1.69 17.55L1.42 17.52L1.06 17.58L0.82 17.64C0.62 17.68 0.46 17.65 0.34 17.55C0.22 17.45 0.12 17.3 0.04 17.1C-0.04 16.98 0 16.88 0.16 16.8L0.22 16.74C0.26 16.7 0.32 16.68 0.4 16.68H0.76L1.24 16.5L1.48 16.44C1.48 16.36 1.5 16.3 1.54 16.26C1.58 16.22 1.64 16.2 1.72 16.2V16.14C1.68 16.06 1.66 15.98 1.66 15.9C1.62 15.82 1.61 15.76 1.63 15.72C1.65 15.68 1.67 15.66 1.69 15.66H1.72L1.78 15.84C1.82 16.04 1.88 16.1 1.96 16.02L2.02 15.9C2.06 15.82 2.12 15.78 2.2 15.78L2.32 15.9L2.44 15.78L2.38 15.72C2.38 15.68 2.4 15.66 2.44 15.66L2.68 15.42C2.88 15.18 3.12 14.96 3.4 14.76C3.96 14.32 4.56 13.98 5.2 13.74C5.4 13.54 5.62 13.44 5.86 13.44C6.02 13.16 6.26 12.86 6.58 12.54C6.86 12.34 7.06 12.2 7.18 12.12C7.26 11.96 7.36 11.88 7.48 11.88H7.54L7.66 11.76C7.74 11.72 7.8 11.68 7.84 11.64V11.34C7.84 11.14 7.86 10.98 7.9 10.86C7.94 10.74 8.04 10.68 8.2 10.68L8.44 10.44C8.36 10.28 8.32 10.1 8.32 9.9H8.26C8.18 9.78 8.14 9.66 8.14 9.54C8.02 9.34 7.94 9.18 7.9 9.06H7.72C7.68 9.18 7.58 9.26 7.42 9.3L7.36 9.42C7.2 9.7 7.06 9.91 6.94 10.05C6.82 10.19 6.6 10.36 6.28 10.56C6.08 10.76 5.94 10.98 5.86 11.22C5.82 11.34 5.82 11.46 5.86 11.58L5.8 11.7H5.86C5.86 11.78 5.88 11.82 5.92 11.82H5.98C6.06 11.86 6.1 11.91 6.1 11.97C6.1 12.03 6.04 12.05 5.92 12.03C5.8 12.01 5.71 11.97 5.65 11.91C5.59 11.85 5.54 11.82 5.5 11.82L5.32 12C5.24 12.12 5.16 12.17 5.08 12.15C5 12.13 4.98 12.1 5.02 12.06L5.08 12C5.12 11.92 5.12 11.88 5.08 11.88L4.6 12C4.56 12.04 4.51 12.04 4.45 12C4.39 11.96 4.4 11.92 4.48 11.88L4.78 11.76C4.78 11.72 4.76 11.7 4.72 11.7C4.56 11.78 4.4 11.8 4.24 11.76L3.94 11.7L3.88 11.64C3.88 11.6 3.9 11.58 3.94 11.58C4.1 11.62 4.3 11.6 4.54 11.52L4.96 11.34L5.44 10.8L5.5 10.68C5.66 10.36 5.83 10.07 6.01 9.81C6.19 9.55 6.38 9.34 6.58 9.18L6.64 8.94C6.72 8.78 6.8 8.64 6.88 8.52C6.96 8.4 7.06 8.24 7.18 8.04L7.36 7.8C7.52 7.56 7.7 7.44 7.9 7.44L8.08 7.26C8.12 7.22 8.14 7.16 8.14 7.08L8.26 6.96L8.2 6.9C7.96 6.7 7.84 6.52 7.84 6.36C7.8 6.08 7.89 5.84 8.11 5.64C8.33 5.44 8.55 5.35 8.77 5.37C8.99 5.39 9.16 5.46 9.28 5.58L9.4 5.7C9.44 5.7 9.46 5.72 9.46 5.76L9.7 5.88V6.06C9.78 6.14 9.82 6.2 9.82 6.24C9.9 6.12 10.02 5.98 10.18 5.82L10.48 4.86C10.48 4.7 10.52 4.54 10.6 4.38L10.72 4.2V4.08L10.9 3.36H11.02L11.2 2.64C11.24 2.52 11.24 2.38 11.2 2.22L10.96 1.62L10.84 1.14Z" fill="white"/></g>
+  <text x="60" y="840" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">Jumpman</text>
+  <text x="60" y="858" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">jordan.svg — 20×18px</text>
+  <rect x="480" y="554" width="380" height="260" rx="12" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
+  <g transform="translate(495,648) scale(4.5)"><path d="M34.47 7.30843L30.6598 8.32073L20.0877 11.1211C16.3541 12.0558 13.0882 13.3008 9.94112 12.2109C5.66323 10.3415 5.73989 5.47774 8.92914 0.303711C3.29045 5.01231 -6.85613 20.069 6.86686 21.5894C8.61482 21.8221 11.7274 21.2015 15.1083 19.7625L30.6598 13.3047L61.3333 0.613997L34.47 7.30843Z" fill="#0D0D0D"/></g>
+  <text x="480" y="840" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">Jordan Wing</text>
+  <text x="480" y="858" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">logo.svg — 62×22px</text>
+  <rect x="900" y="554" width="480" height="260" rx="12" fill="#FF3830"/>
+  <g transform="translate(930,650) scale(4.8)"><path d="M3.67705 0.54925C1.66678 0.996603 0.298993 2.74896 0.206028 5.00471C0.160005 6.08287 0.37355 6.88721 0.910173 7.70419C1.19367 8.1181 2.09387 9.00197 2.70045 9.45565C3.75713 10.2437 4.04615 10.6242 3.98816 11.1511C3.94766 11.48 3.77462 11.7123 3.43405 11.8714C2.6084 12.2735 1.4247 11.7747 0.460072 10.6179L0.246527 10.363V15.0742L0.633117 15.1935C1.41826 15.4375 1.67323 15.4655 3.04654 15.4655C4.27718 15.4655 4.4042 15.4547 4.80828 15.3354C6.02696 14.9613 7.02013 14.1452 7.57424 13.0733C7.67825 12.8745 7.81079 12.5853 7.86878 12.4208L7.97831 12.1208V13.7475L7.98384 15.3806H11.9105L11.9224 11.8433L11.9399 8.30518L13.3252 11.8262L14.7169 15.3526L16.4032 15.3697L18.0895 15.3806V0.582689H14.1628L14.1509 3.79188L14.1343 6.99566L13.2102 3.79188L12.286 0.583592H7.98384V4.9315C7.97831 9.26947 7.97831 9.28574 7.86878 8.99112C7.59172 8.23198 7.03669 7.53971 6.16595 6.87094C5.82446 6.60976 5.35135 6.24103 5.10835 6.05395C4.53675 5.61112 4.28915 5.26047 4.28915 4.88632C4.28915 4.64773 4.31676 4.57452 4.49625 4.38745C4.7328 4.12627 4.99329 4.02415 5.40842 4.03047C5.86496 4.04132 6.55162 4.39829 7.05971 4.89174L7.4647 5.28306V1.04812L7.09468 0.900806C6.31506 0.59986 5.87601 0.514908 4.92334 0.492314C4.30019 0.480566 3.92005 0.497737 3.67705 0.54925ZM41.6604 0.577266C41.4303 0.634202 41.0142 0.786936 40.7427 0.923401C39.9051 1.33099 39.0914 2.20491 38.7214 3.08877C38.6404 3.2876 38.5713 3.4575 38.5603 3.46292C38.5483 3.47467 38.4498 3.29844 38.3403 3.06618C37.6702 1.65453 36.3485 0.871887 34.2581 0.645048C33.831 0.594438 32.3288 0.58269 29.1818 0.594438L24.713 0.611609L23.7254 2.67486L22.7377 4.73358L22.7203 2.65768L22.7092 0.582689H18.6666V15.3806H22.7092V12.2735L22.7147 9.17277L23.9334 12.2735L25.1576 15.3806H32.8139L32.8323 13.3508C32.8379 12.2392 32.8379 10.9071 32.8323 10.3919C32.8259 9.87589 32.8434 9.49541 32.8664 9.5406C32.8894 9.58578 33.3855 10.9188 33.9691 12.5004L35.0258 15.3743L37.4567 15.4032C38.7913 15.4213 40.3966 15.4484 41.0253 15.4719C42.0424 15.4999 42.209 15.4881 42.671 15.3815C43.3173 15.2311 43.9222 14.9434 44.443 14.5387C44.9639 14.134 45.388 13.6221 45.6855 13.039C46.0325 12.3585 46.1595 11.809 46.1936 10.9016C46.2691 8.95678 45.6855 7.90211 43.7572 6.47962C42.4059 5.48731 42.1114 4.99929 42.5146 4.43806C42.9196 3.87774 43.8612 3.91118 44.6923 4.51759C45.0384 4.76702 45.691 5.42495 45.691 5.52075C45.691 5.54967 45.7205 5.57226 45.749 5.57226C45.784 5.57226 45.807 4.77877 45.807 3.31019V1.05264L45.472 0.905326C44.8138 0.616128 44.2533 0.514005 43.1221 0.491411C42.2495 0.47424 42.0129 0.486892 41.6604 0.577266ZM28.7603 10.5447L28.7437 13.5948L27.375 10.3522C26.6184 8.57178 26.0007 7.09145 26.0007 7.06344C26.0007 7.04084 26.6174 5.75933 27.3685 4.22297L28.7437 1.42136L28.7603 4.46065C28.7667 6.13348 28.7667 8.87183 28.7603 10.5447ZM33.9175 4.02415C34.4772 4.33594 34.7717 4.95952 34.7027 5.71415C34.6217 6.70013 33.9866 7.38065 33.149 7.38607H32.8139V3.79731L33.2125 3.82623C33.519 3.84882 33.6865 3.89853 33.9175 4.02415ZM39.6225 8.42447C39.894 8.70192 40.3791 9.13301 40.6967 9.38244C41.0142 9.63188 41.3953 9.93192 41.5508 10.0566C42.429 10.7823 42.1979 11.809 41.1118 12.0015C40.4021 12.1262 39.1429 11.4457 38.5658 10.6242C38.4738 10.4931 38.3753 10.3919 38.3523 10.3919C38.3228 10.3919 38.2943 10.9468 38.2878 11.621L38.2713 12.8465L37.3876 11.0489C36.897 10.0566 36.5095 9.24598 36.5215 9.24055C37.1216 8.94593 37.2892 8.82664 37.6702 8.46333C38.0172 8.12895 38.1617 7.93013 38.3578 7.54513L38.6063 7.05169L38.8659 7.48277C39.0104 7.72678 39.3399 8.13528 39.6225 8.42447Z" fill="white"/></g>
+  <text x="900" y="840" font-family="Helvetica Neue,Helvetica,Arial" font-size="13" font-weight="700" fill="#0D0D0D">SNKRS</text>
+  <text x="900" y="858" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#666">snkrs.svg — 47×16px</text>
+  <!-- 03 TYPOGRAPHY -->
+  <text x="60" y="920" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" font-weight="700" fill="#999" letter-spacing="3">03 — TYPOGRAPHY</text>
+  <line x1="60" y1="930" x2="1380" y2="930" stroke="#DDD" stroke-width="1"/>
+  <rect x="60" y="950" width="640" height="480" rx="12" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
+  <text x="88" y="992" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" font-weight="700" fill="#999" letter-spacing="3">JordanNHG</text>
+  <text x="88" y="1070" font-family="Helvetica Neue,Helvetica,Arial" font-size="72" font-weight="900" fill="#0D0D0D">Aa</text>
+  <text x="88" y="1116" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#666">ABCDEFGHIJKLMNOPQRSTUVWXYZ</text>
+  <text x="88" y="1136" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#666">abcdefghijklmnopqrstuvwxyz 0123456789</text>
+  <line x1="88" y1="1156" x2="672" y2="1156" stroke="#EEE" stroke-width="1"/>
+  <text x="88" y="1188" font-family="Helvetica Neue,Helvetica,Arial" font-size="32" font-weight="900" fill="#0D0D0D">Display 900</text>
+  <text x="88" y="1222" font-family="Helvetica Neue,Helvetica,Arial" font-size="24" font-weight="700" fill="#0D0D0D">Heading 700</text>
+  <text x="88" y="1252" font-family="Helvetica Neue,Helvetica,Arial" font-size="18" font-weight="500" fill="#0D0D0D">Subheading 500</text>
+  <text x="88" y="1276" font-family="Helvetica Neue,Helvetica,Arial" font-size="14" fill="#0D0D0D">Body 400</text>
+  <text x="88" y="1296" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#999">Caption 400</text>
+  <text x="88" y="1393" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#BBB">Primary typeface — Headlines, display, product names</text>
+  <rect x="740" y="950" width="640" height="480" rx="12" fill="#0D0D0D"/>
+  <text x="768" y="992" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" font-weight="700" fill="#555" letter-spacing="3">Helvetica</text>
+  <text x="768" y="1070" font-family="Helvetica Neue,Helvetica,Arial" font-size="72" font-weight="300" fill="white">Aa</text>
+  <text x="768" y="1116" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#888">ABCDEFGHIJKLMNOPQRSTUVWXYZ</text>
+  <text x="768" y="1136" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#888">abcdefghijklmnopqrstuvwxyz 0123456789</text>
+  <line x1="768" y1="1156" x2="1352" y2="1156" stroke="#222" stroke-width="1"/>
+  <text x="768" y="1188" font-family="Helvetica Neue,Helvetica,Arial" font-size="32" font-weight="300" fill="white">Display 300</text>
+  <text x="768" y="1222" font-family="Helvetica Neue,Helvetica,Arial" font-size="24" font-weight="400" fill="white">Heading 400</text>
+  <text x="768" y="1252" font-family="Helvetica Neue,Helvetica,Arial" font-size="18" font-weight="500" fill="white">Subheading 500</text>
+  <text x="768" y="1276" font-family="Helvetica Neue,Helvetica,Arial" font-size="14" fill="#CCC">Body 400</text>
+  <text x="768" y="1296" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#888">Caption 400</text>
+  <text x="768" y="1393" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#555">Secondary typeface — Body, UI, descriptions</text>
+  <!-- 04 TYPE SCALE -->
+  <text x="60" y="1494" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" font-weight="700" fill="#999" letter-spacing="3">04 — TYPE SCALE</text>
+  <line x1="60" y1="1504" x2="1380" y2="1504" stroke="#DDD" stroke-width="1"/>
+  <rect x="60" y="1524" width="1320" height="560" rx="12" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
+  <text x="88" y="1566" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#BBB" letter-spacing="2">TOKEN</text>
+  <text x="280" y="1566" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#BBB" letter-spacing="2">SIZE</text>
+  <text x="380" y="1566" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#BBB" letter-spacing="2">WEIGHT</text>
+  <text x="500" y="1566" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#BBB" letter-spacing="2">LINE-H</text>
+  <text x="640" y="1566" font-family="Helvetica Neue,Helvetica,Arial" font-size="10" fill="#BBB" letter-spacing="2">USAGE</text>
+  <line x1="88" y1="1578" x2="1352" y2="1578" stroke="#EEE" stroke-width="1"/>
+  <text x="88" y="1614" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">display-xl</text>
+  <text x="280" y="1614" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">72px</text>
+  <text x="380" y="1614" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">900</text>
+  <text x="500" y="1614" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">78px</text>
+  <text x="640" y="1614" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">Hero titles, campaign headers</text>
+  <text x="88" y="1666" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">display-lg</text>
+  <text x="280" y="1666" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">48px</text>
+  <text x="380" y="1666" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">700</text>
+  <text x="500" y="1666" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">56px</text>
+  <text x="640" y="1666" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">Section titles, product names</text>
+  <text x="88" y="1718" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">heading-xl</text>
+  <text x="280" y="1718" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">36px</text>
+  <text x="380" y="1718" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">700</text>
+  <text x="500" y="1718" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">44px</text>
+  <text x="640" y="1718" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">Page headings</text>
+  <text x="88" y="1770" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">heading-md</text>
+  <text x="280" y="1770" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">24px</text>
+  <text x="380" y="1770" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">700</text>
+  <text x="500" y="1770" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">32px</text>
+  <text x="640" y="1770" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">Card headers, modal titles</text>
+  <text x="88" y="1822" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">body-lg</text>
+  <text x="280" y="1822" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">18px</text>
+  <text x="380" y="1822" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">400</text>
+  <text x="500" y="1822" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">28px</text>
+  <text x="640" y="1822" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">Lead paragraphs</text>
+  <text x="88" y="1874" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">body-md</text>
+  <text x="280" y="1874" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">16px</text>
+  <text x="380" y="1874" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">400</text>
+  <text x="500" y="1874" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">24px</text>
+  <text x="640" y="1874" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">Body text, descriptions</text>
+  <text x="88" y="1926" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">body-sm</text>
+  <text x="280" y="1926" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">14px</text>
+  <text x="380" y="1926" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">400</text>
+  <text x="500" y="1926" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">20px</text>
+  <text x="640" y="1926" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">Secondary text, metadata</text>
+  <text x="88" y="1978" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">label</text>
+  <text x="280" y="1978" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">12px</text>
+  <text x="380" y="1978" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">700</text>
+  <text x="500" y="1978" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">16px</text>
+  <text x="640" y="1978" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">UI labels, tags, badges</text>
+  <text x="88" y="2030" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#999">caption</text>
+  <text x="280" y="2030" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">10px</text>
+  <text x="380" y="2030" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">400</text>
+  <text x="500" y="2030" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">14px</text>
+  <text x="640" y="2030" font-family="Helvetica Neue,Helvetica,Arial" font-size="12" fill="#0D0D0D">Footnotes, timestamps, legal</text>
+  <!-- FOOTER -->
+  <rect x="0" y="2120" width="1440" height="80" fill="#0D0D0D"/>
+  <text x="60" y="2168" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#555" letter-spacing="2">JORDAN CLEAT — DESIGN SYSTEM v1.0</text>
+  <text x="1320" y="2168" font-family="Helvetica Neue,Helvetica,Arial" font-size="11" fill="#FF3830" letter-spacing="2">2026</text>
+</svg>
