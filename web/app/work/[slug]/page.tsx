@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CaseGallery } from "@/components/case/case-gallery";
+import { LabelPill } from "@/components/ui/label-pill";
 import { BeforeAfter } from "@/components/case/before-after";
 import { getNeighbours, getProject, projects } from "@/content/projects";
 import { lakesideComparison } from "@/content/projects/lakeside";
@@ -40,7 +41,7 @@ function DisplayHeading({
   return (
     <h2
       className={
-        "font-headline leading-[0.95] tracking-tight text-on-surface " +
+        "font-display leading-[0.95] tracking-tight text-ink " +
         (className ?? "text-3xl md:text-5xl")
       }
     >
@@ -67,17 +68,17 @@ export default async function CasePage({
   const isLifethrive = slug === "life-thrive-solutions";
 
   return (
-    <article className="bg-surface-lowest">
+    <article className="bg-page">
       {/* ─── Hero ─── */}
-      <section className="px-6 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
-        <div className="mx-auto max-w-6xl">
-          <p className="mb-6 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-            Case Study · {project.year}
-          </p>
+      <section className="px-5 pb-16 pt-28 rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)] rail:pb-24 rail:pt-16">
+        <div className="max-w-[62rem]">
+          <div className="mb-7">
+            <LabelPill tone="accent">Case Study · {project.year}</LabelPill>
+          </div>
 
-          <h1 className="font-headline text-5xl leading-[0.95] tracking-tight text-on-surface md:text-7xl">
+          <h1 className="font-display text-huge font-bold tracking-tight text-ink">
             <span className="block">{project.title.lead}</span>
-            <span className="block text-on-surface-variant">
+            <span className="block text-ink-80">
               {project.title.rest}
             </span>
           </h1>
@@ -86,7 +87,7 @@ export default async function CasePage({
             {project.tags.map((tag) => (
               <li
                 key={tag}
-                className="rounded-full bg-white/5 px-4 py-2 text-[0.7rem] font-light uppercase tracking-[0.1em] text-on-surface-variant"
+                className="rounded-full bg-white/5 px-4 py-2 text-label font-bold uppercase tracking-[0.1em] text-ink-80"
               >
                 {tag}
               </li>
@@ -98,7 +99,7 @@ export default async function CasePage({
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-xs font-normal text-white transition-colors duration-200 hover:bg-primary-bright"
+              className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3 text-xs font-normal text-white transition-colors duration-200 hover:bg-accent-bright"
             >
               View Live Site
               <svg
@@ -119,7 +120,7 @@ export default async function CasePage({
           ) : null}
 
           {/* Cover */}
-          <div className="relative mt-14 aspect-[16/9] overflow-hidden rounded-2xl bg-surface-container">
+          <div className="relative mt-14 aspect-[16/9] overflow-hidden rounded-sm bg-card">
             {project.cover.kind === "video" ? (
               <video
                 src={project.cover.src}
@@ -147,8 +148,8 @@ export default async function CasePage({
 
       {/* ─── Before / after, Lakeside only ─── */}
       {isLakeside ? (
-        <section className="bg-surface px-6 py-24 md:px-10 md:py-32">
-          <div className="mx-auto max-w-6xl">
+        <section className="bg-page px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+          <div className="max-w-[62rem]">
             <BeforeAfter
               before={lakesideComparison.before}
               after={lakesideComparison.after}
@@ -163,15 +164,13 @@ export default async function CasePage({
         <section
           key={section.eyebrow}
           className={
-            "px-6 py-24 md:px-10 md:py-32 " +
-            (i % 2 === 0 ? "bg-surface-lowest" : "bg-surface")
+            "px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)] " +
+            (i % 2 === 0 ? "bg-page" : "bg-page")
           }
         >
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
+          <div className="grid max-w-[62rem] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
             <div>
-              <p className="mb-5 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-                {section.eyebrow}
-              </p>
+              <div className="mb-6"><LabelPill tone="accent">{section.eyebrow}</LabelPill></div>
               <DisplayHeading text={section.heading} />
             </div>
 
@@ -179,14 +178,14 @@ export default async function CasePage({
               {section.body.map((paragraph) => (
                 <p
                   key={paragraph}
-                  className="text-sm font-light leading-relaxed text-on-surface-variant"
+                  className="text-sm font-normal leading-relaxed text-ink-80"
                 >
                   {paragraph}
                 </p>
               ))}
 
               {section.callout ? (
-                <p className="rounded-2xl bg-primary-container/60 p-6 text-sm font-light leading-relaxed text-primary-fixed">
+                <p className="rounded-sm bg-accent-dim/60 p-6 text-sm font-normal leading-relaxed text-ink">
                   {section.callout}
                 </p>
               ) : null}
@@ -197,12 +196,12 @@ export default async function CasePage({
 
       {/* ─── Pull quote ─── */}
       {project.pull ? (
-        <section className="bg-surface-container px-6 py-24 md:px-10 md:py-32">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="font-headline text-2xl italic leading-tight text-on-surface md:text-4xl">
+        <section className="bg-card px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+          <div className="max-w-[52rem] text-center">
+            <p className="font-display text-2xl italic leading-tight text-ink md:text-4xl">
               &ldquo;{project.pull.quote}&rdquo;
             </p>
-            <p className="mt-8 text-xs font-light uppercase tracking-[0.14em] text-primary">
+            <p className="mt-8 text-xs font-normal uppercase tracking-[0.14em] text-accent">
               {project.pull.attribution}
             </p>
           </div>
@@ -211,23 +210,21 @@ export default async function CasePage({
 
       {/* ─── UX principles, Life Thrive only ─── */}
       {isLifethrive ? (
-        <section className="bg-surface px-6 py-24 md:px-10 md:py-32">
-          <div className="mx-auto max-w-6xl">
-            <p className="mb-5 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-              — UX Principles
-            </p>
+        <section className="bg-page px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+          <div className="max-w-[62rem]">
+            <div className="mb-6"><LabelPill tone="accent">— UX Principles</LabelPill></div>
             <DisplayHeading text={"Six decisions that\nearn trust."} />
 
             <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {lifethrivePrinciples.map((principle) => (
                 <div
                   key={principle.title}
-                  className="rounded-2xl bg-surface-container p-8"
+                  className="rounded-sm bg-card p-8"
                 >
-                  <h3 className="font-headline text-xl leading-none text-on-surface">
+                  <h3 className="font-display text-xl leading-none text-ink">
                     {principle.title}
                   </h3>
-                  <p className="mt-4 text-sm font-light leading-relaxed text-on-surface-variant">
+                  <p className="mt-4 text-sm font-normal leading-relaxed text-ink-80">
                     {principle.body}
                   </p>
                 </div>
@@ -239,27 +236,25 @@ export default async function CasePage({
 
       {/* ─── Palette ─── */}
       {project.palette ? (
-        <section className="bg-surface-lowest px-6 py-24 md:px-10 md:py-32">
-          <div className="mx-auto max-w-6xl">
-            <p className="mb-5 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-              {project.palette.eyebrow}
-            </p>
+        <section className="bg-page px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+          <div className="max-w-[62rem]">
+            <div className="mb-6"><LabelPill tone="accent">{project.palette.eyebrow}</LabelPill></div>
             <DisplayHeading text={project.palette.heading} />
 
             <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {project.palette.swatches.map((swatch) => (
                 <div key={swatch.hex}>
                   <div
-                    className="aspect-[4/3] rounded-2xl"
+                    className="aspect-[4/3] rounded-sm"
                     style={{ backgroundColor: swatch.hex }}
                   />
-                  <p className="mt-4 text-sm font-light text-on-surface">
+                  <p className="mt-4 text-sm font-normal text-ink">
                     {swatch.name}
                   </p>
-                  <p className="mt-1 font-mono text-xs text-outline">
+                  <p className="mt-1 font-mono text-xs text-ink-muted">
                     {swatch.hex}
                   </p>
-                  <p className="mt-1 text-xs font-light text-on-surface-variant">
+                  <p className="mt-1 text-xs font-normal text-ink-80">
                     {swatch.role}
                   </p>
                 </div>
@@ -271,29 +266,27 @@ export default async function CasePage({
 
       {/* ─── Typography ─── */}
       {project.typography ? (
-        <section className="bg-surface px-6 py-24 md:px-10 md:py-32">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:gap-20">
+        <section className="bg-page px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+          <div className="grid max-w-[62rem] gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="mb-5 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-                — Typography
-              </p>
-              <p className="font-headline text-3xl leading-[0.95] text-on-surface md:text-5xl">
+              <div className="mb-6"><LabelPill tone="accent">— Typography</LabelPill></div>
+              <p className="font-display text-3xl leading-[0.95] text-ink md:text-5xl">
                 {project.typography.specimen.split("\n").map((line, i) => (
                   <span key={i} className="block">
                     {line}
                   </span>
                 ))}
               </p>
-              <p className="mt-8 text-[0.7rem] font-light uppercase tracking-[0.14em] text-outline">
+              <p className="mt-8 text-label font-bold uppercase tracking-[0.14em] text-ink-muted">
                 {project.typography.meta}
               </p>
             </div>
 
             <div className="lg:pt-20">
-              <h3 className="font-headline text-2xl leading-none text-on-surface">
+              <h3 className="font-display text-2xl leading-none text-ink">
                 {project.typography.name}
               </h3>
-              <p className="mt-5 text-sm font-light leading-relaxed text-on-surface-variant">
+              <p className="mt-5 text-sm font-normal leading-relaxed text-ink-80">
                 {project.typography.rationale}
               </p>
             </div>
@@ -303,13 +296,11 @@ export default async function CasePage({
 
       {/* ─── Process ─── */}
       {project.process ? (
-        <section className="bg-surface-lowest px-6 py-24 md:px-10 md:py-32">
-          <div className="mx-auto max-w-6xl">
-            <p className="mb-5 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-              {project.process.eyebrow}
-            </p>
+        <section className="bg-page px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+          <div className="max-w-[62rem]">
+            <div className="mb-6"><LabelPill tone="accent">{project.process.eyebrow}</LabelPill></div>
             <DisplayHeading text={project.process.heading} />
-            <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-on-surface-variant">
+            <p className="mt-6 max-w-xl text-sm font-normal leading-relaxed text-ink-80">
               {project.process.intro}
             </p>
 
@@ -317,15 +308,15 @@ export default async function CasePage({
               {project.process.steps.map((step) => (
                 <li
                   key={step.index}
-                  className="rounded-2xl bg-surface-container p-8"
+                  className="rounded-sm bg-card p-8"
                 >
-                  <span className="font-headline text-sm leading-none text-primary">
+                  <span className="font-display text-sm leading-none text-accent">
                     {step.index}
                   </span>
-                  <h3 className="mt-4 font-headline text-xl leading-none text-on-surface md:text-2xl">
+                  <h3 className="mt-4 font-display text-xl leading-none text-ink md:text-2xl">
                     {step.title}
                   </h3>
-                  <p className="mt-4 text-sm font-light leading-relaxed text-on-surface-variant">
+                  <p className="mt-4 text-sm font-normal leading-relaxed text-ink-80">
                     {step.body}
                   </p>
                 </li>
@@ -337,14 +328,12 @@ export default async function CasePage({
 
       {/* ─── Gallery ─── */}
       {project.gallery ? (
-        <section className="bg-surface px-6 py-24 md:px-10 md:py-32">
-          <div className="mx-auto max-w-6xl">
-            <p className="mb-5 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-              {project.gallery.eyebrow}
-            </p>
+        <section className="bg-page px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+          <div className="max-w-[62rem]">
+            <div className="mb-6"><LabelPill tone="accent">{project.gallery.eyebrow}</LabelPill></div>
             <DisplayHeading text={project.gallery.heading} />
             {project.gallery.intro ? (
-              <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-on-surface-variant">
+              <p className="mt-6 max-w-xl text-sm font-normal leading-relaxed text-ink-80">
                 {project.gallery.intro}
               </p>
             ) : null}
@@ -355,20 +344,18 @@ export default async function CasePage({
       ) : null}
 
       {/* ─── Results ─── */}
-      <section className="bg-surface-lowest px-6 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-6xl">
+      <section className="bg-page px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+        <div className="max-w-[62rem]">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="mb-5 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-                {project.results.eyebrow}
-              </p>
+              <div className="mb-6"><LabelPill tone="accent">{project.results.eyebrow}</LabelPill></div>
               <DisplayHeading text={project.results.heading} />
             </div>
             <div className="space-y-5">
               {project.results.body.map((paragraph) => (
                 <p
                   key={paragraph}
-                  className="text-sm font-light leading-relaxed text-on-surface-variant"
+                  className="text-sm font-normal leading-relaxed text-ink-80"
                 >
                   {paragraph}
                 </p>
@@ -380,17 +367,17 @@ export default async function CasePage({
             {project.results.stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl bg-surface-container p-8"
+                className="rounded-sm bg-card p-8"
               >
-                <dt className="font-headline text-4xl leading-none text-on-surface md:text-5xl">
+                <dt className="font-display text-4xl leading-none text-ink md:text-5xl">
                   {stat.value}
                   {stat.unit ? (
-                    <span className="text-2xl text-primary md:text-3xl">
+                    <span className="text-2xl text-accent md:text-3xl">
                       {stat.unit}
                     </span>
                   ) : null}
                 </dt>
-                <dd className="mt-4 text-[0.7rem] font-light uppercase tracking-[0.14em] text-on-surface-variant">
+                <dd className="mt-4 text-label font-bold uppercase tracking-[0.14em] text-ink-80">
                   {stat.label}
                 </dd>
               </div>
@@ -402,7 +389,7 @@ export default async function CasePage({
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-block font-mono text-xs text-primary transition-opacity hover:opacity-70"
+              className="mt-8 inline-block font-mono text-xs text-accent transition-opacity hover:opacity-70"
             >
               {project.liveLabel}
             </a>
@@ -411,23 +398,21 @@ export default async function CasePage({
       </section>
 
       {/* ─── Stack ─── */}
-      <section className="bg-surface px-6 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-6xl">
-          <p className="mb-5 text-[0.7rem] font-light uppercase tracking-[0.18em] text-primary">
-            {project.stack.eyebrow}
-          </p>
+      <section className="bg-page px-5 py-24 rail:py-[var(--section-gap)] rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+        <div className="max-w-[62rem]">
+          <div className="mb-6"><LabelPill tone="accent">{project.stack.eyebrow}</LabelPill></div>
           <DisplayHeading text={project.stack.heading} />
 
           <ul className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {project.stack.tools.map((tool) => (
               <li
                 key={tool.name}
-                className="flex items-baseline justify-between gap-4 rounded-2xl bg-surface-container px-6 py-5"
+                className="flex items-baseline justify-between gap-4 rounded-sm bg-card px-6 py-5"
               >
-                <span className="font-headline text-lg leading-none text-on-surface">
+                <span className="font-display text-lg leading-none text-ink">
                   {tool.name}
                 </span>
-                <span className="text-right text-[0.7rem] font-light uppercase tracking-[0.1em] text-outline">
+                <span className="text-right text-label font-bold uppercase tracking-[0.1em] text-ink-muted">
                   {tool.role}
                 </span>
               </li>
@@ -437,24 +422,24 @@ export default async function CasePage({
       </section>
 
       {/* ─── CTA + prev/next ─── */}
-      <section className="bg-surface-lowest px-6 pb-16 pt-24 md:px-10 md:pt-32">
-        <div className="mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-2xl bg-surface-container p-10 md:p-16">
+      <section className="bg-page px-5 pb-16 pt-24 rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)] rail:pt-[var(--section-gap)]">
+        <div className="max-w-[62rem]">
+          <div className="relative overflow-hidden rounded-sm bg-card p-10 md:p-16">
             <div
               aria-hidden
-              className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-primary/20 blur-[100px]"
+              className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-accent/20 blur-[100px]"
             />
             <div className="relative max-w-2xl">
               <DisplayHeading
                 text={project.cta.heading}
                 className="text-3xl md:text-5xl"
               />
-              <p className="mt-6 text-sm font-light leading-relaxed text-on-surface-variant">
+              <p className="mt-6 text-sm font-normal leading-relaxed text-ink-80">
                 {project.cta.body}
               </p>
               <Link
                 href="/#contact"
-                className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-xs font-normal text-white transition-colors duration-200 hover:bg-primary-bright"
+                className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3 text-xs font-normal text-white transition-colors duration-200 hover:bg-accent-bright"
               >
                 Let&apos;s Talk
               </Link>
@@ -465,12 +450,12 @@ export default async function CasePage({
             {prev ? (
               <Link
                 href={`/work/${prev.slug}`}
-                className="group rounded-2xl bg-surface-low p-8 transition-colors duration-300 hover:bg-surface-container"
+                className="group rounded-sm bg-card p-8 transition-colors duration-300 hover:bg-card"
               >
-                <p className="text-[0.7rem] font-light uppercase tracking-[0.14em] text-outline">
+                <p className="text-label font-bold uppercase tracking-[0.14em] text-ink-muted">
                   Previous
                 </p>
-                <p className="mt-3 font-headline text-xl leading-none text-on-surface transition-colors group-hover:text-primary">
+                <p className="mt-3 font-display text-xl leading-none text-ink transition-colors group-hover:text-accent">
                   {prev.title.lead} {prev.title.rest}
                 </p>
               </Link>
@@ -478,20 +463,20 @@ export default async function CasePage({
             {next ? (
               <Link
                 href={`/work/${next.slug}`}
-                className="group rounded-2xl bg-surface-low p-8 text-right transition-colors duration-300 hover:bg-surface-container"
+                className="group rounded-sm bg-card p-8 text-right transition-colors duration-300 hover:bg-card"
               >
-                <p className="text-[0.7rem] font-light uppercase tracking-[0.14em] text-outline">
+                <p className="text-label font-bold uppercase tracking-[0.14em] text-ink-muted">
                   Next
                 </p>
-                <p className="mt-3 font-headline text-xl leading-none text-on-surface transition-colors group-hover:text-primary">
+                <p className="mt-3 font-display text-xl leading-none text-ink transition-colors group-hover:text-accent">
                   {next.title.lead} {next.title.rest}
                 </p>
               </Link>
             ) : null}
           </nav>
 
-          <footer className="mt-20 border-t border-white/5 pt-8">
-            <p className="text-xs font-light text-outline">
+          <footer className="mt-20 border-t border-rule pt-8">
+            <p className="text-xs font-normal text-ink-muted">
               © 2026 Gabriel Teobaldo. All rights reserved.
             </p>
           </footer>

@@ -35,17 +35,17 @@ export function BeforeAfter({
   return (
     <div>
       <div className="mb-6 flex items-center justify-between gap-4">
-        <p className="text-[0.7rem] font-light uppercase tracking-[0.14em] text-outline">
+        <p className="text-[0.7rem] font-normal uppercase tracking-[0.14em] text-ink-muted">
           {before.label}
         </p>
-        <p className="text-[0.7rem] font-light uppercase tracking-[0.14em] text-primary">
+        <p className="text-[0.7rem] font-normal uppercase tracking-[0.14em] text-accent">
           {after.label}
         </p>
       </div>
 
       <div
         ref={containerRef}
-        className="relative aspect-[16/9] w-full select-none overflow-hidden rounded-2xl bg-surface-container"
+        className="relative aspect-[16/9] w-full select-none overflow-hidden rounded-sm bg-card"
         onPointerMove={(e) => updateFromClientX(e.clientX)}
         onTouchMove={(e) => updateFromClientX(e.touches[0].clientX)}
       >
@@ -75,10 +75,10 @@ export function BeforeAfter({
         {/* Divider. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 w-0.5 bg-primary"
+          className="pointer-events-none absolute inset-y-0 w-0.5 bg-accent"
           style={{ left: `${position}%` }}
         >
-          <div className="absolute left-1/2 top-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+          <div className="absolute left-1/2 top-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent text-white shadow-lg">
             <svg
               className="size-4"
               fill="none"
@@ -107,7 +107,7 @@ export function BeforeAfter({
         />
       </div>
 
-      <p className="mt-4 text-center text-xs font-light text-outline">{hint}</p>
+      <p className="mt-4 text-center text-xs font-normal text-ink-muted">{hint}</p>
     </div>
   );
 }

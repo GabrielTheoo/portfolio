@@ -52,7 +52,7 @@ export function CaseGallery({ items }: { items: Media[] }) {
             className="group block text-left"
             aria-label={`Expand: ${item.alt}`}
           >
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-surface-container">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-card">
               {item.kind === "video" ? (
                 <video
                   src={item.src}
@@ -77,7 +77,7 @@ export function CaseGallery({ items }: { items: Media[] }) {
               )}
             </div>
             {item.caption ? (
-              <p className="mt-4 text-xs font-light text-outline">
+              <p className="mt-4 text-xs font-normal text-ink-muted">
                 {item.caption}
               </p>
             ) : null}
@@ -90,14 +90,14 @@ export function CaseGallery({ items }: { items: Media[] }) {
           role="dialog"
           aria-modal="true"
           aria-label={active.alt}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-surface-lowest/95 p-6 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-page/95 p-6 backdrop-blur-sm"
           onClick={close}
         >
           <button
             type="button"
             onClick={close}
             aria-label="Close"
-            className="absolute right-6 top-6 rounded-full bg-white/10 px-4 py-2 text-xs font-light text-on-surface transition-colors hover:bg-white/20"
+            className="absolute right-6 top-6 rounded-full bg-white/10 px-4 py-2 text-xs font-normal text-ink transition-colors hover:bg-white/20"
           >
             Close
           </button>
@@ -114,7 +114,7 @@ export function CaseGallery({ items }: { items: Media[] }) {
                 autoPlay
                 loop
                 playsInline
-                className="max-h-[85vh] w-full rounded-2xl object-contain"
+                className="max-h-[85vh] w-full rounded-sm object-contain"
               />
             ) : (
               <Image
@@ -123,7 +123,7 @@ export function CaseGallery({ items }: { items: Media[] }) {
                 width={1600}
                 height={1000}
                 sizes="100vw"
-                className="max-h-[85vh] w-full rounded-2xl object-contain"
+                className="max-h-[85vh] w-full rounded-sm object-contain"
               />
             )}
           </div>

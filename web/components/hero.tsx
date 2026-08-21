@@ -1,66 +1,56 @@
 import { ShaderBackground } from "@/components/ui/hero-shader";
-import { stats } from "@/content/profile";
-
-/** The hero surfaces the two stats that read instantly. */
-const HERO_STATS = stats.slice(0, 2);
+import { LabelPill } from "@/components/ui/label-pill";
+import { Display } from "@/components/ui/display";
 
 export function Hero() {
   return (
-    <ShaderBackground className="flex min-h-svh flex-col">
-      <main className="relative z-20 mt-auto max-w-3xl px-6 pb-16 pt-32 md:px-10 md:pb-24">
-        <div
-          className="relative mb-6 inline-flex items-center rounded-full bg-white/5 px-3 py-1 backdrop-blur-sm"
-          style={{ filter: "url(#glass-effect)" }}
-        >
-          <div className="absolute left-1 right-1 top-0 h-px rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-          <span className="relative z-10 text-xs font-light text-primary-fixed/90">
-            Available for select projects
-          </span>
-        </div>
-
-        <h1 className="mb-5 font-headline text-5xl leading-[0.95] tracking-tight text-primary-fixed md:text-7xl">
-          The AI Creative
-          <br />
-          Technologist.
-          <br />
-          <span className="italic text-primary">That&apos;s Gabriel.</span>
-        </h1>
-
-        <p className="mb-8 max-w-md text-sm font-light leading-relaxed text-primary-fixed/70">
-          I build the pipelines and interfaces that let brands produce work at a
-          speed they could not before. Generative imagery, cinematic video, and
-          immersive web — from Motorola to early-stage startups.
-        </p>
-
-        <div className="mb-9 flex items-center gap-10">
-          {HERO_STATS.map((stat) => (
-            <div key={stat.label}>
-              <div className="font-headline text-3xl leading-none text-primary-fixed">
-                {stat.value}
-                <span className="text-primary">{stat.unit}</span>
-              </div>
-              <div className="mt-1.5 text-[0.7rem] font-light uppercase tracking-[0.14em] text-primary-fixed/50">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-wrap items-center gap-4">
-          <a
-            href="#work"
-            className="rounded-full bg-primary px-8 py-3 text-xs font-normal text-white transition-all duration-200 hover:bg-primary-bright"
+    <div id="top">
+      <ShaderBackground className="flex min-h-svh flex-col">
+        <div className="relative z-20 mt-auto px-5 pb-16 pt-32 rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)] rail:pb-24">
+          <div
+            className="relative mb-7 inline-flex items-center rounded-pill bg-white/5 px-3 py-1 backdrop-blur-sm"
+            style={{ filter: "url(#glass-effect)" }}
           >
-            View My Work
-          </a>
-          <a
-            href="#resume"
-            className="rounded-full border border-white/30 bg-transparent px-8 py-3 text-xs font-normal text-primary-fixed transition-all duration-200 hover:border-white/50 hover:bg-white/10"
-          >
-            Resume
-          </a>
+            <div className="absolute left-1 right-1 top-0 h-px rounded-full bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+            <span className="relative z-10 text-label font-bold uppercase leading-none text-ink-80">
+              Available for select projects
+            </span>
+          </div>
+
+          <Display
+            as="h1"
+            text={"The AI Creative\nTechnologist.\nThat's Gabriel."}
+            size="huge"
+            reveal={false}
+            className="max-w-[52rem]"
+          />
+
+          <p className="mt-8 max-w-[28rem] text-copy text-ink-80">
+            I build the pipelines and interfaces that let brands produce work at
+            a speed they could not before. Generative imagery, cinematic video,
+            and immersive web — from Motorola to early-stage startups.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <a
+              href="#work"
+              className="inline-flex h-11 items-center rounded-md bg-accent px-8 text-copy font-medium text-on-accent transition-colors duration-200 hover:bg-accent-bright"
+            >
+              View My Work
+            </a>
+            <a
+              href="#resume"
+              className="inline-flex h-11 items-center rounded-md border border-rule-strong px-8 text-copy font-medium text-ink transition-colors duration-200 hover:bg-white/10"
+            >
+              Resume
+            </a>
+          </div>
+
+          <div className="mt-12">
+            <LabelPill>Scroll to begin</LabelPill>
+          </div>
         </div>
-      </main>
-    </ShaderBackground>
+      </ShaderBackground>
+    </div>
   );
 }

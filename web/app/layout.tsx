@@ -1,21 +1,31 @@
 import type { Metadata } from "next";
-import { Manrope, Newsreader } from "next/font/google";
+import { Inter_Tight, Manrope, Newsreader } from "next/font/google";
 import "./globals.css";
 
-import { SiteHeader } from "@/components/site-header";
+import { MotionProvider } from "@/components/motion-provider";
+import { SideRail } from "@/components/rail/side-rail";
 import { SvgFilters } from "@/components/ui/svg-filters";
 import { profile } from "@/content/profile";
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+/** Display face. Closest free stand-in for the reference's licensed
+ *  grotesk: tight, high-weight, holds up at 160px with negative tracking. */
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
   subsets: ["latin"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
+});
+
+/** Kept for italic accents in case-study pull quotes. */
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -33,12 +43,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${manrope.variable} h-full antialiased`}
+      className={`${interTight.variable} ${manrope.variable} ${newsreader.variable} antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body>
         <SvgFilters />
-        <SiteHeader />
-        {children}
+        <SideRail />
+        <MotionProvider />
+        <main>{children}</main>
       </body>
     </html>
   );

@@ -1,106 +1,160 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { SectionHeading } from "@/components/ui/section-heading";
-import { projects, work } from "@/content/projects";
+import { Display } from "@/components/ui/display";
+import { LabelPill } from "@/components/ui/label-pill";
+import { projects } from "@/content/projects";
+import type { Project } from "@/content/types";
 
 /**
- * Project grid.
+ * Project gallery.
  *
- * Reference pattern: numbered cards, tech tags above the name, cover image on
- * top. Kept on this site's layered dark surfaces rather than the reference's
- * cream cards.
+ * The reference pins the viewport and scrolls the project track sideways
+ * as you scroll down; `data-h-pin` / `data-h-track` are the hooks the
+ * motion provider drives. Below the pin breakpoint it degrades to an
+ * ordinary horizontal swipe strip, which is the better phone interaction
+ * anyway — nothing depends on JS to be reachable.
  */
 export function Projects() {
   return (
-    <section id="work" className="bg-surface-lowest px-6 py-24 md:px-10 md:py-32">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          eyebrow={work.eyebrow}
-          heading={"Built with AI,\nMade to Perform"}
-          intro={work.intro}
-        />
+    <section id="work" className="relative">
+      <div
+        data-h-pin
+        className="flex min-h-svh flex-col justify-center overflow-hidden py-24 rail:py-0"
+      >
+        <div className="px-5 rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <Display text={"Built with AI,\nMade to Perform"} size="display" />
+            <LabelPill tone="accent">{projects.length} selected cases</LabelPill>
+          </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          <p data-reveal="up" className="mt-7 max-w-[26rem] text-copy text-ink-80">
+            Every one shipped: an AI pipeline inside Motorola, a product site
+            with zero stock imagery, a therapy practice in Florida, a luxury
+            redesign. Scroll to move through them.
+          </p>
+        </div>
+
+        {/* Scroll container. `overflow-x-auto` has to sit on a separate,
+            viewport-width element: the track itself is `w-max`, and an
+            element cannot scroll its own intrinsic width — with both on one
+            div the strip was simply clipped and the projects became
+            unreachable on touch. */}
+        <div className="mt-14 overflow-x-auto pb-4 rail:mt-20 rail:overflow-x-visible rail:pb-0">
+        <div
+          data-h-track
+          className="flex w-max gap-4 px-5 rail:pl-[var(--content-inset)]"
+        >
           {projects.map((project, i) => (
-            <Link
-              key={project.slug}
-              href={`/work/${project.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-surface-container transition-colors duration-300 hover:bg-surface-high"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-surface-low">
-                {project.cover.kind === "video" ? (
-                  <video
-                    src={project.cover.src}
-                    poster={project.cover.poster}
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    aria-label={project.cover.alt}
-                    className="size-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                ) : (
-                  <Image
-                    src={project.cover.src}
-                    alt={project.cover.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                )}
-              </div>
-
-              <div className="flex flex-1 flex-col p-6">
-                <div className="mb-4 flex items-start justify-between gap-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-white/5 px-2.5 py-1 text-[0.7rem] font-light uppercase tracking-[0.1em] text-on-surface-variant"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="shrink-0 font-headline text-sm leading-none text-primary">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                <h3 className="font-headline text-2xl leading-none text-on-surface">
-                  {project.title.lead}{" "}
-                  <span className="text-on-surface-variant">
-                    {project.title.rest}
-                  </span>
-                </h3>
-
-                <p className="mt-3 text-sm font-light leading-relaxed text-on-surface-variant">
-                  {project.summary}
-                </p>
-
-                <div className="mt-auto flex items-center gap-2 pt-6 text-xs font-light text-primary">
-                  <span>View case study</span>
-                  <svg
-                    aria-hidden
-                    className="size-3 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M7 17L17 7M17 7H7M17 7V17"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </Link>
+            <ProjectCard key={project.slug} project={project} index={i} />
           ))}
+
+          {/* Tail card: closes the horizontal run with the next action. */}
+          <Link
+            href="/#contact"
+            className="group flex w-[19rem] shrink-0 flex-col justify-between rounded-sm bg-accent p-[1.776rem] sm:w-[24rem]"
+          >
+            <p className="font-display text-title font-medium text-on-accent">
+              Your project
+              <br />
+              could be next.
+            </p>
+            <span className="mt-10 inline-flex items-center gap-2 text-copy font-medium text-on-accent">
+              Start a conversation
+              <svg
+                aria-hidden
+                className="size-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                />
+              </svg>
+            </span>
+          </Link>
+        </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  return (
+    <Link
+      href={`/work/${project.slug}`}
+      className="group flex w-[19rem] shrink-0 flex-col overflow-hidden rounded-sm bg-card transition-colors duration-300 hover:bg-inner sm:w-[26rem]"
+    >
+      <div className="relative aspect-[16/10] overflow-hidden bg-page">
+        {project.cover.kind === "video" ? (
+          <video
+            src={project.cover.src}
+            poster={project.cover.poster}
+            muted
+            loop
+            playsInline
+            preload="none"
+            aria-label={project.cover.alt}
+            className="size-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          />
+        ) : (
+          <Image
+            src={project.cover.src}
+            alt={project.cover.alt}
+            fill
+            sizes="26rem"
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          />
+        )}
+
+        {/* Index badge, as the reference numbers its cards. */}
+        <span className="absolute left-4 top-4 rounded-xs bg-page/80 px-2 py-1 font-display text-meta font-bold text-accent backdrop-blur-sm">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+
+      <div className="flex flex-1 flex-col p-[1.336rem]">
+        <ul className="flex flex-wrap gap-1.5">
+          {project.tags.slice(0, 3).map((tag) => (
+            <li
+              key={tag}
+              className="rounded-xs bg-subcard px-2 py-1 text-[0.7rem] font-medium uppercase leading-none text-ink-60"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+
+        <h3 className="mt-5 font-display text-title font-medium text-ink">
+          {project.title.lead}{" "}
+          <span className="text-ink-muted">{project.title.rest}</span>
+        </h3>
+
+        <p className="mt-3 text-copy text-ink-80">{project.summary}</p>
+
+        <span className="mt-auto flex items-center gap-2 pt-7 text-meta font-medium text-accent">
+          View case study
+          <svg
+            aria-hidden
+            className="size-3 transition-transform duration-300 group-hover:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M7 17L17 7M17 7H7M17 7V17"
+            />
+          </svg>
+        </span>
+      </div>
+    </Link>
   );
 }

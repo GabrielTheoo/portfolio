@@ -1,46 +1,103 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────
-   Design tokens — carried over from the shipped site so the
-   shader hero and the sections below it read as one brand.
+   Design tokens.
+
+   Structure, spacing, radii and type scale are modelled on the
+   heynesh.com reference; the palette is this site's own red on
+   deep warm black, so the reference's cream-and-yellow scheme is
+   remapped rather than reused.
    ───────────────────────────────────────────────────────────── */
 @theme {
-  /* Primary — the red the brand already owns. */
-  --color-primary: #eb3a2b;
-  --color-primary-bright: #ff5c4d;
-  --color-primary-fixed: #ffdad6;
-  --color-primary-fixed-dim: #ff9487;
-  --color-primary-container: #4a0f0a;
-  --color-on-primary: #ffffff;
-  --color-on-primary-fixed: #3b0a00;
-  --color-on-primary-fixed-variant: #8c1d0f;
+  /* ── Accent. Takes the role the reference gives its yellow. ── */
+  --color-accent: #eb3a2b;
+  --color-accent-bright: #ff5c4d;
+  --color-accent-dim: #8c1d0f;
+  --color-on-accent: #ffffff;
 
-  /* Secondary / tertiary accents. */
-  --color-secondary: #c04d43;
-  --color-secondary-container: #5c2622;
-  --color-tertiary: #e9c349;
+  /* ── Surfaces, in the reference's layering order ──
+     page → glass card → solid card → inner element → sub-card    */
+  --color-page: #0a0606;
+  --color-glass: rgb(34 24 24 / 0.8);
+  --color-card: #1a1212;
+  --color-inner: #282020;
+  --color-subcard: rgb(77 56 54 / 0.35);
+  --color-elevated: #332928;
 
-  /* Surfaces — tonal layering, no borders needed to separate them. */
-  --color-surface-lowest: #0a0606;
-  --color-surface: #130c0c;
-  --color-surface-low: #1a1212;
-  --color-surface-container: #221818;
-  --color-surface-high: #282020;
-  --color-surface-highest: #332928;
-  --color-surface-bright: #3a2e2e;
+  /* ── Text tiers. The reference uses black at 1 / .8 / .7 / .5;
+        inverted here against the dark ground.                    */
+  --color-ink: #f0dcdc;
+  --color-ink-80: rgb(240 220 220 / 0.8);
+  --color-ink-60: rgb(240 220 220 / 0.6);
+  /* 0.55, not 0.45: at 0.45 this measured 3.46:1 on --color-card, under
+     AA, and it carries every meta label and timestamp. 0.55 → ~4.95:1. */
+  --color-ink-muted: rgb(240 220 220 / 0.55);
 
-  /* Text. */
-  --color-on-surface: #f0dcdc;
-  --color-on-surface-variant: #c4b0ad;
-  --color-outline: #927371;
-  --color-outline-variant: #4d3836;
+  /* ── Hairlines ── */
+  --color-rule: rgb(255 255 255 / 0.08);
+  --color-rule-strong: rgb(255 255 255 / 0.18);
 
-  /* Type. */
-  --font-headline: var(--font-newsreader), ui-serif, Georgia, serif;
+  /* ── Radii, measured off the reference ── */
+  --radius-xs: 0.336rem; /* 5.376px  — inner pills            */
+  --radius-sm: 0.448rem; /* 7.168px  — cards, nav items       */
+  --radius-md: 0.664rem; /* 10.624px — buttons                */
+  --radius-pill: 62rem;
+
+  /* ── Layout ──
+     The rail engages on its own breakpoint, not `xl`: a 1280px laptop
+     reports ~1276px once the scrollbar is counted, which would drop it
+     back to the mobile bar on exactly the machines it should serve. */
+  --breakpoint-rail: 72rem; /* 1152px */
+
+  --rail-width: 14.8rem; /* 237px */
+  --rail-inset: 1.112rem; /* 17.792px */
+  --content-inset: 16.8rem; /* 268.8px — clears the rail */
+  --section-gap: 12rem; /* 192px */
+
+  /* ── Type ──
+     Display sizes are fluid: the reference's 160px at 1280px wide
+     would overflow a phone, so each clamps down to a floor.      */
+  --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-accent: var(--font-newsreader), ui-serif, Georgia, serif;
 
-  /* Display leading — tight, the way the reference sets it. */
-  --leading-display: 0.95;
+  --text-mega: clamp(3.5rem, 12.5vw, 10rem); /* → 160px */
+  --text-mega--line-height: 0.9;
+  --text-mega--letter-spacing: -0.02em;
+
+  --text-huge: clamp(2.75rem, 4.7vw, 3.78rem); /* → 60.4px */
+  --text-huge--line-height: 1;
+  --text-huge--letter-spacing: -0.019em;
+
+  --text-display: clamp(2.5rem, 4.6vw, 3.664rem); /* → 58.6px */
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.015em;
+
+  --text-year: clamp(3rem, 5.6vw, 4.448rem); /* → 71.2px */
+  --text-year--line-height: 1;
+
+  /* Named `title`, not `card`: a --text-card token would collide with
+     --color-card and Tailwind would resolve `text-card` as a colour. */
+  --text-title: 1.552rem; /* 24.8px */
+  --text-title--line-height: 1;
+
+  --text-sub: 1.224rem; /* 19.6px */
+  --text-sub--line-height: 1;
+
+  --text-row: 1.336rem; /* 21.4px */
+  --text-row--line-height: 1.1;
+
+  --text-copy: 0.944rem; /* 15.1px */
+  --text-copy--line-height: 1.6;
+
+  --text-meta: 0.832rem; /* 13.3px */
+  --text-meta--line-height: 1.1;
+
+  --text-tiny: 0.8rem; /* 12.8px */
+  --text-tiny--line-height: 1.6;
+
+  --text-label: 0.776rem; /* 12.4px */
+  --text-label--line-height: 1;
 }
 
 html {
@@ -48,26 +105,70 @@ html {
 }
 
 body {
-  background-color: var(--color-surface-lowest);
-  color: var(--color-on-surface);
+  background-color: var(--color-page);
+  color: var(--color-ink);
   font-family: var(--font-body);
+  font-size: var(--text-copy);
   overflow-x: hidden;
 }
 
-/* Thin accent scrollbar, matching the shipped site. */
 ::-webkit-scrollbar {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-surface-lowest);
+  background: var(--color-page);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: var(--color-accent);
   border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* ── Client logo marquee ──
+   Two identical tracks translating -100% in sequence, matching the
+   reference's 25s linear loop. */
+@keyframes marquee-move {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.marquee-track {
+  animation: marquee-move 25s linear infinite;
+}
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* ── Scroll reveal ──
+   Elements start hidden and are released by GSAP. If GSAP never
+   runs (JS error, bot, or reduced motion), `.reveal-ready` on
+   <html> is absent and everything stays visible. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .reveal-ready [data-reveal] {
+    opacity: 1;
   }
 }

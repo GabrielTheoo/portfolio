@@ -1,93 +1,83 @@
-import { SectionHeading } from "@/components/ui/section-heading";
+import { Display } from "@/components/ui/display";
+import { LabelPill } from "@/components/ui/label-pill";
+import { Section } from "@/components/ui/section";
 import { profile } from "@/content/profile";
 
 /**
  * Contact.
  *
- * Sits where the reference puts its FAQ accordion — same closing position and
- * card rhythm, but the content is contact detail rather than Q&A.
+ * Sits where the reference closes with its FAQ accordion — same position
+ * and card rhythm, contact detail instead of Q&A.
  */
 export function Contact() {
   return (
-    <section
-      id="contact"
-      className="bg-surface-lowest px-6 pb-16 pt-24 md:px-10 md:pt-32"
-    >
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          eyebrow="Get in touch"
-          heading={"Let's talk about\nwhat you're building"}
-          intro="Available for select projects and collaborations. The fastest way to reach me is email."
-        />
+    <Section id="contact" className="pb-16 rail:pb-16">
+      <LabelPill tone="accent">Get in touch</LabelPill>
 
-        <div className="mt-16 grid gap-3 md:grid-cols-3">
-          <a
-            href={`mailto:${profile.email}`}
-            className="group rounded-2xl bg-surface-container p-8 transition-colors duration-300 hover:bg-surface-high"
-          >
-            <p className="text-[0.7rem] font-light uppercase tracking-[0.14em] text-outline">
-              Email
-            </p>
-            <p className="mt-4 break-words font-headline text-lg leading-tight text-on-surface transition-colors group-hover:text-primary">
-              {profile.email}
-            </p>
-          </a>
-
-          <a
-            href={`tel:${profile.phone.replace(/[^\d+]/g, "")}`}
-            className="group rounded-2xl bg-surface-container p-8 transition-colors duration-300 hover:bg-surface-high"
-          >
-            <p className="text-[0.7rem] font-light uppercase tracking-[0.14em] text-outline">
-              Phone
-            </p>
-            <p className="mt-4 font-headline text-lg leading-tight text-on-surface transition-colors group-hover:text-primary">
-              {profile.phone}
-            </p>
-          </a>
-
-          <div className="rounded-2xl bg-surface-container p-8">
-            <p className="text-[0.7rem] font-light uppercase tracking-[0.14em] text-outline">
-              Based in
-            </p>
-            <p className="mt-4 font-headline text-lg leading-tight text-on-surface">
-              {profile.location}
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-3 rounded-2xl bg-surface-container p-8">
-          <p className="text-[0.7rem] font-light uppercase tracking-[0.14em] text-outline">
-            Elsewhere
-          </p>
-          <ul className="mt-5 flex flex-wrap gap-2">
-            {profile.socials.map((social) => (
-              <li key={social.label}>
-                <a
-                  href={social.url}
-                  target={social.url.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    social.url.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="inline-flex rounded-full border border-white/10 px-5 py-2.5 text-xs font-light text-on-surface-variant transition-colors duration-200 hover:border-primary/50 hover:text-primary"
-                >
-                  {social.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <footer className="mt-20 flex flex-wrap items-center justify-between gap-4 border-t border-white/5 pt-8">
-          <p className="text-xs font-light text-outline">
-            © 2026 {profile.name}. All rights reserved.
-          </p>
-          <p className="text-xs font-light text-outline">
-            Built with AI · Designed in Figma
-          </p>
-        </footer>
+      <div className="mt-6">
+        <Display text={"Let's talk about\nwhat you're building"} size="display" />
       </div>
-    </section>
+
+      <p data-reveal="up" className="mt-7 max-w-[26rem] text-copy text-ink-80">
+        Available for select projects and collaborations. Email is the fastest
+        way to reach me.
+      </p>
+
+      <div className="mt-16 grid gap-3 md:grid-cols-3">
+        <a
+          href={`mailto:${profile.email}`}
+          data-reveal="up"
+          className="group rounded-sm bg-card p-[1.776rem] transition-colors duration-300 hover:bg-inner"
+        >
+          <p className="text-label font-bold uppercase leading-none text-ink-muted">Email</p>
+          <p className="mt-5 break-words font-display text-sub font-medium text-ink transition-colors group-hover:text-accent">
+            {profile.email}
+          </p>
+        </a>
+
+        <a
+          href={`tel:${profile.phone.replace(/[^\d+]/g, "")}`}
+          data-reveal="up"
+          className="group rounded-sm bg-card p-[1.776rem] transition-colors duration-300 hover:bg-inner"
+        >
+          <p className="text-label font-bold uppercase leading-none text-ink-muted">Phone</p>
+          <p className="mt-5 font-display text-sub font-medium text-ink transition-colors group-hover:text-accent">
+            {profile.phone}
+          </p>
+        </a>
+
+        <div data-reveal="up" className="rounded-sm bg-card p-[1.776rem]">
+          <p className="text-label font-bold uppercase leading-none text-ink-muted">Based in</p>
+          <p className="mt-5 font-display text-sub font-medium text-ink">
+            {profile.location}
+          </p>
+        </div>
+      </div>
+
+      <div data-reveal="up" className="mt-3 rounded-sm bg-card p-[1.776rem]">
+        <p className="text-label font-bold uppercase leading-none text-ink-muted">Elsewhere</p>
+        <ul className="mt-5 flex flex-wrap gap-1.5">
+          {profile.socials.map((social) => (
+            <li key={social.label}>
+              <a
+                href={social.url}
+                target={social.url.startsWith("http") ? "_blank" : undefined}
+                rel={social.url.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="inline-flex rounded-pill border border-rule-strong px-5 py-2.5 text-tiny leading-none text-ink-80 transition-colors duration-200 hover:border-accent/50 hover:text-accent"
+              >
+                {social.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <footer className="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-8">
+        <p className="text-meta text-ink-muted">
+          © 2026 {profile.name}. All rights reserved.
+        </p>
+        <p className="text-meta text-ink-muted">Built with AI · Designed in Figma</p>
+      </footer>
+    </Section>
   );
 }

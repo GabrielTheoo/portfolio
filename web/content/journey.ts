@@ -10,6 +10,11 @@ export const journey = {
   heading: "About Me (&)\nMy Journey",
   intro:
     "Six years from designing catalogues for a clothing store to building AI pipelines inside a multinational. Every step taught the next one.",
+  /** Closing paragraphs under the timeline. */
+  body: [
+    "I operate at the intersection of artificial intelligence and visual creativity, working with the most powerful AI platforms on the market to produce generative images, cinematic videos, immersive websites, and high-impact brand experiences.",
+    "From early-stage startups to global multinationals like Motorola, I have worked across industries: crafting campaigns, interfaces, and brand systems that combine strategic thinking with strong visual execution.",
+  ],
   portrait: {
     src: "/about/gabriel-portrait.jpg",
     alt: "Gabriel Teobaldo, portrait",
