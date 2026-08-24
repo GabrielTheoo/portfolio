@@ -51,7 +51,7 @@
 
   --rail-width: 14.8rem; /* 237px */
   --rail-inset: 1.112rem; /* 17.792px */
-  --content-inset: 16.8rem; /* 268.8px — clears the rail */
+  --content-inset: 20.5rem; /* clears the rail, plus a real gap */
   --section-gap: 12rem; /* 192px */
 
   /* ── Type ──
@@ -113,6 +113,9 @@ body {
 
 ::-webkit-scrollbar {
   width: 4px;
+  /* Without a height the rule only styled vertical bars, leaving horizontal
+     ones at their default size with an accent thumb that looked broken. */
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-page);
@@ -189,6 +192,30 @@ body {
     black 88%,
     transparent
   );
+}
+
+/* ── Project strip ──
+   The swipe indicator replaces the native bar, so hide it in both engines. */
+.strip-scroller {
+  scrollbar-width: none;
+  /* Not the page's smooth behaviour: on a swipe strip it fights the gesture
+     and made scroll position updates arrive unpredictably. */
+  scroll-behavior: auto;
+  overscroll-behavior-x: contain;
+}
+.strip-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Rail vertical centering ──
+   With the portrait moved out to About, the card stack is short enough to
+   sit centred rather than pinned to the top. Gated on viewport height as
+   well as width: `justify-content: center` makes overflow unreachable in a
+   flex column, so on a short window it stays top-aligned and scrolls. */
+@media (min-width: 72rem) and (min-height: 780px) {
+  #rail-sheet {
+    justify-content: center;
+  }
 }
 
 /* ── Rail intro ──

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Display } from "@/components/ui/display";
-import { LabelPill } from "@/components/ui/label-pill";
+import { ProjectStrip } from "@/components/sections/project-strip";
+import { SectionIntro } from "@/components/ui/section-intro";
 import { projects, work } from "@/content/projects";
 import type { Project } from "@/content/types";
 
@@ -23,22 +23,17 @@ export function Projects() {
         className="flex min-h-svh flex-col justify-center overflow-hidden py-24 rail:py-0"
       >
         <div className="px-5 rail:pl-[var(--content-inset)] rail:pr-[var(--rail-inset)]">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <Display text={work.heading} size="display" />
-            <LabelPill tone="accent">{work.eyebrow}</LabelPill>
-          </div>
-
-          <p data-reveal="up" className="mt-7 max-w-[26rem] text-copy text-ink-80">
-            {work.intro}
-          </p>
+          <SectionIntro
+            eyebrow={work.eyebrow}
+            heading={work.heading}
+            intro={work.intro}
+          />
         </div>
 
-        {/* Scroll container. `overflow-x-auto` has to sit on a separate,
-            viewport-width element: the track itself is `w-max`, and an
-            element cannot scroll its own intrinsic width — with both on one
-            div the strip was simply clipped and the projects became
-            unreachable on touch. */}
-        <div className="mt-14 overflow-x-auto pb-4 rail:mt-20 rail:overflow-x-visible rail:pb-0">
+        {/* The scroller must be a separate, viewport-width element from the
+            track: the track is `w-max`, and an element cannot scroll its own
+            intrinsic width. ProjectStrip owns it, plus the swipe indicator. */}
+        <ProjectStrip>
         <div
           data-h-track
           className="flex w-max gap-4 px-5 rail:pl-[var(--content-inset)]"
@@ -76,7 +71,7 @@ export function Projects() {
             </span>
           </Link>
         </div>
-        </div>
+        </ProjectStrip>
       </div>
     </section>
   );

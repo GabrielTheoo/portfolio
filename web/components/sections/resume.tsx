@@ -1,6 +1,6 @@
 import { Display } from "@/components/ui/display";
-import { LabelPill } from "@/components/ui/label-pill";
 import { Section } from "@/components/ui/section";
+import { SectionIntro } from "@/components/ui/section-intro";
 import { experience } from "@/content/experience";
 import { toolkit } from "@/content/profile";
 
@@ -16,15 +16,11 @@ export function Resume() {
 
   return (
     <Section id="resume" tone="solid">
-      <LabelPill tone="accent">Curriculum Vitae</LabelPill>
-
-      <div className="mt-6">
-        <Display text={"Five years of\nshipped work"} size="display" />
-      </div>
-
-      <p data-reveal="up" className="mt-7 max-w-[26rem] text-copy text-ink-80">
-        {experience.intro}
-      </p>
+      <SectionIntro
+        eyebrow="Curriculum Vitae"
+        heading={"Five years of\nshipped work"}
+        intro={experience.intro}
+      />
 
       {/* Current role — the wide card, carrying the full brief. */}
       <div

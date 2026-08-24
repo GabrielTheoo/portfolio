@@ -11,7 +11,7 @@ export const profile = {
   location: "São Paulo, Brazil",
   socials: [
     { label: "Instagram", url: "#" },
-    { label: "LinkedIn", url: "#" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/gabrielteobaldo1/" },
     { label: "GitHub", url: "https://github.com/GabrielTheoo" },
   ],
 };
@@ -33,7 +33,7 @@ export const railIntro =
  * space, not word count — long paragraphs in a hero go unread.
  */
 export const hero = {
-  eyebrow: "Available for select projects",
+  eyebrow: "Available for projects",
   heading: "Websites that\nsell before\nyou say a word.",
   sub: "UX/UI design and front-end build, end to end.",
   primaryCta: "See the work",
@@ -71,7 +71,7 @@ export const toolkit = {
       items: [
         "Figma",
         "Design Systems",
-        "Webflow",
+        "Claude Code",
         "Next.js",
         "Tailwind",
         "WordPress",

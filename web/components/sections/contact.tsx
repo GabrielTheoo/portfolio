@@ -1,6 +1,5 @@
-import { Display } from "@/components/ui/display";
-import { LabelPill } from "@/components/ui/label-pill";
 import { Section } from "@/components/ui/section";
+import { SectionIntro } from "@/components/ui/section-intro";
 import {
   MailIcon,
   PinIcon,
@@ -22,11 +21,11 @@ export function Contact() {
 
   return (
     <Section id="contact" className="pb-16 rail:pb-16">
-      <LabelPill tone="accent">Get in touch</LabelPill>
-
-      <div className="mt-6">
-        <Display text={"Got something\nto build?"} size="display" />
-      </div>
+      <SectionIntro
+        eyebrow="Get in touch"
+        heading={"Got something\nto build?"}
+        intro="Design and build, from the first research call to the deployed site. Based in São Paulo, working remotely with teams anywhere."
+      />
 
       <div className="mt-14 grid gap-3 md:grid-cols-3">
         <ContactCard

@@ -148,7 +148,7 @@ export function MotionProvider() {
         // track by its own overflow width.
         const track = document.querySelector<HTMLElement>("[data-h-track]");
         const pin = document.querySelector<HTMLElement>("[data-h-pin]");
-        if (track && pin && window.innerWidth >= 1024) {
+        if (track && pin && railBreakpoint) {
           const distance = () => track.scrollWidth - pin.clientWidth;
           if (distance() > 0) {
             gsap.to(track, {

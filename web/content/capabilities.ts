@@ -20,8 +20,8 @@ export const capabilities = {
     {
       index: "02",
       title: "Interface Design",
-      body: "High-fidelity screens in Figma with the states, breakpoints and edge cases already resolved — so the build has nothing left to guess.",
-      meta: "Figma · Prototypes · Responsive",
+      body: "High-fidelity screens in Figma with states, breakpoints and edge cases resolved before the build starts. I prototype the tricky interactions in Claude Code rather than describing them, so what gets approved is the thing that actually behaves that way.",
+      meta: "Figma · Claude Code · Prototypes",
     },
     {
       index: "03",
@@ -32,14 +32,14 @@ export const capabilities = {
     {
       index: "04",
       title: "Website Build",
-      body: "The design shipped, not handed over. Next.js or Webflow, animated where it earns attention, fast on a phone, deployed and live.",
-      meta: "Next.js · Webflow · Vercel",
+      body: "The design shipped, not handed over. I build in Next.js with Claude Code — the way I work day to day now — animated where it earns attention, fast on a phone, deployed and live.",
+      meta: "Next.js · Claude Code · Vercel",
     },
     {
       index: "05",
       title: "Visual Production",
-      body: "Photography, campaign imagery and motion when a client's library falls short. Retouched, generated or shot — whatever gets the right frame.",
-      meta: "Photoshop · After Effects · Midjourney",
+      body: "Imagery, motion and campaign assets when a client's library falls short. Retouched in Adobe, art-directed by hand, and assembled with Claude Code when a piece needs to run in the browser rather than sit in a folder.",
+      meta: "Photoshop · After Effects · Claude Code",
     },
   ],
 };
