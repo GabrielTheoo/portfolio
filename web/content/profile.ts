@@ -10,7 +10,7 @@ export const profile = {
   phone: "+55 (11) 99958-4897",
   location: "São Paulo, Brazil",
   socials: [
-    { label: "Instagram", url: "#" },
+    { label: "Instagram", url: "https://www.instagram.com/gabs_teoo/" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/gabrielteobaldo1/" },
     { label: "GitHub", url: "https://github.com/GabrielTheoo" },
   ],
