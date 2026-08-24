@@ -29,7 +29,17 @@ export function MotionProvider() {
 
       gsap.registerPlugin(ScrollTrigger);
 
-      lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      lenis = new Lenis({
+        // A long-ish duration with a steep ease-out is what reads as "soft":
+        // the scroll leaves the wheel quickly and settles slowly, instead of
+        // gliding at a constant rate the whole way.
+        duration: 1.15,
+        easing: (t) => 1 - Math.pow(1 - t, 4),
+        smoothWheel: true,
+        // Touch is left alone: phones already have momentum scrolling, and
+        // hijacking it makes the page feel detached from the finger.
+        syncTouch: false,
+      });
 
       // Drive Lenis from GSAP's ticker so scroll position and tweens are
       // read on the same frame; otherwise ScrollTrigger lags a frame behind.
@@ -37,6 +47,38 @@ export function MotionProvider() {
       gsap.ticker.add(onTick);
       gsap.ticker.lagSmoothing(0);
       lenis.on("scroll", ScrollTrigger.update);
+
+      // In-page anchors: the browser would jump these instantly, since the
+      // CSS smooth behaviour is gone and Lenis does not intercept clicks by
+      // itself. Delegated at the document so it covers links rendered later.
+      const onAnchorClick = (event: MouseEvent) => {
+        if (event.defaultPrevented || event.button !== 0) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+        const link = (event.target as Element | null)?.closest?.("a");
+        if (!link) return;
+
+        const href = link.getAttribute("href");
+        if (!href || !href.includes("#")) return;
+
+        const url = new URL(href, window.location.href);
+        // Only same-document hashes; let real navigations through.
+        if (url.pathname !== window.location.pathname) return;
+        if (url.origin !== window.location.origin) return;
+
+        const id = url.hash.slice(1);
+        const target = id ? document.getElementById(id) : null;
+        if (!id || !target) return;
+
+        event.preventDefault();
+        // The fixed top bar only exists below the rail breakpoint; above it
+        // the rail is a left column and needs no vertical allowance.
+        const offset = window.matchMedia("(min-width: 72rem)").matches ? 0 : -72;
+        lenis?.scrollTo(target, { offset, duration: 1.4 });
+        history.pushState(null, "", url.hash);
+      };
+
+      document.addEventListener("click", onAnchorClick);
 
       // Mark the document so the CSS can hide reveal targets. Done only
       // now, after GSAP is confirmed loaded, so a failed import can never
@@ -171,6 +213,7 @@ export function MotionProvider() {
       cleanupTriggers = () => {
         ctx.revert();
         gsap.ticker.remove(onTick);
+        document.removeEventListener("click", onAnchorClick);
         document.documentElement.classList.remove("reveal-ready");
       };
 

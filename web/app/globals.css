@@ -99,9 +99,11 @@
   --text-label--line-height: 1;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* No `scroll-behavior: smooth` here on purpose: Lenis animates scroll
+   itself, and the two fight each other — the native easing and Lenis's
+   interpolation both try to own the same scrollTop. Lenis is the single
+   owner; the reduced-motion block below restores native behaviour for
+   anyone who has asked for it. */
 
 body {
   background-color: var(--color-page);
@@ -240,6 +242,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Lenis never starts under reduced motion, so the browser is back in
+     charge of scrolling here. */
   html {
     scroll-behavior: auto;
   }
