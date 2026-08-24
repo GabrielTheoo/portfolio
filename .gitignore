@@ -5,3 +5,7 @@ out/
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# Machine-local Claude settings: contains permission allowlist entries
+# that can include tokens. Never versioned.
+.claude/settings.local.json
