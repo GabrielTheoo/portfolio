@@ -51,7 +51,7 @@
 
   --rail-width: 14.8rem; /* 237px */
   --rail-inset: 1.112rem; /* 17.792px */
-  --content-inset: 20.5rem; /* clears the rail, plus a real gap */
+  --content-inset: 16.8rem; /* 268.8px — clears the rail */
   --section-gap: 12rem; /* 192px */
 
   /* ── Type ──
